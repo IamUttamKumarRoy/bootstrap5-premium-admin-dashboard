@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="cosmic-aurora" data-bs-theme="dark">
+<head>
+    <title>Login Page - UttamThemes</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Premium Bootstrap 5 Admin Login Page">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark">
+
+    <script src="assets/js/theme-boot.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+
+    <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/vendor/bootstrap-icons/bootstrap-icons.css">
+    <link rel="stylesheet" href="assets/css/theme_tokens.css">
+    <link rel="stylesheet" href="assets/css/auth.css">
+</head>
+
+<body class="auth-page">
+<main class="auth-layout">
+    <section class="auth-wrapper" aria-labelledby="authTitle">
+        <div class="auth-container auth-container-md">
+            <form class="auth-card auth-card-glass" data-auth-form data-auth-flow="login" novalidate method="POST" action="/login">
+                <!-- Add your backend CSRF token here in production. -->
+                <input type="hidden" name="csrf_token" value="">
+
+                    <label for="authThemeSelect" class="auth-visually-hidden">Select theme</label>
+                    <select class="form-select auth-theme-select" id="authThemeSelect" data-auth-theme-select aria-label="Select theme"></select>
+                    <div class="auth-alert" data-auth-alert role="alert" aria-live="polite" aria-atomic="true">
+                        <i class="bi" data-auth-alert-icon aria-hidden="true"></i>
+                        <span data-auth-alert-message></span>
+                    </div>
+                    <div class="auth-header mb-4">
+                        <div class="auth-brand-mark">
+                            <i class="bi bi-shield-lock-fill fs-3" aria-hidden="true"></i>
+                        </div>
+                        <h1 class="h2 auth-brand-title" id="authTitle">Welcome Back</h1>
+                        <p class="auth-brand-subtitle">Enter your credentials to access your account</p>
+                    </div>
+                    <div class="auth-field">
+                        <label for="authEmail" class="form-label fw-semibold">Email address</label>
+                        <input type="email" class="form-control auth-control" id="authEmail"
+                            name="email"
+                            data-auth-field="email"
+                            placeholder="name@company.com"
+                            autocomplete="email username"
+                            inputmode="email"
+                            spellcheck="false"
+                            autocapitalize="none"
+                            aria-describedby="feedback-email"
+                            aria-required="true"
+                            required>
+                        <div class="auth-feedback is-invalid" id="feedback-email" data-auth-feedback-for="email" role="alert">
+                            <i class="bi bi-exclamation-circle-fill" aria-hidden="true"></i>
+                            <span data-auth-feedback-message>Enter a valid email address.</span>
+                        </div>
+                    </div>
+                    <div class="auth-field">
+                        <label for="authPassword" class="form-label fw-semibold">Password</label>
+                        <div class="auth-control-group">
+                            <input type="password" class="form-control auth-control" id="authPassword"
+                                name="password"
+                                data-auth-field="password"
+                                data-min-length="8"
+                                placeholder="••••••••"
+                                autocomplete="current-password"
+                                aria-describedby="feedback-password"
+                                aria-required="true"
+                                required>
+                            <button type="button"
+                                class="auth-control-addon"
+                                id="authPasswordToggle"
+                                data-auth-password-toggle
+                                aria-controls="authPassword"
+                                aria-label="Show password"
+                                aria-pressed="false">
+                                <i class="bi bi-eye" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                        <div class="auth-feedback is-invalid" id="feedback-password" data-auth-feedback-for="password" role="alert">
+                            <i class="bi bi-exclamation-circle-fill" aria-hidden="true"></i>
+                            <span data-auth-feedback-message>Password is required.</span>
+                        </div>
+                    </div>
+
+                    <div class="auth-actions">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="rememberMe" name="rememberMe" value="1" data-auth-remember>
+                            <label class="form-check-label small text-secondary" for="rememberMe">Remember me</label>
+                        </div>
+                        <a href="forgot-password.html" class="text-decoration-none small fw-semibold text-primary">Forgot password?</a>
+                    </div>
+                    <button type="submit" class="btn auth-submit w-100 shadow-sm" data-auth-submit data-auth-loading-label="Signing in...">
+                        Sign In
+                    </button>
+                    <div class="auth-divider">OR</div>
+
+                    <div class="auth-social">
+                        <button type="button" class="btn auth-social-btn d-flex align-items-center justify-content-center" data-auth-social="google" aria-label="Continue with Google">
+                            <i class="bi bi-google me-2" aria-hidden="true"></i>
+                            <span class="small fw-semibold">Google</span>
+                        </button>
+                        <button type="button" class="btn auth-social-btn d-flex align-items-center justify-content-center" data-auth-social="github" aria-label="Continue with GitHub">
+                            <i class="bi bi-github me-2" aria-hidden="true"></i>
+                            <span class="small fw-semibold">GitHub</span>
+                        </button>
+                    </div>
+
+                    <p class="auth-footer">
+                        Don't have an account?
+                        <a href="register.html" class="text-primary fw-bold text-decoration-none">Create Account</a>
+                    </p>
+            </form>
+        </div>
+    </section>
+</main>
+<script src="assets/js/auth-demo.js"></script>
+<script src="assets/js/auth.js"></script>
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,3705 @@
+@charset "UTF-8";
+/* ==========================================================================
+   Clean Auth Theme Tokens
+   --------------------------------------------------------------------------
+   Focused token system for the premium auth pages.
+   Keeps the original --t-* variable naming intact.
+========================================================================== */
+
+:root {
+  --auk-font: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --auth-card-width-sm: 25rem;
+  --auth-card-width-md: 31.25rem;
+  --auth-card-width-lg: 40rem;
+  --auth-card-radius: 1.5rem;
+  --auth-control-radius: 0.875rem;
+  --auth-focus-ring: 0 0 0 0.25rem var(--t-accent-soft);
+
+  --t-duration-instant: 0.05s;
+  --t-duration-fast: 0.15s;
+  --t-duration-normal: 0.2s;
+  --t-duration-slow: 0.3s;
+  --t-ease-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --t-ease-in-out: cubic-bezier(0.645, 0.045, 0.355, 1);
+  --t-ease-spring: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+:root,
+[data-theme="light"] {
+  --t-dominant: #ffffff;
+  --t-dominant-rgb: 255, 255, 255;
+  --t-dominant-soft: #fafafa;
+  --t-dominant-soft-rgb: 250, 250, 250;
+  --t-dominant-border: rgba(15,23,42,.10);
+  --t-dominant-hover: color-mix(in srgb, var(--t-dominant-soft) 88%, var(--t-accent) 12%);
+  --t-dominant-active: color-mix(in srgb, var(--t-dominant-soft) 78%, var(--t-accent) 22%);
+
+  --t-secondary: #f1f5f9;
+  --t-secondary-rgb: 241, 245, 249;
+  --t-secondary-soft: rgba(241, 245, 249, 0.10);
+  --t-secondary-text: #111827;
+  --t-secondary-muted: #6b7280;
+  --t-secondary-hover: color-mix(in srgb, var(--t-secondary) 86%, var(--t-accent) 14%);
+  --t-secondary-active: rgba(37, 99, 235, 0.20);
+  --t-secondary-border: rgba(15,23,42,.10);
+
+  --t-accent: #2563eb;
+  --t-accent-rgb: 37, 99, 235;
+  --t-accent-hover: #4a7eee;
+  --t-accent-hover-rgb: 74, 126, 238;
+  --t-accent-active: #6692f1;
+  --t-accent-active-rgb: 102, 146, 241;
+  --t-accent-dark: color-mix(in srgb, var(--t-accent) 74%, #000000 26%);
+  --t-accent-light: color-mix(in srgb, var(--t-accent) 62%, #ffffff 38%);
+  --t-accent-soft: rgba(37, 99, 235, 0.14);
+  --t-accent-text: #ffffff;
+  --t-accent-subtle-text: color-mix(in srgb, var(--t-accent) 76%, var(--t-heading-color) 24%);
+  --t-accent-focus-ring-opacity: .32;
+
+  --t-heading-color: #111827;
+  --t-body-color: #111827;
+  --t-body-rgb: 17, 24, 39 ;
+  --t-muted: #6b7280;
+  --t-text-inverse: #0f172a;
+  --t-tertiary-color: color-mix(in srgb, var(--t-body-color) 52%, transparent);
+  --t-quaternary-color: color-mix(in srgb, var(--t-body-color) 34%, transparent);
+
+  --t-success: #34d399;
+  --t-success-rgb: 52, 211, 153;
+  --t-success-soft: rgba(52, 211, 153, 0.14);
+  --t-success-text: color-mix(in srgb, #34d399 76%, var(--t-heading-color) 24%);
+  --t-success-border: rgba(52, 211, 153, 0.44);
+
+  --t-danger: #fb7185;
+  --t-danger-rgb: 251, 113, 133;
+  --t-danger-soft: rgba(251, 113, 133, 0.14);
+  --t-danger-text: color-mix(in srgb, #fb7185 76%, var(--t-heading-color) 24%);
+  --t-danger-border: rgba(251, 113, 133, 0.44);
+
+  --t-warning: #fbbf24;
+  --t-warning-rgb: 251, 191, 36;
+  --t-warning-soft: rgba(251, 191, 36, 0.14);
+  --t-warning-text: color-mix(in srgb, #fbbf24 76%, var(--t-heading-color) 24%);
+  --t-warning-border: rgba(251, 191, 36, 0.44);
+
+  --t-info: #4a7eee;
+  --t-info-rgb: 74, 126, 238;
+  --t-info-soft: rgba(74, 126, 238, 0.14);
+  --t-info-text: color-mix(in srgb, var(--t-info) 76%, var(--t-heading-color) 24%);
+  --t-info-border: rgba(74, 126, 238, 0.44);
+
+  --t-sidebar-bg: var(--t-secondary);
+  --t-sidebar-hover: var(--t-secondary-hover);
+  --t-nav-color: var(--t-heading-color);
+  --t-header-bg: var(--t-dominant-soft);
+  --t-header-border: var(--t-dominant-border);
+  --t-content-bg: var(--t-dominant);
+  --t-card-bg: var(--t-dominant-soft);
+  --t-card-border: var(--t-dominant-border);
+  --t-card-hover: var(--t-dominant-hover);
+  --t-footer-bg: var(--t-dominant-soft);
+  --t-footer-border: var(--t-dominant-border);
+  --t-input-bg: color-mix(in srgb, var(--t-dominant-soft) 86%, transparent);
+  --t-input-border: var(--t-dominant-border);
+  --t-input-focus: var(--t-accent-hover);
+  --t-btn-border: rgba(37, 99, 235, 0.28);
+  --t-divider: var(--t-dominant-border);
+
+  --t-focus-ring: var(--t-accent-hover);
+  --t-focus-ring-soft: rgba(74, 126, 238, 0.18);
+  --t-focus-ring-contrast: var(--t-accent-text);
+  --t-focus-ring-offset: 2px;
+  --t-focus-ring-offset-focus: 3px;
+  --t-focus-ring-width: 3px;
+  --t-focus-ring-opacity: .34;
+
+  --t-shadow-xs: 0 1px 2px rgba(15, 23, 42, 0.10);
+  --t-shadow-sm: 0 4px 10px rgba(15, 23, 42, 0.12);
+  --t-shadow: 0 12px 28px rgba(15, 23, 42, 0.14);
+  --t-shadow-md: 0 18px 40px rgba(15, 23, 42, 0.16);
+  --t-shadow-lg: 0 24px 56px rgba(15, 23, 42, 0.18);
+  --t-shadow-xl: 0 32px 80px rgba(15, 23, 42, 0.22);
+  --t-overlay: rgba(3, 7, 18, .48);
+  --t-overlay-light: rgba(3, 7, 18, .24);
+  --t-glass-bg: rgba(255,255,255,.74);
+  --t-glass-border: var(--t-dominant-border);
+  --t-glass-blur: blur(16px);
+
+  --t-gradient-primary: linear-gradient(135deg, var(--t-accent) 0%, var(--t-accent-hover) 52%, var(--t-accent-active) 100%);
+  --t-gradient-surface: linear-gradient(135deg, var(--t-dominant) 0%, var(--t-dominant-soft) 48%, var(--t-secondary) 100%);
+  --t-gradient-muted: linear-gradient(135deg, var(--t-muted), var(--t-dominant-hover));
+
+  --bs-body-bg: var(--t-dominant);
+  --bs-body-color: var(--t-body-color);
+  --bs-body-bg-rgb: var(--t-dominant-rgb);
+  --bs-body-color-rgb: var(--t-body-rgb);
+  --bs-emphasis-color: var(--t-heading-color);
+  --bs-primary: var(--t-accent);
+  --bs-primary-rgb: var(--t-accent-rgb);
+  --bs-link-color: var(--t-accent);
+  --bs-link-color-rgb: var(--t-accent-rgb);
+  --bs-link-hover-color: var(--t-accent-hover);
+  --bs-link-hover-color-rgb: var(--t-accent-hover-rgb);
+  --bs-border-color: var(--t-dominant-border);
+  --bs-border-color-translucent: var(--t-dominant-border);
+  --bs-focus-ring-width: var(--t-focus-ring-width);
+  --bs-focus-ring-opacity: var(--t-focus-ring-opacity);
+  --bs-focus-ring-color: var(--t-focus-ring-soft);
+}
+
+[data-theme="dark"] {
+  --t-dominant: #0f172a;
+  --t-dominant-rgb: 15, 23, 42;
+  --t-dominant-soft: #18233d;
+  --t-dominant-soft-rgb: 24, 35, 61;
+  --t-dominant-border: rgba(255,255,255,.14);
+  --t-dominant-hover: color-mix(in srgb, var(--t-dominant-soft) 88%, var(--t-accent) 12%);
+  --t-dominant-active: color-mix(in srgb, var(--t-dominant-soft) 78%, var(--t-accent) 22%);
+
+  --t-secondary: #1e293b;
+  --t-secondary-rgb: 30, 41, 59;
+  --t-secondary-soft: rgba(30, 41, 59, 0.10);
+  --t-secondary-text: #f8fafc;
+  --t-secondary-muted: rgba(226,232,240,.68);
+  --t-secondary-hover: color-mix(in srgb, var(--t-secondary) 86%, var(--t-accent) 14%);
+  --t-secondary-active: rgba(56, 189, 248, 0.20);
+  --t-secondary-border: rgba(255,255,255,.14);
+
+  --t-accent: #38bdf8;
+  --t-accent-rgb: 56, 189, 248;
+  --t-accent-hover: #818cf8;
+  --t-accent-hover-rgb: 129, 140, 248;
+  --t-accent-active: #22d3ee;
+  --t-accent-active-rgb: 34, 211, 238;
+  --t-accent-dark: color-mix(in srgb, var(--t-accent) 74%, #000000 26%);
+  --t-accent-light: color-mix(in srgb, var(--t-accent) 62%, #ffffff 38%);
+  --t-accent-soft: rgba(56, 189, 248, 0.14);
+  --t-accent-text: #07111f;
+  --t-accent-subtle-text: color-mix(in srgb, var(--t-accent) 76%, var(--t-heading-color) 24%);
+  --t-accent-focus-ring-opacity: .52;
+
+  --t-heading-color: #f8fafc;
+  --t-body-color: #e5e7eb;
+  --t-body-rgb: 229, 231, 235 ;
+  --t-muted: rgba(226,232,240,.68);
+  --t-text-inverse: #ffffff;
+  --t-tertiary-color: color-mix(in srgb, var(--t-body-color) 52%, transparent);
+  --t-quaternary-color: color-mix(in srgb, var(--t-body-color) 34%, transparent);
+
+  --t-success: #34d399;
+  --t-success-rgb: 52, 211, 153;
+  --t-success-soft: rgba(52, 211, 153, 0.14);
+  --t-success-text: color-mix(in srgb, #34d399 76%, var(--t-heading-color) 24%);
+  --t-success-border: rgba(52, 211, 153, 0.44);
+
+  --t-danger: #fb7185;
+  --t-danger-rgb: 251, 113, 133;
+  --t-danger-soft: rgba(251, 113, 133, 0.14);
+  --t-danger-text: color-mix(in srgb, #fb7185 76%, var(--t-heading-color) 24%);
+  --t-danger-border: rgba(251, 113, 133, 0.44);
+
+  --t-warning: #fbbf24;
+  --t-warning-rgb: 251, 191, 36;
+  --t-warning-soft: rgba(251, 191, 36, 0.14);
+  --t-warning-text: color-mix(in srgb, #fbbf24 76%, var(--t-heading-color) 24%);
+  --t-warning-border: rgba(251, 191, 36, 0.44);
+
+  --t-info: #818cf8;
+  --t-info-rgb: 129, 140, 248;
+  --t-info-soft: rgba(129, 140, 248, 0.14);
+  --t-info-text: color-mix(in srgb, var(--t-info) 76%, var(--t-heading-color) 24%);
+  --t-info-border: rgba(129, 140, 248, 0.44);
+
+  --t-sidebar-bg: var(--t-secondary);
+  --t-sidebar-hover: var(--t-secondary-hover);
+  --t-nav-color: var(--t-heading-color);
+  --t-header-bg: var(--t-dominant-soft);
+  --t-header-border: var(--t-dominant-border);
+  --t-content-bg: var(--t-dominant);
+  --t-card-bg: var(--t-dominant-soft);
+  --t-card-border: var(--t-dominant-border);
+  --t-card-hover: var(--t-dominant-hover);
+  --t-footer-bg: var(--t-dominant-soft);
+  --t-footer-border: var(--t-dominant-border);
+  --t-input-bg: color-mix(in srgb, var(--t-dominant-soft) 86%, transparent);
+  --t-input-border: var(--t-dominant-border);
+  --t-input-focus: var(--t-accent-hover);
+  --t-btn-border: rgba(56, 189, 248, 0.28);
+  --t-divider: var(--t-dominant-border);
+
+  --t-focus-ring: var(--t-accent-hover);
+  --t-focus-ring-soft: rgba(129, 140, 248, 0.18);
+  --t-focus-ring-contrast: var(--t-accent-text);
+  --t-focus-ring-offset: 2px;
+  --t-focus-ring-offset-focus: 3px;
+  --t-focus-ring-width: 3px;
+  --t-focus-ring-opacity: .55;
+
+  --t-shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.42);
+  --t-shadow-sm: 0 4px 10px rgba(0, 0, 0, 0.50);
+  --t-shadow: 0 12px 28px rgba(0, 0, 0, 0.58);
+  --t-shadow-md: 0 18px 40px rgba(0, 0, 0, 0.64);
+  --t-shadow-lg: 0 24px 56px rgba(0, 0, 0, 0.70);
+  --t-shadow-xl: 0 32px 80px rgba(0, 0, 0, 0.76);
+  --t-overlay: rgba(3, 7, 18, .78);
+  --t-overlay-light: rgba(3, 7, 18, .52);
+  --t-glass-bg: rgba(15,23,42,.66);
+  --t-glass-border: var(--t-dominant-border);
+  --t-glass-blur: blur(16px);
+
+  --t-gradient-primary: linear-gradient(135deg, var(--t-accent) 0%, var(--t-accent-hover) 52%, var(--t-accent-active) 100%);
+  --t-gradient-surface: linear-gradient(135deg, var(--t-dominant) 0%, var(--t-dominant-soft) 48%, var(--t-secondary) 100%);
+  --t-gradient-muted: linear-gradient(135deg, var(--t-muted), var(--t-dominant-hover));
+
+  --bs-body-bg: var(--t-dominant);
+  --bs-body-color: var(--t-body-color);
+  --bs-body-bg-rgb: var(--t-dominant-rgb);
+  --bs-body-color-rgb: var(--t-body-rgb);
+  --bs-emphasis-color: var(--t-heading-color);
+  --bs-primary: var(--t-accent);
+  --bs-primary-rgb: var(--t-accent-rgb);
+  --bs-link-color: var(--t-accent);
+  --bs-link-color-rgb: var(--t-accent-rgb);
+  --bs-link-hover-color: var(--t-accent-hover);
+  --bs-link-hover-color-rgb: var(--t-accent-hover-rgb);
+  --bs-border-color: var(--t-dominant-border);
+  --bs-border-color-translucent: var(--t-dominant-border);
+  --bs-focus-ring-width: var(--t-focus-ring-width);
+  --bs-focus-ring-opacity: var(--t-focus-ring-opacity);
+  --bs-focus-ring-color: var(--t-focus-ring-soft);
+}
+
+[data-theme="obsidian"] {
+  --t-dominant: #09090b;
+  --t-dominant-rgb: 9, 9, 11;
+  --t-dominant-soft: #18181b;
+  --t-dominant-soft-rgb: 24, 24, 27;
+  --t-dominant-border: rgba(212,175,55,.22);
+  --t-dominant-hover: color-mix(in srgb, var(--t-dominant-soft) 88%, var(--t-accent) 12%);
+  --t-dominant-active: color-mix(in srgb, var(--t-dominant-soft) 78%, var(--t-accent) 22%);
+
+  --t-secondary: #27272a;
+  --t-secondary-rgb: 39, 39, 42;
+  --t-secondary-soft: rgba(39, 39, 42, 0.10);
+  --t-secondary-text: #fafafa;
+  --t-secondary-muted: rgba(250,250,250,.66);
+  --t-secondary-hover: color-mix(in srgb, var(--t-secondary) 86%, var(--t-accent) 14%);
+  --t-secondary-active: rgba(212, 175, 55, 0.20);
+  --t-secondary-border: rgba(212,175,55,.22);
+
+  --t-accent: #d4af37;
+  --t-accent-rgb: 212, 175, 55;
+  --t-accent-hover: #facc15;
+  --t-accent-hover-rgb: 250, 204, 21;
+  --t-accent-active: #f97316;
+  --t-accent-active-rgb: 249, 115, 22;
+  --t-accent-dark: color-mix(in srgb, var(--t-accent) 74%, #000000 26%);
+  --t-accent-light: color-mix(in srgb, var(--t-accent) 62%, #ffffff 38%);
+  --t-accent-soft: rgba(212, 175, 55, 0.14);
+  --t-accent-text: #111827;
+  --t-accent-subtle-text: color-mix(in srgb, var(--t-accent) 76%, var(--t-heading-color) 24%);
+  --t-accent-focus-ring-opacity: .52;
+
+  --t-heading-color: #fafafa;
+  --t-body-color: #f4f4f5;
+  --t-body-rgb: 244, 244, 245 ;
+  --t-muted: rgba(250,250,250,.66);
+  --t-text-inverse: #ffffff;
+  --t-tertiary-color: color-mix(in srgb, var(--t-body-color) 52%, transparent);
+  --t-quaternary-color: color-mix(in srgb, var(--t-body-color) 34%, transparent);
+
+  --t-success: #34d399;
+  --t-success-rgb: 52, 211, 153;
+  --t-success-soft: rgba(52, 211, 153, 0.14);
+  --t-success-text: color-mix(in srgb, #34d399 76%, var(--t-heading-color) 24%);
+  --t-success-border: rgba(52, 211, 153, 0.44);
+
+  --t-danger: #fb7185;
+  --t-danger-rgb: 251, 113, 133;
+  --t-danger-soft: rgba(251, 113, 133, 0.14);
+  --t-danger-text: color-mix(in srgb, #fb7185 76%, var(--t-heading-color) 24%);
+  --t-danger-border: rgba(251, 113, 133, 0.44);
+
+  --t-warning: #fbbf24;
+  --t-warning-rgb: 251, 191, 36;
+  --t-warning-soft: rgba(251, 191, 36, 0.14);
+  --t-warning-text: color-mix(in srgb, #fbbf24 76%, var(--t-heading-color) 24%);
+  --t-warning-border: rgba(251, 191, 36, 0.44);
+
+  --t-info: #facc15;
+  --t-info-rgb: 250, 204, 21;
+  --t-info-soft: rgba(250, 204, 21, 0.14);
+  --t-info-text: color-mix(in srgb, var(--t-info) 76%, var(--t-heading-color) 24%);
+  --t-info-border: rgba(250, 204, 21, 0.44);
+
+  --t-sidebar-bg: var(--t-secondary);
+  --t-sidebar-hover: var(--t-secondary-hover);
+  --t-nav-color: var(--t-heading-color);
+  --t-header-bg: var(--t-dominant-soft);
+  --t-header-border: var(--t-dominant-border);
+  --t-content-bg: var(--t-dominant);
+  --t-card-bg: var(--t-dominant-soft);
+  --t-card-border: var(--t-dominant-border);
+  --t-card-hover: var(--t-dominant-hover);
+  --t-footer-bg: var(--t-dominant-soft);
+  --t-footer-border: var(--t-dominant-border);
+  --t-input-bg: color-mix(in srgb, var(--t-dominant-soft) 86%, transparent);
+  --t-input-border: var(--t-dominant-border);
+  --t-input-focus: var(--t-accent-hover);
+  --t-btn-border: rgba(212, 175, 55, 0.28);
+  --t-divider: var(--t-dominant-border);
+
+  --t-focus-ring: var(--t-accent-hover);
+  --t-focus-ring-soft: rgba(250, 204, 21, 0.18);
+  --t-focus-ring-contrast: var(--t-accent-text);
+  --t-focus-ring-offset: 2px;
+  --t-focus-ring-offset-focus: 3px;
+  --t-focus-ring-width: 3px;
+  --t-focus-ring-opacity: .55;
+
+  --t-shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.42);
+  --t-shadow-sm: 0 4px 10px rgba(0, 0, 0, 0.50);
+  --t-shadow: 0 12px 28px rgba(0, 0, 0, 0.58);
+  --t-shadow-md: 0 18px 40px rgba(0, 0, 0, 0.64);
+  --t-shadow-lg: 0 24px 56px rgba(0, 0, 0, 0.70);
+  --t-shadow-xl: 0 32px 80px rgba(0, 0, 0, 0.76);
+  --t-overlay: rgba(3, 7, 18, .78);
+  --t-overlay-light: rgba(3, 7, 18, .52);
+  --t-glass-bg: rgba(18,18,22,.72);
+  --t-glass-border: var(--t-dominant-border);
+  --t-glass-blur: blur(16px);
+
+  --t-gradient-primary: linear-gradient(135deg, var(--t-accent) 0%, var(--t-accent-hover) 52%, var(--t-accent-active) 100%);
+  --t-gradient-surface: linear-gradient(135deg, var(--t-dominant) 0%, var(--t-dominant-soft) 48%, var(--t-secondary) 100%);
+  --t-gradient-muted: linear-gradient(135deg, var(--t-muted), var(--t-dominant-hover));
+
+  --bs-body-bg: var(--t-dominant);
+  --bs-body-color: var(--t-body-color);
+  --bs-body-bg-rgb: var(--t-dominant-rgb);
+  --bs-body-color-rgb: var(--t-body-rgb);
+  --bs-emphasis-color: var(--t-heading-color);
+  --bs-primary: var(--t-accent);
+  --bs-primary-rgb: var(--t-accent-rgb);
+  --bs-link-color: var(--t-accent);
+  --bs-link-color-rgb: var(--t-accent-rgb);
+  --bs-link-hover-color: var(--t-accent-hover);
+  --bs-link-hover-color-rgb: var(--t-accent-hover-rgb);
+  --bs-border-color: var(--t-dominant-border);
+  --bs-border-color-translucent: var(--t-dominant-border);
+  --bs-focus-ring-width: var(--t-focus-ring-width);
+  --bs-focus-ring-opacity: var(--t-focus-ring-opacity);
+  --bs-focus-ring-color: var(--t-focus-ring-soft);
+}
+
+[data-theme="vercel"] {
+  --t-dominant: #000000;
+  --t-dominant-rgb: 0, 0, 0;
+  --t-dominant-soft: #111111;
+  --t-dominant-soft-rgb: 17, 17, 17;
+  --t-dominant-border: rgba(255,255,255,.16);
+  --t-dominant-hover: color-mix(in srgb, var(--t-dominant-soft) 88%, var(--t-accent) 12%);
+  --t-dominant-active: color-mix(in srgb, var(--t-dominant-soft) 78%, var(--t-accent) 22%);
+
+  --t-secondary: #1f1f1f;
+  --t-secondary-rgb: 31, 31, 31;
+  --t-secondary-soft: rgba(31, 31, 31, 0.10);
+  --t-secondary-text: #fafafa;
+  --t-secondary-muted: rgba(250,250,250,.66);
+  --t-secondary-hover: color-mix(in srgb, var(--t-secondary) 86%, var(--t-accent) 14%);
+  --t-secondary-active: rgba(255, 255, 255, 0.20);
+  --t-secondary-border: rgba(255,255,255,.16);
+
+  --t-accent: #ffffff;
+  --t-accent-rgb: 255, 255, 255;
+  --t-accent-hover: #d4d4d8;
+  --t-accent-hover-rgb: 212, 212, 216;
+  --t-accent-active: #a1a1aa;
+  --t-accent-active-rgb: 161, 161, 170;
+  --t-accent-dark: color-mix(in srgb, var(--t-accent) 74%, #000000 26%);
+  --t-accent-light: color-mix(in srgb, var(--t-accent) 62%, #ffffff 38%);
+  --t-accent-soft: rgba(255, 255, 255, 0.14);
+  --t-accent-text: #050505;
+  --t-accent-subtle-text: color-mix(in srgb, var(--t-accent) 76%, var(--t-heading-color) 24%);
+  --t-accent-focus-ring-opacity: .52;
+
+  --t-heading-color: #fafafa;
+  --t-body-color: #f4f4f5;
+  --t-body-rgb: 244, 244, 245 ;
+  --t-muted: rgba(250,250,250,.66);
+  --t-text-inverse: #ffffff;
+  --t-tertiary-color: color-mix(in srgb, var(--t-body-color) 52%, transparent);
+  --t-quaternary-color: color-mix(in srgb, var(--t-body-color) 34%, transparent);
+
+  --t-success: #34d399;
+  --t-success-rgb: 52, 211, 153;
+  --t-success-soft: rgba(52, 211, 153, 0.14);
+  --t-success-text: color-mix(in srgb, #34d399 76%, var(--t-heading-color) 24%);
+  --t-success-border: rgba(52, 211, 153, 0.44);
+
+  --t-danger: #fb7185;
+  --t-danger-rgb: 251, 113, 133;
+  --t-danger-soft: rgba(251, 113, 133, 0.14);
+  --t-danger-text: color-mix(in srgb, #fb7185 76%, var(--t-heading-color) 24%);
+  --t-danger-border: rgba(251, 113, 133, 0.44);
+
+  --t-warning: #fbbf24;
+  --t-warning-rgb: 251, 191, 36;
+  --t-warning-soft: rgba(251, 191, 36, 0.14);
+  --t-warning-text: color-mix(in srgb, #fbbf24 76%, var(--t-heading-color) 24%);
+  --t-warning-border: rgba(251, 191, 36, 0.44);
+
+  --t-info: #d4d4d8;
+  --t-info-rgb: 212, 212, 216;
+  --t-info-soft: rgba(212, 212, 216, 0.14);
+  --t-info-text: color-mix(in srgb, var(--t-info) 76%, var(--t-heading-color) 24%);
+  --t-info-border: rgba(212, 212, 216, 0.44);
+
+  --t-sidebar-bg: var(--t-secondary);
+  --t-sidebar-hover: var(--t-secondary-hover);
+  --t-nav-color: var(--t-heading-color);
+  --t-header-bg: var(--t-dominant-soft);
+  --t-header-border: var(--t-dominant-border);
+  --t-content-bg: var(--t-dominant);
+  --t-card-bg: var(--t-dominant-soft);
+  --t-card-border: var(--t-dominant-border);
+  --t-card-hover: var(--t-dominant-hover);
+  --t-footer-bg: var(--t-dominant-soft);
+  --t-footer-border: var(--t-dominant-border);
+  --t-input-bg: color-mix(in srgb, var(--t-dominant-soft) 86%, transparent);
+  --t-input-border: var(--t-dominant-border);
+  --t-input-focus: var(--t-accent-hover);
+  --t-btn-border: rgba(255, 255, 255, 0.28);
+  --t-divider: var(--t-dominant-border);
+
+  --t-focus-ring: var(--t-accent-hover);
+  --t-focus-ring-soft: rgba(212, 212, 216, 0.18);
+  --t-focus-ring-contrast: var(--t-accent-text);
+  --t-focus-ring-offset: 2px;
+  --t-focus-ring-offset-focus: 3px;
+  --t-focus-ring-width: 3px;
+  --t-focus-ring-opacity: .55;
+
+  --t-shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.42);
+  --t-shadow-sm: 0 4px 10px rgba(0, 0, 0, 0.50);
+  --t-shadow: 0 12px 28px rgba(0, 0, 0, 0.58);
+  --t-shadow-md: 0 18px 40px rgba(0, 0, 0, 0.64);
+  --t-shadow-lg: 0 24px 56px rgba(0, 0, 0, 0.70);
+  --t-shadow-xl: 0 32px 80px rgba(0, 0, 0, 0.76);
+  --t-overlay: rgba(3, 7, 18, .78);
+  --t-overlay-light: rgba(3, 7, 18, .52);
+  --t-glass-bg: rgba(10,10,10,.72);
+  --t-glass-border: var(--t-dominant-border);
+  --t-glass-blur: blur(16px);
+
+  --t-gradient-primary: linear-gradient(135deg, var(--t-accent) 0%, var(--t-accent-hover) 52%, var(--t-accent-active) 100%);
+  --t-gradient-surface: linear-gradient(135deg, var(--t-dominant) 0%, var(--t-dominant-soft) 48%, var(--t-secondary) 100%);
+  --t-gradient-muted: linear-gradient(135deg, var(--t-muted), var(--t-dominant-hover));
+
+  --bs-body-bg: var(--t-dominant);
+  --bs-body-color: var(--t-body-color);
+  --bs-body-bg-rgb: var(--t-dominant-rgb);
+  --bs-body-color-rgb: var(--t-body-rgb);
+  --bs-emphasis-color: var(--t-heading-color);
+  --bs-primary: var(--t-accent);
+  --bs-primary-rgb: var(--t-accent-rgb);
+  --bs-link-color: var(--t-accent);
+  --bs-link-color-rgb: var(--t-accent-rgb);
+  --bs-link-hover-color: var(--t-accent-hover);
+  --bs-link-hover-color-rgb: var(--t-accent-hover-rgb);
+  --bs-border-color: var(--t-dominant-border);
+  --bs-border-color-translucent: var(--t-dominant-border);
+  --bs-focus-ring-width: var(--t-focus-ring-width);
+  --bs-focus-ring-opacity: var(--t-focus-ring-opacity);
+  --bs-focus-ring-color: var(--t-focus-ring-soft);
+}
+
+[data-theme="deep-space"] {
+  --t-dominant: #020617;
+  --t-dominant-rgb: 2, 6, 23;
+  --t-dominant-soft: #0f172a;
+  --t-dominant-soft-rgb: 15, 23, 42;
+  --t-dominant-border: rgba(139,92,246,.22);
+  --t-dominant-hover: color-mix(in srgb, var(--t-dominant-soft) 88%, var(--t-accent) 12%);
+  --t-dominant-active: color-mix(in srgb, var(--t-dominant-soft) 78%, var(--t-accent) 22%);
+
+  --t-secondary: #111c3b;
+  --t-secondary-rgb: 17, 28, 59;
+  --t-secondary-soft: rgba(17, 28, 59, 0.10);
+  --t-secondary-text: #e2e8f0;
+  --t-secondary-muted: rgba(226,232,240,.66);
+  --t-secondary-hover: color-mix(in srgb, var(--t-secondary) 86%, var(--t-accent) 14%);
+  --t-secondary-active: rgba(139, 92, 246, 0.20);
+  --t-secondary-border: rgba(139,92,246,.22);
+
+  --t-accent: #8b5cf6;
+  --t-accent-rgb: 139, 92, 246;
+  --t-accent-hover: #22d3ee;
+  --t-accent-hover-rgb: 34, 211, 238;
+  --t-accent-active: #ec4899;
+  --t-accent-active-rgb: 236, 72, 153;
+  --t-accent-dark: color-mix(in srgb, var(--t-accent) 74%, #000000 26%);
+  --t-accent-light: color-mix(in srgb, var(--t-accent) 62%, #ffffff 38%);
+  --t-accent-soft: rgba(139, 92, 246, 0.14);
+  --t-accent-text: #ffffff;
+  --t-accent-subtle-text: color-mix(in srgb, var(--t-accent) 76%, var(--t-heading-color) 24%);
+  --t-accent-focus-ring-opacity: .52;
+
+  --t-heading-color: #e2e8f0;
+  --t-body-color: #dbeafe;
+  --t-body-rgb: 219, 234, 254 ;
+  --t-muted: rgba(226,232,240,.66);
+  --t-text-inverse: #ffffff;
+  --t-tertiary-color: color-mix(in srgb, var(--t-body-color) 52%, transparent);
+  --t-quaternary-color: color-mix(in srgb, var(--t-body-color) 34%, transparent);
+
+  --t-success: #34d399;
+  --t-success-rgb: 52, 211, 153;
+  --t-success-soft: rgba(52, 211, 153, 0.14);
+  --t-success-text: color-mix(in srgb, #34d399 76%, var(--t-heading-color) 24%);
+  --t-success-border: rgba(52, 211, 153, 0.44);
+
+  --t-danger: #fb7185;
+  --t-danger-rgb: 251, 113, 133;
+  --t-danger-soft: rgba(251, 113, 133, 0.14);
+  --t-danger-text: color-mix(in srgb, #fb7185 76%, var(--t-heading-color) 24%);
+  --t-danger-border: rgba(251, 113, 133, 0.44);
+
+  --t-warning: #fbbf24;
+  --t-warning-rgb: 251, 191, 36;
+  --t-warning-soft: rgba(251, 191, 36, 0.14);
+  --t-warning-text: color-mix(in srgb, #fbbf24 76%, var(--t-heading-color) 24%);
+  --t-warning-border: rgba(251, 191, 36, 0.44);
+
+  --t-info: #22d3ee;
+  --t-info-rgb: 34, 211, 238;
+  --t-info-soft: rgba(34, 211, 238, 0.14);
+  --t-info-text: color-mix(in srgb, var(--t-info) 76%, var(--t-heading-color) 24%);
+  --t-info-border: rgba(34, 211, 238, 0.44);
+
+  --t-sidebar-bg: var(--t-secondary);
+  --t-sidebar-hover: var(--t-secondary-hover);
+  --t-nav-color: var(--t-heading-color);
+  --t-header-bg: var(--t-dominant-soft);
+  --t-header-border: var(--t-dominant-border);
+  --t-content-bg: var(--t-dominant);
+  --t-card-bg: var(--t-dominant-soft);
+  --t-card-border: var(--t-dominant-border);
+  --t-card-hover: var(--t-dominant-hover);
+  --t-footer-bg: var(--t-dominant-soft);
+  --t-footer-border: var(--t-dominant-border);
+  --t-input-bg: color-mix(in srgb, var(--t-dominant-soft) 86%, transparent);
+  --t-input-border: var(--t-dominant-border);
+  --t-input-focus: var(--t-accent-hover);
+  --t-btn-border: rgba(139, 92, 246, 0.28);
+  --t-divider: var(--t-dominant-border);
+
+  --t-focus-ring: var(--t-accent-hover);
+  --t-focus-ring-soft: rgba(34, 211, 238, 0.18);
+  --t-focus-ring-contrast: var(--t-accent-text);
+  --t-focus-ring-offset: 2px;
+  --t-focus-ring-offset-focus: 3px;
+  --t-focus-ring-width: 3px;
+  --t-focus-ring-opacity: .55;
+
+  --t-shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.42);
+  --t-shadow-sm: 0 4px 10px rgba(0, 0, 0, 0.50);
+  --t-shadow: 0 12px 28px rgba(0, 0, 0, 0.58);
+  --t-shadow-md: 0 18px 40px rgba(0, 0, 0, 0.64);
+  --t-shadow-lg: 0 24px 56px rgba(0, 0, 0, 0.70);
+  --t-shadow-xl: 0 32px 80px rgba(0, 0, 0, 0.76);
+  --t-overlay: rgba(3, 7, 18, .78);
+  --t-overlay-light: rgba(3, 7, 18, .52);
+  --t-glass-bg: rgba(8,13,35,.72);
+  --t-glass-border: var(--t-dominant-border);
+  --t-glass-blur: blur(16px);
+
+  --t-gradient-primary: linear-gradient(135deg, var(--t-accent) 0%, var(--t-accent-hover) 52%, var(--t-accent-active) 100%);
+  --t-gradient-surface: linear-gradient(135deg, var(--t-dominant) 0%, var(--t-dominant-soft) 48%, var(--t-secondary) 100%);
+  --t-gradient-muted: linear-gradient(135deg, var(--t-muted), var(--t-dominant-hover));
+
+  --bs-body-bg: var(--t-dominant);
+  --bs-body-color: var(--t-body-color);
+  --bs-body-bg-rgb: var(--t-dominant-rgb);
+  --bs-body-color-rgb: var(--t-body-rgb);
+  --bs-emphasis-color: var(--t-heading-color);
+  --bs-primary: var(--t-accent);
+  --bs-primary-rgb: var(--t-accent-rgb);
+  --bs-link-color: var(--t-accent);
+  --bs-link-color-rgb: var(--t-accent-rgb);
+  --bs-link-hover-color: var(--t-accent-hover);
+  --bs-link-hover-color-rgb: var(--t-accent-hover-rgb);
+  --bs-border-color: var(--t-dominant-border);
+  --bs-border-color-translucent: var(--t-dominant-border);
+  --bs-focus-ring-width: var(--t-focus-ring-width);
+  --bs-focus-ring-opacity: var(--t-focus-ring-opacity);
+  --bs-focus-ring-color: var(--t-focus-ring-soft);
+}
+
+[data-theme="netflix"] {
+  --t-dominant: #141414;
+  --t-dominant-rgb: 20, 20, 20;
+  --t-dominant-soft: #1f1f1f;
+  --t-dominant-soft-rgb: 31, 31, 31;
+  --t-dominant-border: rgba(229,9,20,.20);
+  --t-dominant-hover: color-mix(in srgb, var(--t-dominant-soft) 88%, var(--t-accent) 12%);
+  --t-dominant-active: color-mix(in srgb, var(--t-dominant-soft) 78%, var(--t-accent) 22%);
+
+  --t-secondary: #292929;
+  --t-secondary-rgb: 41, 41, 41;
+  --t-secondary-soft: rgba(41, 41, 41, 0.10);
+  --t-secondary-text: #ffffff;
+  --t-secondary-muted: rgba(255,255,255,.66);
+  --t-secondary-hover: color-mix(in srgb, var(--t-secondary) 86%, var(--t-accent) 14%);
+  --t-secondary-active: rgba(229, 9, 20, 0.20);
+  --t-secondary-border: rgba(229,9,20,.20);
+
+  --t-accent: #e50914;
+  --t-accent-rgb: 229, 9, 20;
+  --t-accent-hover: #fb7185;
+  --t-accent-hover-rgb: 251, 113, 133;
+  --t-accent-active: #f97316;
+  --t-accent-active-rgb: 249, 115, 22;
+  --t-accent-dark: color-mix(in srgb, var(--t-accent) 74%, #000000 26%);
+  --t-accent-light: color-mix(in srgb, var(--t-accent) 62%, #ffffff 38%);
+  --t-accent-soft: rgba(229, 9, 20, 0.14);
+  --t-accent-text: #ffffff;
+  --t-accent-subtle-text: color-mix(in srgb, var(--t-accent) 76%, var(--t-heading-color) 24%);
+  --t-accent-focus-ring-opacity: .52;
+
+  --t-heading-color: #ffffff;
+  --t-body-color: #f5f5f5;
+  --t-body-rgb: 245, 245, 245 ;
+  --t-muted: rgba(255,255,255,.66);
+  --t-text-inverse: #ffffff;
+  --t-tertiary-color: color-mix(in srgb, var(--t-body-color) 52%, transparent);
+  --t-quaternary-color: color-mix(in srgb, var(--t-body-color) 34%, transparent);
+
+  --t-success: #34d399;
+  --t-success-rgb: 52, 211, 153;
+  --t-success-soft: rgba(52, 211, 153, 0.14);
+  --t-success-text: color-mix(in srgb, #34d399 76%, var(--t-heading-color) 24%);
+  --t-success-border: rgba(52, 211, 153, 0.44);
+
+  --t-danger: #fb7185;
+  --t-danger-rgb: 251, 113, 133;
+  --t-danger-soft: rgba(251, 113, 133, 0.14);
+  --t-danger-text: color-mix(in srgb, #fb7185 76%, var(--t-heading-color) 24%);
+  --t-danger-border: rgba(251, 113, 133, 0.44);
+
+  --t-warning: #fbbf24;
+  --t-warning-rgb: 251, 191, 36;
+  --t-warning-soft: rgba(251, 191, 36, 0.14);
+  --t-warning-text: color-mix(in srgb, #fbbf24 76%, var(--t-heading-color) 24%);
+  --t-warning-border: rgba(251, 191, 36, 0.44);
+
+  --t-info: #fb7185;
+  --t-info-rgb: 251, 113, 133;
+  --t-info-soft: rgba(251, 113, 133, 0.14);
+  --t-info-text: color-mix(in srgb, var(--t-info) 76%, var(--t-heading-color) 24%);
+  --t-info-border: rgba(251, 113, 133, 0.44);
+
+  --t-sidebar-bg: var(--t-secondary);
+  --t-sidebar-hover: var(--t-secondary-hover);
+  --t-nav-color: var(--t-heading-color);
+  --t-header-bg: var(--t-dominant-soft);
+  --t-header-border: var(--t-dominant-border);
+  --t-content-bg: var(--t-dominant);
+  --t-card-bg: var(--t-dominant-soft);
+  --t-card-border: var(--t-dominant-border);
+  --t-card-hover: var(--t-dominant-hover);
+  --t-footer-bg: var(--t-dominant-soft);
+  --t-footer-border: var(--t-dominant-border);
+  --t-input-bg: color-mix(in srgb, var(--t-dominant-soft) 86%, transparent);
+  --t-input-border: var(--t-dominant-border);
+  --t-input-focus: var(--t-accent-hover);
+  --t-btn-border: rgba(229, 9, 20, 0.28);
+  --t-divider: var(--t-dominant-border);
+
+  --t-focus-ring: var(--t-accent-hover);
+  --t-focus-ring-soft: rgba(251, 113, 133, 0.18);
+  --t-focus-ring-contrast: var(--t-accent-text);
+  --t-focus-ring-offset: 2px;
+  --t-focus-ring-offset-focus: 3px;
+  --t-focus-ring-width: 3px;
+  --t-focus-ring-opacity: .55;
+
+  --t-shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.42);
+  --t-shadow-sm: 0 4px 10px rgba(0, 0, 0, 0.50);
+  --t-shadow: 0 12px 28px rgba(0, 0, 0, 0.58);
+  --t-shadow-md: 0 18px 40px rgba(0, 0, 0, 0.64);
+  --t-shadow-lg: 0 24px 56px rgba(0, 0, 0, 0.70);
+  --t-shadow-xl: 0 32px 80px rgba(0, 0, 0, 0.76);
+  --t-overlay: rgba(3, 7, 18, .78);
+  --t-overlay-light: rgba(3, 7, 18, .52);
+  --t-glass-bg: rgba(20,20,20,.72);
+  --t-glass-border: var(--t-dominant-border);
+  --t-glass-blur: blur(16px);
+
+  --t-gradient-primary: linear-gradient(135deg, var(--t-accent) 0%, var(--t-accent-hover) 52%, var(--t-accent-active) 100%);
+  --t-gradient-surface: linear-gradient(135deg, var(--t-dominant) 0%, var(--t-dominant-soft) 48%, var(--t-secondary) 100%);
+  --t-gradient-muted: linear-gradient(135deg, var(--t-muted), var(--t-dominant-hover));
+
+  --bs-body-bg: var(--t-dominant);
+  --bs-body-color: var(--t-body-color);
+  --bs-body-bg-rgb: var(--t-dominant-rgb);
+  --bs-body-color-rgb: var(--t-body-rgb);
+  --bs-emphasis-color: var(--t-heading-color);
+  --bs-primary: var(--t-accent);
+  --bs-primary-rgb: var(--t-accent-rgb);
+  --bs-link-color: var(--t-accent);
+  --bs-link-color-rgb: var(--t-accent-rgb);
+  --bs-link-hover-color: var(--t-accent-hover);
+  --bs-link-hover-color-rgb: var(--t-accent-hover-rgb);
+  --bs-border-color: var(--t-dominant-border);
+  --bs-border-color-translucent: var(--t-dominant-border);
+  --bs-focus-ring-width: var(--t-focus-ring-width);
+  --bs-focus-ring-opacity: var(--t-focus-ring-opacity);
+  --bs-focus-ring-color: var(--t-focus-ring-soft);
+}
+
+[data-theme="microsoft"] {
+  --t-dominant: #f3f2f1;
+  --t-dominant-rgb: 243, 242, 241;
+  --t-dominant-soft: #ffffff;
+  --t-dominant-soft-rgb: 255, 255, 255;
+  --t-dominant-border: rgba(0,120,212,.16);
+  --t-dominant-hover: color-mix(in srgb, var(--t-dominant-soft) 88%, var(--t-accent) 12%);
+  --t-dominant-active: color-mix(in srgb, var(--t-dominant-soft) 78%, var(--t-accent) 22%);
+
+  --t-secondary: #e1dfdd;
+  --t-secondary-rgb: 225, 223, 221;
+  --t-secondary-soft: rgba(225, 223, 221, 0.10);
+  --t-secondary-text: #201f1e;
+  --t-secondary-muted: #605e5c;
+  --t-secondary-hover: color-mix(in srgb, var(--t-secondary) 86%, var(--t-accent) 14%);
+  --t-secondary-active: rgba(0, 120, 212, 0.20);
+  --t-secondary-border: rgba(0,120,212,.16);
+
+  --t-accent: #0078d4;
+  --t-accent-rgb: 0, 120, 212;
+  --t-accent-hover: #38bdf8;
+  --t-accent-hover-rgb: 56, 189, 248;
+  --t-accent-active: #7c3aed;
+  --t-accent-active-rgb: 124, 58, 237;
+  --t-accent-dark: color-mix(in srgb, var(--t-accent) 74%, #000000 26%);
+  --t-accent-light: color-mix(in srgb, var(--t-accent) 62%, #ffffff 38%);
+  --t-accent-soft: rgba(0, 120, 212, 0.14);
+  --t-accent-text: #ffffff;
+  --t-accent-subtle-text: color-mix(in srgb, var(--t-accent) 76%, var(--t-heading-color) 24%);
+  --t-accent-focus-ring-opacity: .32;
+
+  --t-heading-color: #201f1e;
+  --t-body-color: #201f1e;
+  --t-body-rgb: 32, 31, 30 ;
+  --t-muted: #605e5c;
+  --t-text-inverse: #0f172a;
+  --t-tertiary-color: color-mix(in srgb, var(--t-body-color) 52%, transparent);
+  --t-quaternary-color: color-mix(in srgb, var(--t-body-color) 34%, transparent);
+
+  --t-success: #34d399;
+  --t-success-rgb: 52, 211, 153;
+  --t-success-soft: rgba(52, 211, 153, 0.14);
+  --t-success-text: color-mix(in srgb, #34d399 76%, var(--t-heading-color) 24%);
+  --t-success-border: rgba(52, 211, 153, 0.44);
+
+  --t-danger: #fb7185;
+  --t-danger-rgb: 251, 113, 133;
+  --t-danger-soft: rgba(251, 113, 133, 0.14);
+  --t-danger-text: color-mix(in srgb, #fb7185 76%, var(--t-heading-color) 24%);
+  --t-danger-border: rgba(251, 113, 133, 0.44);
+
+  --t-warning: #fbbf24;
+  --t-warning-rgb: 251, 191, 36;
+  --t-warning-soft: rgba(251, 191, 36, 0.14);
+  --t-warning-text: color-mix(in srgb, #fbbf24 76%, var(--t-heading-color) 24%);
+  --t-warning-border: rgba(251, 191, 36, 0.44);
+
+  --t-info: #38bdf8;
+  --t-info-rgb: 56, 189, 248;
+  --t-info-soft: rgba(56, 189, 248, 0.14);
+  --t-info-text: color-mix(in srgb, var(--t-info) 76%, var(--t-heading-color) 24%);
+  --t-info-border: rgba(56, 189, 248, 0.44);
+
+  --t-sidebar-bg: var(--t-secondary);
+  --t-sidebar-hover: var(--t-secondary-hover);
+  --t-nav-color: var(--t-heading-color);
+  --t-header-bg: var(--t-dominant-soft);
+  --t-header-border: var(--t-dominant-border);
+  --t-content-bg: var(--t-dominant);
+  --t-card-bg: var(--t-dominant-soft);
+  --t-card-border: var(--t-dominant-border);
+  --t-card-hover: var(--t-dominant-hover);
+  --t-footer-bg: var(--t-dominant-soft);
+  --t-footer-border: var(--t-dominant-border);
+  --t-input-bg: color-mix(in srgb, var(--t-dominant-soft) 86%, transparent);
+  --t-input-border: var(--t-dominant-border);
+  --t-input-focus: var(--t-accent-hover);
+  --t-btn-border: rgba(0, 120, 212, 0.28);
+  --t-divider: var(--t-dominant-border);
+
+  --t-focus-ring: var(--t-accent-hover);
+  --t-focus-ring-soft: rgba(56, 189, 248, 0.18);
+  --t-focus-ring-contrast: var(--t-accent-text);
+  --t-focus-ring-offset: 2px;
+  --t-focus-ring-offset-focus: 3px;
+  --t-focus-ring-width: 3px;
+  --t-focus-ring-opacity: .34;
+
+  --t-shadow-xs: 0 1px 2px rgba(15, 23, 42, 0.10);
+  --t-shadow-sm: 0 4px 10px rgba(15, 23, 42, 0.12);
+  --t-shadow: 0 12px 28px rgba(15, 23, 42, 0.14);
+  --t-shadow-md: 0 18px 40px rgba(15, 23, 42, 0.16);
+  --t-shadow-lg: 0 24px 56px rgba(15, 23, 42, 0.18);
+  --t-shadow-xl: 0 32px 80px rgba(15, 23, 42, 0.22);
+  --t-overlay: rgba(3, 7, 18, .48);
+  --t-overlay-light: rgba(3, 7, 18, .24);
+  --t-glass-bg: rgba(255,255,255,.74);
+  --t-glass-border: var(--t-dominant-border);
+  --t-glass-blur: blur(16px);
+
+  --t-gradient-primary: linear-gradient(135deg, var(--t-accent) 0%, var(--t-accent-hover) 52%, var(--t-accent-active) 100%);
+  --t-gradient-surface: linear-gradient(135deg, var(--t-dominant) 0%, var(--t-dominant-soft) 48%, var(--t-secondary) 100%);
+  --t-gradient-muted: linear-gradient(135deg, var(--t-muted), var(--t-dominant-hover));
+
+  --bs-body-bg: var(--t-dominant);
+  --bs-body-color: var(--t-body-color);
+  --bs-body-bg-rgb: var(--t-dominant-rgb);
+  --bs-body-color-rgb: var(--t-body-rgb);
+  --bs-emphasis-color: var(--t-heading-color);
+  --bs-primary: var(--t-accent);
+  --bs-primary-rgb: var(--t-accent-rgb);
+  --bs-link-color: var(--t-accent);
+  --bs-link-color-rgb: var(--t-accent-rgb);
+  --bs-link-hover-color: var(--t-accent-hover);
+  --bs-link-hover-color-rgb: var(--t-accent-hover-rgb);
+  --bs-border-color: var(--t-dominant-border);
+  --bs-border-color-translucent: var(--t-dominant-border);
+  --bs-focus-ring-width: var(--t-focus-ring-width);
+  --bs-focus-ring-opacity: var(--t-focus-ring-opacity);
+  --bs-focus-ring-color: var(--t-focus-ring-soft);
+}
+
+[data-theme="google"] {
+  --t-dominant: #ffffff;
+  --t-dominant-rgb: 255, 255, 255;
+  --t-dominant-soft: #fafafa;
+  --t-dominant-soft-rgb: 250, 250, 250;
+  --t-dominant-border: rgba(103,80,164,.16);
+  --t-dominant-hover: color-mix(in srgb, var(--t-dominant-soft) 88%, var(--t-accent) 12%);
+  --t-dominant-active: color-mix(in srgb, var(--t-dominant-soft) 78%, var(--t-accent) 22%);
+
+  --t-secondary: #f1f3f4;
+  --t-secondary-rgb: 241, 243, 244;
+  --t-secondary-soft: rgba(241, 243, 244, 0.10);
+  --t-secondary-text: #202124;
+  --t-secondary-muted: #5f6368;
+  --t-secondary-hover: color-mix(in srgb, var(--t-secondary) 86%, var(--t-accent) 14%);
+  --t-secondary-active: rgba(103, 80, 164, 0.20);
+  --t-secondary-border: rgba(103,80,164,.16);
+
+  --t-accent: #6750a4;
+  --t-accent-rgb: 103, 80, 164;
+  --t-accent-hover: #4285f4;
+  --t-accent-hover-rgb: 66, 133, 244;
+  --t-accent-active: #fbbc04;
+  --t-accent-active-rgb: 251, 188, 4;
+  --t-accent-dark: color-mix(in srgb, var(--t-accent) 74%, #000000 26%);
+  --t-accent-light: color-mix(in srgb, var(--t-accent) 62%, #ffffff 38%);
+  --t-accent-soft: rgba(103, 80, 164, 0.14);
+  --t-accent-text: #ffffff;
+  --t-accent-subtle-text: color-mix(in srgb, var(--t-accent) 76%, var(--t-heading-color) 24%);
+  --t-accent-focus-ring-opacity: .32;
+
+  --t-heading-color: #202124;
+  --t-body-color: #202124;
+  --t-body-rgb: 32, 33, 36 ;
+  --t-muted: #5f6368;
+  --t-text-inverse: #0f172a;
+  --t-tertiary-color: color-mix(in srgb, var(--t-body-color) 52%, transparent);
+  --t-quaternary-color: color-mix(in srgb, var(--t-body-color) 34%, transparent);
+
+  --t-success: #34d399;
+  --t-success-rgb: 52, 211, 153;
+  --t-success-soft: rgba(52, 211, 153, 0.14);
+  --t-success-text: color-mix(in srgb, #34d399 76%, var(--t-heading-color) 24%);
+  --t-success-border: rgba(52, 211, 153, 0.44);
+
+  --t-danger: #fb7185;
+  --t-danger-rgb: 251, 113, 133;
+  --t-danger-soft: rgba(251, 113, 133, 0.14);
+  --t-danger-text: color-mix(in srgb, #fb7185 76%, var(--t-heading-color) 24%);
+  --t-danger-border: rgba(251, 113, 133, 0.44);
+
+  --t-warning: #fbbf24;
+  --t-warning-rgb: 251, 191, 36;
+  --t-warning-soft: rgba(251, 191, 36, 0.14);
+  --t-warning-text: color-mix(in srgb, #fbbf24 76%, var(--t-heading-color) 24%);
+  --t-warning-border: rgba(251, 191, 36, 0.44);
+
+  --t-info: #4285f4;
+  --t-info-rgb: 66, 133, 244;
+  --t-info-soft: rgba(66, 133, 244, 0.14);
+  --t-info-text: color-mix(in srgb, var(--t-info) 76%, var(--t-heading-color) 24%);
+  --t-info-border: rgba(66, 133, 244, 0.44);
+
+  --t-sidebar-bg: var(--t-secondary);
+  --t-sidebar-hover: var(--t-secondary-hover);
+  --t-nav-color: var(--t-heading-color);
+  --t-header-bg: var(--t-dominant-soft);
+  --t-header-border: var(--t-dominant-border);
+  --t-content-bg: var(--t-dominant);
+  --t-card-bg: var(--t-dominant-soft);
+  --t-card-border: var(--t-dominant-border);
+  --t-card-hover: var(--t-dominant-hover);
+  --t-footer-bg: var(--t-dominant-soft);
+  --t-footer-border: var(--t-dominant-border);
+  --t-input-bg: color-mix(in srgb, var(--t-dominant-soft) 86%, transparent);
+  --t-input-border: var(--t-dominant-border);
+  --t-input-focus: var(--t-accent-hover);
+  --t-btn-border: rgba(103, 80, 164, 0.28);
+  --t-divider: var(--t-dominant-border);
+
+  --t-focus-ring: var(--t-accent-hover);
+  --t-focus-ring-soft: rgba(66, 133, 244, 0.18);
+  --t-focus-ring-contrast: var(--t-accent-text);
+  --t-focus-ring-offset: 2px;
+  --t-focus-ring-offset-focus: 3px;
+  --t-focus-ring-width: 3px;
+  --t-focus-ring-opacity: .34;
+
+  --t-shadow-xs: 0 1px 2px rgba(15, 23, 42, 0.10);
+  --t-shadow-sm: 0 4px 10px rgba(15, 23, 42, 0.12);
+  --t-shadow: 0 12px 28px rgba(15, 23, 42, 0.14);
+  --t-shadow-md: 0 18px 40px rgba(15, 23, 42, 0.16);
+  --t-shadow-lg: 0 24px 56px rgba(15, 23, 42, 0.18);
+  --t-shadow-xl: 0 32px 80px rgba(15, 23, 42, 0.22);
+  --t-overlay: rgba(3, 7, 18, .48);
+  --t-overlay-light: rgba(3, 7, 18, .24);
+  --t-glass-bg: rgba(255,255,255,.76);
+  --t-glass-border: var(--t-dominant-border);
+  --t-glass-blur: blur(16px);
+
+  --t-gradient-primary: linear-gradient(135deg, var(--t-accent) 0%, var(--t-accent-hover) 52%, var(--t-accent-active) 100%);
+  --t-gradient-surface: linear-gradient(135deg, var(--t-dominant) 0%, var(--t-dominant-soft) 48%, var(--t-secondary) 100%);
+  --t-gradient-muted: linear-gradient(135deg, var(--t-muted), var(--t-dominant-hover));
+
+  --bs-body-bg: var(--t-dominant);
+  --bs-body-color: var(--t-body-color);
+  --bs-body-bg-rgb: var(--t-dominant-rgb);
+  --bs-body-color-rgb: var(--t-body-rgb);
+  --bs-emphasis-color: var(--t-heading-color);
+  --bs-primary: var(--t-accent);
+  --bs-primary-rgb: var(--t-accent-rgb);
+  --bs-link-color: var(--t-accent);
+  --bs-link-color-rgb: var(--t-accent-rgb);
+  --bs-link-hover-color: var(--t-accent-hover);
+  --bs-link-hover-color-rgb: var(--t-accent-hover-rgb);
+  --bs-border-color: var(--t-dominant-border);
+  --bs-border-color-translucent: var(--t-dominant-border);
+  --bs-focus-ring-width: var(--t-focus-ring-width);
+  --bs-focus-ring-opacity: var(--t-focus-ring-opacity);
+  --bs-focus-ring-color: var(--t-focus-ring-soft);
+}
+
+[data-theme="apple"] {
+  --t-dominant: #f5f5f7;
+  --t-dominant-rgb: 245, 245, 247;
+  --t-dominant-soft: #ffffff;
+  --t-dominant-soft-rgb: 255, 255, 255;
+  --t-dominant-border: rgba(0,122,255,.15);
+  --t-dominant-hover: color-mix(in srgb, var(--t-dominant-soft) 88%, var(--t-accent) 12%);
+  --t-dominant-active: color-mix(in srgb, var(--t-dominant-soft) 78%, var(--t-accent) 22%);
+
+  --t-secondary: #e8e8ed;
+  --t-secondary-rgb: 232, 232, 237;
+  --t-secondary-soft: rgba(232, 232, 237, 0.10);
+  --t-secondary-text: #1d1d1f;
+  --t-secondary-muted: #6e6e73;
+  --t-secondary-hover: color-mix(in srgb, var(--t-secondary) 86%, var(--t-accent) 14%);
+  --t-secondary-active: rgba(0, 122, 255, 0.20);
+  --t-secondary-border: rgba(0,122,255,.15);
+
+  --t-accent: #007aff;
+  --t-accent-rgb: 0, 122, 255;
+  --t-accent-hover: #5ac8fa;
+  --t-accent-hover-rgb: 90, 200, 250;
+  --t-accent-active: #af52de;
+  --t-accent-active-rgb: 175, 82, 222;
+  --t-accent-dark: color-mix(in srgb, var(--t-accent) 74%, #000000 26%);
+  --t-accent-light: color-mix(in srgb, var(--t-accent) 62%, #ffffff 38%);
+  --t-accent-soft: rgba(0, 122, 255, 0.14);
+  --t-accent-text: #ffffff;
+  --t-accent-subtle-text: color-mix(in srgb, var(--t-accent) 76%, var(--t-heading-color) 24%);
+  --t-accent-focus-ring-opacity: .32;
+
+  --t-heading-color: #1d1d1f;
+  --t-body-color: #1d1d1f;
+  --t-body-rgb: 29, 29, 31 ;
+  --t-muted: #6e6e73;
+  --t-text-inverse: #0f172a;
+  --t-tertiary-color: color-mix(in srgb, var(--t-body-color) 52%, transparent);
+  --t-quaternary-color: color-mix(in srgb, var(--t-body-color) 34%, transparent);
+
+  --t-success: #34d399;
+  --t-success-rgb: 52, 211, 153;
+  --t-success-soft: rgba(52, 211, 153, 0.14);
+  --t-success-text: color-mix(in srgb, #34d399 76%, var(--t-heading-color) 24%);
+  --t-success-border: rgba(52, 211, 153, 0.44);
+
+  --t-danger: #fb7185;
+  --t-danger-rgb: 251, 113, 133;
+  --t-danger-soft: rgba(251, 113, 133, 0.14);
+  --t-danger-text: color-mix(in srgb, #fb7185 76%, var(--t-heading-color) 24%);
+  --t-danger-border: rgba(251, 113, 133, 0.44);
+
+  --t-warning: #fbbf24;
+  --t-warning-rgb: 251, 191, 36;
+  --t-warning-soft: rgba(251, 191, 36, 0.14);
+  --t-warning-text: color-mix(in srgb, #fbbf24 76%, var(--t-heading-color) 24%);
+  --t-warning-border: rgba(251, 191, 36, 0.44);
+
+  --t-info: #5ac8fa;
+  --t-info-rgb: 90, 200, 250;
+  --t-info-soft: rgba(90, 200, 250, 0.14);
+  --t-info-text: color-mix(in srgb, var(--t-info) 76%, var(--t-heading-color) 24%);
+  --t-info-border: rgba(90, 200, 250, 0.44);
+
+  --t-sidebar-bg: var(--t-secondary);
+  --t-sidebar-hover: var(--t-secondary-hover);
+  --t-nav-color: var(--t-heading-color);
+  --t-header-bg: var(--t-dominant-soft);
+  --t-header-border: var(--t-dominant-border);
+  --t-content-bg: var(--t-dominant);
+  --t-card-bg: var(--t-dominant-soft);
+  --t-card-border: var(--t-dominant-border);
+  --t-card-hover: var(--t-dominant-hover);
+  --t-footer-bg: var(--t-dominant-soft);
+  --t-footer-border: var(--t-dominant-border);
+  --t-input-bg: color-mix(in srgb, var(--t-dominant-soft) 86%, transparent);
+  --t-input-border: var(--t-dominant-border);
+  --t-input-focus: var(--t-accent-hover);
+  --t-btn-border: rgba(0, 122, 255, 0.28);
+  --t-divider: var(--t-dominant-border);
+
+  --t-focus-ring: var(--t-accent-hover);
+  --t-focus-ring-soft: rgba(90, 200, 250, 0.18);
+  --t-focus-ring-contrast: var(--t-accent-text);
+  --t-focus-ring-offset: 2px;
+  --t-focus-ring-offset-focus: 3px;
+  --t-focus-ring-width: 3px;
+  --t-focus-ring-opacity: .34;
+
+  --t-shadow-xs: 0 1px 2px rgba(15, 23, 42, 0.10);
+  --t-shadow-sm: 0 4px 10px rgba(15, 23, 42, 0.12);
+  --t-shadow: 0 12px 28px rgba(15, 23, 42, 0.14);
+  --t-shadow-md: 0 18px 40px rgba(15, 23, 42, 0.16);
+  --t-shadow-lg: 0 24px 56px rgba(15, 23, 42, 0.18);
+  --t-shadow-xl: 0 32px 80px rgba(15, 23, 42, 0.22);
+  --t-overlay: rgba(3, 7, 18, .48);
+  --t-overlay-light: rgba(3, 7, 18, .24);
+  --t-glass-bg: rgba(255,255,255,.72);
+  --t-glass-border: var(--t-dominant-border);
+  --t-glass-blur: blur(16px);
+
+  --t-gradient-primary: linear-gradient(135deg, var(--t-accent) 0%, var(--t-accent-hover) 52%, var(--t-accent-active) 100%);
+  --t-gradient-surface: linear-gradient(135deg, var(--t-dominant) 0%, var(--t-dominant-soft) 48%, var(--t-secondary) 100%);
+  --t-gradient-muted: linear-gradient(135deg, var(--t-muted), var(--t-dominant-hover));
+
+  --bs-body-bg: var(--t-dominant);
+  --bs-body-color: var(--t-body-color);
+  --bs-body-bg-rgb: var(--t-dominant-rgb);
+  --bs-body-color-rgb: var(--t-body-rgb);
+  --bs-emphasis-color: var(--t-heading-color);
+  --bs-primary: var(--t-accent);
+  --bs-primary-rgb: var(--t-accent-rgb);
+  --bs-link-color: var(--t-accent);
+  --bs-link-color-rgb: var(--t-accent-rgb);
+  --bs-link-hover-color: var(--t-accent-hover);
+  --bs-link-hover-color-rgb: var(--t-accent-hover-rgb);
+  --bs-border-color: var(--t-dominant-border);
+  --bs-border-color-translucent: var(--t-dominant-border);
+  --bs-focus-ring-width: var(--t-focus-ring-width);
+  --bs-focus-ring-opacity: var(--t-focus-ring-opacity);
+  --bs-focus-ring-color: var(--t-focus-ring-soft);
+}
+
+[data-theme="vscode"] {
+  --t-dominant: #011627;
+  --t-dominant-rgb: 1, 22, 39;
+  --t-dominant-soft: #0b2942;
+  --t-dominant-soft-rgb: 11, 41, 66;
+  --t-dominant-border: rgba(0,122,204,.22);
+  --t-dominant-hover: color-mix(in srgb, var(--t-dominant-soft) 88%, var(--t-accent) 12%);
+  --t-dominant-active: color-mix(in srgb, var(--t-dominant-soft) 78%, var(--t-accent) 22%);
+
+  --t-secondary: #102a43;
+  --t-secondary-rgb: 16, 42, 67;
+  --t-secondary-soft: rgba(16, 42, 67, 0.10);
+  --t-secondary-text: #dbeafe;
+  --t-secondary-muted: rgba(219,234,254,.66);
+  --t-secondary-hover: color-mix(in srgb, var(--t-secondary) 86%, var(--t-accent) 14%);
+  --t-secondary-active: rgba(0, 122, 204, 0.20);
+  --t-secondary-border: rgba(0,122,204,.22);
+
+  --t-accent: #007acc;
+  --t-accent-rgb: 0, 122, 204;
+  --t-accent-hover: #22d3ee;
+  --t-accent-hover-rgb: 34, 211, 238;
+  --t-accent-active: #6366f1;
+  --t-accent-active-rgb: 99, 102, 241;
+  --t-accent-dark: color-mix(in srgb, var(--t-accent) 74%, #000000 26%);
+  --t-accent-light: color-mix(in srgb, var(--t-accent) 62%, #ffffff 38%);
+  --t-accent-soft: rgba(0, 122, 204, 0.14);
+  --t-accent-text: #ffffff;
+  --t-accent-subtle-text: color-mix(in srgb, var(--t-accent) 76%, var(--t-heading-color) 24%);
+  --t-accent-focus-ring-opacity: .52;
+
+  --t-heading-color: #dbeafe;
+  --t-body-color: #dbeafe;
+  --t-body-rgb: 219, 234, 254 ;
+  --t-muted: rgba(219,234,254,.66);
+  --t-text-inverse: #ffffff;
+  --t-tertiary-color: color-mix(in srgb, var(--t-body-color) 52%, transparent);
+  --t-quaternary-color: color-mix(in srgb, var(--t-body-color) 34%, transparent);
+
+  --t-success: #34d399;
+  --t-success-rgb: 52, 211, 153;
+  --t-success-soft: rgba(52, 211, 153, 0.14);
+  --t-success-text: color-mix(in srgb, #34d399 76%, var(--t-heading-color) 24%);
+  --t-success-border: rgba(52, 211, 153, 0.44);
+
+  --t-danger: #fb7185;
+  --t-danger-rgb: 251, 113, 133;
+  --t-danger-soft: rgba(251, 113, 133, 0.14);
+  --t-danger-text: color-mix(in srgb, #fb7185 76%, var(--t-heading-color) 24%);
+  --t-danger-border: rgba(251, 113, 133, 0.44);
+
+  --t-warning: #fbbf24;
+  --t-warning-rgb: 251, 191, 36;
+  --t-warning-soft: rgba(251, 191, 36, 0.14);
+  --t-warning-text: color-mix(in srgb, #fbbf24 76%, var(--t-heading-color) 24%);
+  --t-warning-border: rgba(251, 191, 36, 0.44);
+
+  --t-info: #22d3ee;
+  --t-info-rgb: 34, 211, 238;
+  --t-info-soft: rgba(34, 211, 238, 0.14);
+  --t-info-text: color-mix(in srgb, var(--t-info) 76%, var(--t-heading-color) 24%);
+  --t-info-border: rgba(34, 211, 238, 0.44);
+
+  --t-sidebar-bg: var(--t-secondary);
+  --t-sidebar-hover: var(--t-secondary-hover);
+  --t-nav-color: var(--t-heading-color);
+  --t-header-bg: var(--t-dominant-soft);
+  --t-header-border: var(--t-dominant-border);
+  --t-content-bg: var(--t-dominant);
+  --t-card-bg: var(--t-dominant-soft);
+  --t-card-border: var(--t-dominant-border);
+  --t-card-hover: var(--t-dominant-hover);
+  --t-footer-bg: var(--t-dominant-soft);
+  --t-footer-border: var(--t-dominant-border);
+  --t-input-bg: color-mix(in srgb, var(--t-dominant-soft) 86%, transparent);
+  --t-input-border: var(--t-dominant-border);
+  --t-input-focus: var(--t-accent-hover);
+  --t-btn-border: rgba(0, 122, 204, 0.28);
+  --t-divider: var(--t-dominant-border);
+
+  --t-focus-ring: var(--t-accent-hover);
+  --t-focus-ring-soft: rgba(34, 211, 238, 0.18);
+  --t-focus-ring-contrast: var(--t-accent-text);
+  --t-focus-ring-offset: 2px;
+  --t-focus-ring-offset-focus: 3px;
+  --t-focus-ring-width: 3px;
+  --t-focus-ring-opacity: .55;
+
+  --t-shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.42);
+  --t-shadow-sm: 0 4px 10px rgba(0, 0, 0, 0.50);
+  --t-shadow: 0 12px 28px rgba(0, 0, 0, 0.58);
+  --t-shadow-md: 0 18px 40px rgba(0, 0, 0, 0.64);
+  --t-shadow-lg: 0 24px 56px rgba(0, 0, 0, 0.70);
+  --t-shadow-xl: 0 32px 80px rgba(0, 0, 0, 0.76);
+  --t-overlay: rgba(3, 7, 18, .78);
+  --t-overlay-light: rgba(3, 7, 18, .52);
+  --t-glass-bg: rgba(1,22,39,.72);
+  --t-glass-border: var(--t-dominant-border);
+  --t-glass-blur: blur(16px);
+
+  --t-gradient-primary: linear-gradient(135deg, var(--t-accent) 0%, var(--t-accent-hover) 52%, var(--t-accent-active) 100%);
+  --t-gradient-surface: linear-gradient(135deg, var(--t-dominant) 0%, var(--t-dominant-soft) 48%, var(--t-secondary) 100%);
+  --t-gradient-muted: linear-gradient(135deg, var(--t-muted), var(--t-dominant-hover));
+
+  --bs-body-bg: var(--t-dominant);
+  --bs-body-color: var(--t-body-color);
+  --bs-body-bg-rgb: var(--t-dominant-rgb);
+  --bs-body-color-rgb: var(--t-body-rgb);
+  --bs-emphasis-color: var(--t-heading-color);
+  --bs-primary: var(--t-accent);
+  --bs-primary-rgb: var(--t-accent-rgb);
+  --bs-link-color: var(--t-accent);
+  --bs-link-color-rgb: var(--t-accent-rgb);
+  --bs-link-hover-color: var(--t-accent-hover);
+  --bs-link-hover-color-rgb: var(--t-accent-hover-rgb);
+  --bs-border-color: var(--t-dominant-border);
+  --bs-border-color-translucent: var(--t-dominant-border);
+  --bs-focus-ring-width: var(--t-focus-ring-width);
+  --bs-focus-ring-opacity: var(--t-focus-ring-opacity);
+  --bs-focus-ring-color: var(--t-focus-ring-soft);
+}
+
+[data-theme="aws"] {
+  --t-dominant: #111827;
+  --t-dominant-rgb: 17, 24, 39;
+  --t-dominant-soft: #1f2937;
+  --t-dominant-soft-rgb: 31, 41, 55;
+  --t-dominant-border: rgba(255,153,0,.22);
+  --t-dominant-hover: color-mix(in srgb, var(--t-dominant-soft) 88%, var(--t-accent) 12%);
+  --t-dominant-active: color-mix(in srgb, var(--t-dominant-soft) 78%, var(--t-accent) 22%);
+
+  --t-secondary: #232f3e;
+  --t-secondary-rgb: 35, 47, 62;
+  --t-secondary-soft: rgba(35, 47, 62, 0.10);
+  --t-secondary-text: #f9fafb;
+  --t-secondary-muted: rgba(243,244,246,.66);
+  --t-secondary-hover: color-mix(in srgb, var(--t-secondary) 86%, var(--t-accent) 14%);
+  --t-secondary-active: rgba(255, 153, 0, 0.20);
+  --t-secondary-border: rgba(255,153,0,.22);
+
+  --t-accent: #ff9900;
+  --t-accent-rgb: 255, 153, 0;
+  --t-accent-hover: #fbbf24;
+  --t-accent-hover-rgb: 251, 191, 36;
+  --t-accent-active: #38bdf8;
+  --t-accent-active-rgb: 56, 189, 248;
+  --t-accent-dark: color-mix(in srgb, var(--t-accent) 74%, #000000 26%);
+  --t-accent-light: color-mix(in srgb, var(--t-accent) 62%, #ffffff 38%);
+  --t-accent-soft: rgba(255, 153, 0, 0.14);
+  --t-accent-text: #111827;
+  --t-accent-subtle-text: color-mix(in srgb, var(--t-accent) 76%, var(--t-heading-color) 24%);
+  --t-accent-focus-ring-opacity: .52;
+
+  --t-heading-color: #f9fafb;
+  --t-body-color: #f3f4f6;
+  --t-body-rgb: 243, 244, 246 ;
+  --t-muted: rgba(243,244,246,.66);
+  --t-text-inverse: #ffffff;
+  --t-tertiary-color: color-mix(in srgb, var(--t-body-color) 52%, transparent);
+  --t-quaternary-color: color-mix(in srgb, var(--t-body-color) 34%, transparent);
+
+  --t-success: #34d399;
+  --t-success-rgb: 52, 211, 153;
+  --t-success-soft: rgba(52, 211, 153, 0.14);
+  --t-success-text: color-mix(in srgb, #34d399 76%, var(--t-heading-color) 24%);
+  --t-success-border: rgba(52, 211, 153, 0.44);
+
+  --t-danger: #fb7185;
+  --t-danger-rgb: 251, 113, 133;
+  --t-danger-soft: rgba(251, 113, 133, 0.14);
+  --t-danger-text: color-mix(in srgb, #fb7185 76%, var(--t-heading-color) 24%);
+  --t-danger-border: rgba(251, 113, 133, 0.44);
+
+  --t-warning: #fbbf24;
+  --t-warning-rgb: 251, 191, 36;
+  --t-warning-soft: rgba(251, 191, 36, 0.14);
+  --t-warning-text: color-mix(in srgb, #fbbf24 76%, var(--t-heading-color) 24%);
+  --t-warning-border: rgba(251, 191, 36, 0.44);
+
+  --t-info: #fbbf24;
+  --t-info-rgb: 251, 191, 36;
+  --t-info-soft: rgba(251, 191, 36, 0.14);
+  --t-info-text: color-mix(in srgb, var(--t-info) 76%, var(--t-heading-color) 24%);
+  --t-info-border: rgba(251, 191, 36, 0.44);
+
+  --t-sidebar-bg: var(--t-secondary);
+  --t-sidebar-hover: var(--t-secondary-hover);
+  --t-nav-color: var(--t-heading-color);
+  --t-header-bg: var(--t-dominant-soft);
+  --t-header-border: var(--t-dominant-border);
+  --t-content-bg: var(--t-dominant);
+  --t-card-bg: var(--t-dominant-soft);
+  --t-card-border: var(--t-dominant-border);
+  --t-card-hover: var(--t-dominant-hover);
+  --t-footer-bg: var(--t-dominant-soft);
+  --t-footer-border: var(--t-dominant-border);
+  --t-input-bg: color-mix(in srgb, var(--t-dominant-soft) 86%, transparent);
+  --t-input-border: var(--t-dominant-border);
+  --t-input-focus: var(--t-accent-hover);
+  --t-btn-border: rgba(255, 153, 0, 0.28);
+  --t-divider: var(--t-dominant-border);
+
+  --t-focus-ring: var(--t-accent-hover);
+  --t-focus-ring-soft: rgba(251, 191, 36, 0.18);
+  --t-focus-ring-contrast: var(--t-accent-text);
+  --t-focus-ring-offset: 2px;
+  --t-focus-ring-offset-focus: 3px;
+  --t-focus-ring-width: 3px;
+  --t-focus-ring-opacity: .55;
+
+  --t-shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.42);
+  --t-shadow-sm: 0 4px 10px rgba(0, 0, 0, 0.50);
+  --t-shadow: 0 12px 28px rgba(0, 0, 0, 0.58);
+  --t-shadow-md: 0 18px 40px rgba(0, 0, 0, 0.64);
+  --t-shadow-lg: 0 24px 56px rgba(0, 0, 0, 0.70);
+  --t-shadow-xl: 0 32px 80px rgba(0, 0, 0, 0.76);
+  --t-overlay: rgba(3, 7, 18, .78);
+  --t-overlay-light: rgba(3, 7, 18, .52);
+  --t-glass-bg: rgba(17,24,39,.72);
+  --t-glass-border: var(--t-dominant-border);
+  --t-glass-blur: blur(16px);
+
+  --t-gradient-primary: linear-gradient(135deg, var(--t-accent) 0%, var(--t-accent-hover) 52%, var(--t-accent-active) 100%);
+  --t-gradient-surface: linear-gradient(135deg, var(--t-dominant) 0%, var(--t-dominant-soft) 48%, var(--t-secondary) 100%);
+  --t-gradient-muted: linear-gradient(135deg, var(--t-muted), var(--t-dominant-hover));
+
+  --bs-body-bg: var(--t-dominant);
+  --bs-body-color: var(--t-body-color);
+  --bs-body-bg-rgb: var(--t-dominant-rgb);
+  --bs-body-color-rgb: var(--t-body-rgb);
+  --bs-emphasis-color: var(--t-heading-color);
+  --bs-primary: var(--t-accent);
+  --bs-primary-rgb: var(--t-accent-rgb);
+  --bs-link-color: var(--t-accent);
+  --bs-link-color-rgb: var(--t-accent-rgb);
+  --bs-link-hover-color: var(--t-accent-hover);
+  --bs-link-hover-color-rgb: var(--t-accent-hover-rgb);
+  --bs-border-color: var(--t-dominant-border);
+  --bs-border-color-translucent: var(--t-dominant-border);
+  --bs-focus-ring-width: var(--t-focus-ring-width);
+  --bs-focus-ring-opacity: var(--t-focus-ring-opacity);
+  --bs-focus-ring-color: var(--t-focus-ring-soft);
+}
+
+[data-theme="royal"] {
+  --t-dominant: #fbf7ff;
+  --t-dominant-rgb: 251, 247, 255;
+  --t-dominant-soft: #ffffff;
+  --t-dominant-soft-rgb: 255, 255, 255;
+  --t-dominant-border: rgba(147,51,234,.18);
+  --t-dominant-hover: color-mix(in srgb, var(--t-dominant-soft) 88%, var(--t-accent) 12%);
+  --t-dominant-active: color-mix(in srgb, var(--t-dominant-soft) 78%, var(--t-accent) 22%);
+
+  --t-secondary: #f3e8ff;
+  --t-secondary-rgb: 243, 232, 255;
+  --t-secondary-soft: rgba(243, 232, 255, 0.10);
+  --t-secondary-text: #2e1065;
+  --t-secondary-muted: #7e22ce;
+  --t-secondary-hover: color-mix(in srgb, var(--t-secondary) 86%, var(--t-accent) 14%);
+  --t-secondary-active: rgba(147, 51, 234, 0.20);
+  --t-secondary-border: rgba(147,51,234,.18);
+
+  --t-accent: #9333ea;
+  --t-accent-rgb: 147, 51, 234;
+  --t-accent-hover: #c084fc;
+  --t-accent-hover-rgb: 192, 132, 252;
+  --t-accent-active: #f59e0b;
+  --t-accent-active-rgb: 245, 158, 11;
+  --t-accent-dark: color-mix(in srgb, var(--t-accent) 74%, #000000 26%);
+  --t-accent-light: color-mix(in srgb, var(--t-accent) 62%, #ffffff 38%);
+  --t-accent-soft: rgba(147, 51, 234, 0.14);
+  --t-accent-text: #ffffff;
+  --t-accent-subtle-text: color-mix(in srgb, var(--t-accent) 76%, var(--t-heading-color) 24%);
+  --t-accent-focus-ring-opacity: .32;
+
+  --t-heading-color: #2e1065;
+  --t-body-color: #3b0764;
+  --t-body-rgb: 59, 7, 100 ;
+  --t-muted: #7e22ce;
+  --t-text-inverse: #0f172a;
+  --t-tertiary-color: color-mix(in srgb, var(--t-body-color) 52%, transparent);
+  --t-quaternary-color: color-mix(in srgb, var(--t-body-color) 34%, transparent);
+
+  --t-success: #34d399;
+  --t-success-rgb: 52, 211, 153;
+  --t-success-soft: rgba(52, 211, 153, 0.14);
+  --t-success-text: color-mix(in srgb, #34d399 76%, var(--t-heading-color) 24%);
+  --t-success-border: rgba(52, 211, 153, 0.44);
+
+  --t-danger: #fb7185;
+  --t-danger-rgb: 251, 113, 133;
+  --t-danger-soft: rgba(251, 113, 133, 0.14);
+  --t-danger-text: color-mix(in srgb, #fb7185 76%, var(--t-heading-color) 24%);
+  --t-danger-border: rgba(251, 113, 133, 0.44);
+
+  --t-warning: #fbbf24;
+  --t-warning-rgb: 251, 191, 36;
+  --t-warning-soft: rgba(251, 191, 36, 0.14);
+  --t-warning-text: color-mix(in srgb, #fbbf24 76%, var(--t-heading-color) 24%);
+  --t-warning-border: rgba(251, 191, 36, 0.44);
+
+  --t-info: #c084fc;
+  --t-info-rgb: 192, 132, 252;
+  --t-info-soft: rgba(192, 132, 252, 0.14);
+  --t-info-text: color-mix(in srgb, var(--t-info) 76%, var(--t-heading-color) 24%);
+  --t-info-border: rgba(192, 132, 252, 0.44);
+
+  --t-sidebar-bg: var(--t-secondary);
+  --t-sidebar-hover: var(--t-secondary-hover);
+  --t-nav-color: var(--t-heading-color);
+  --t-header-bg: var(--t-dominant-soft);
+  --t-header-border: var(--t-dominant-border);
+  --t-content-bg: var(--t-dominant);
+  --t-card-bg: var(--t-dominant-soft);
+  --t-card-border: var(--t-dominant-border);
+  --t-card-hover: var(--t-dominant-hover);
+  --t-footer-bg: var(--t-dominant-soft);
+  --t-footer-border: var(--t-dominant-border);
+  --t-input-bg: color-mix(in srgb, var(--t-dominant-soft) 86%, transparent);
+  --t-input-border: var(--t-dominant-border);
+  --t-input-focus: var(--t-accent-hover);
+  --t-btn-border: rgba(147, 51, 234, 0.28);
+  --t-divider: var(--t-dominant-border);
+
+  --t-focus-ring: var(--t-accent-hover);
+  --t-focus-ring-soft: rgba(192, 132, 252, 0.18);
+  --t-focus-ring-contrast: var(--t-accent-text);
+  --t-focus-ring-offset: 2px;
+  --t-focus-ring-offset-focus: 3px;
+  --t-focus-ring-width: 3px;
+  --t-focus-ring-opacity: .34;
+
+  --t-shadow-xs: 0 1px 2px rgba(15, 23, 42, 0.10);
+  --t-shadow-sm: 0 4px 10px rgba(15, 23, 42, 0.12);
+  --t-shadow: 0 12px 28px rgba(15, 23, 42, 0.14);
+  --t-shadow-md: 0 18px 40px rgba(15, 23, 42, 0.16);
+  --t-shadow-lg: 0 24px 56px rgba(15, 23, 42, 0.18);
+  --t-shadow-xl: 0 32px 80px rgba(15, 23, 42, 0.22);
+  --t-overlay: rgba(3, 7, 18, .48);
+  --t-overlay-light: rgba(3, 7, 18, .24);
+  --t-glass-bg: rgba(255,255,255,.74);
+  --t-glass-border: var(--t-dominant-border);
+  --t-glass-blur: blur(16px);
+
+  --t-gradient-primary: linear-gradient(135deg, var(--t-accent) 0%, var(--t-accent-hover) 52%, var(--t-accent-active) 100%);
+  --t-gradient-surface: linear-gradient(135deg, var(--t-dominant) 0%, var(--t-dominant-soft) 48%, var(--t-secondary) 100%);
+  --t-gradient-muted: linear-gradient(135deg, var(--t-muted), var(--t-dominant-hover));
+
+  --bs-body-bg: var(--t-dominant);
+  --bs-body-color: var(--t-body-color);
+  --bs-body-bg-rgb: var(--t-dominant-rgb);
+  --bs-body-color-rgb: var(--t-body-rgb);
+  --bs-emphasis-color: var(--t-heading-color);
+  --bs-primary: var(--t-accent);
+  --bs-primary-rgb: var(--t-accent-rgb);
+  --bs-link-color: var(--t-accent);
+  --bs-link-color-rgb: var(--t-accent-rgb);
+  --bs-link-hover-color: var(--t-accent-hover);
+  --bs-link-hover-color-rgb: var(--t-accent-hover-rgb);
+  --bs-border-color: var(--t-dominant-border);
+  --bs-border-color-translucent: var(--t-dominant-border);
+  --bs-focus-ring-width: var(--t-focus-ring-width);
+  --bs-focus-ring-opacity: var(--t-focus-ring-opacity);
+  --bs-focus-ring-color: var(--t-focus-ring-soft);
+}
+
+[data-theme="spotify"] {
+  --t-dominant: #08110c;
+  --t-dominant-rgb: 8, 17, 12;
+  --t-dominant-soft: #121f16;
+  --t-dominant-soft-rgb: 18, 31, 22;
+  --t-dominant-border: rgba(29,185,84,.22);
+  --t-dominant-hover: color-mix(in srgb, var(--t-dominant-soft) 88%, var(--t-accent) 12%);
+  --t-dominant-active: color-mix(in srgb, var(--t-dominant-soft) 78%, var(--t-accent) 22%);
+
+  --t-secondary: #17251b;
+  --t-secondary-rgb: 23, 37, 27;
+  --t-secondary-soft: rgba(23, 37, 27, 0.10);
+  --t-secondary-text: #f0fdf4;
+  --t-secondary-muted: rgba(220,252,231,.66);
+  --t-secondary-hover: color-mix(in srgb, var(--t-secondary) 86%, var(--t-accent) 14%);
+  --t-secondary-active: rgba(29, 185, 84, 0.20);
+  --t-secondary-border: rgba(29,185,84,.22);
+
+  --t-accent: #1db954;
+  --t-accent-rgb: 29, 185, 84;
+  --t-accent-hover: #34d399;
+  --t-accent-hover-rgb: 52, 211, 153;
+  --t-accent-active: #22c55e;
+  --t-accent-active-rgb: 34, 197, 94;
+  --t-accent-dark: color-mix(in srgb, var(--t-accent) 74%, #000000 26%);
+  --t-accent-light: color-mix(in srgb, var(--t-accent) 62%, #ffffff 38%);
+  --t-accent-soft: rgba(29, 185, 84, 0.14);
+  --t-accent-text: #06130b;
+  --t-accent-subtle-text: color-mix(in srgb, var(--t-accent) 76%, var(--t-heading-color) 24%);
+  --t-accent-focus-ring-opacity: .52;
+
+  --t-heading-color: #f0fdf4;
+  --t-body-color: #dcfce7;
+  --t-body-rgb: 220, 252, 231 ;
+  --t-muted: rgba(220,252,231,.66);
+  --t-text-inverse: #ffffff;
+  --t-tertiary-color: color-mix(in srgb, var(--t-body-color) 52%, transparent);
+  --t-quaternary-color: color-mix(in srgb, var(--t-body-color) 34%, transparent);
+
+  --t-success: #34d399;
+  --t-success-rgb: 52, 211, 153;
+  --t-success-soft: rgba(52, 211, 153, 0.14);
+  --t-success-text: color-mix(in srgb, #34d399 76%, var(--t-heading-color) 24%);
+  --t-success-border: rgba(52, 211, 153, 0.44);
+
+  --t-danger: #fb7185;
+  --t-danger-rgb: 251, 113, 133;
+  --t-danger-soft: rgba(251, 113, 133, 0.14);
+  --t-danger-text: color-mix(in srgb, #fb7185 76%, var(--t-heading-color) 24%);
+  --t-danger-border: rgba(251, 113, 133, 0.44);
+
+  --t-warning: #fbbf24;
+  --t-warning-rgb: 251, 191, 36;
+  --t-warning-soft: rgba(251, 191, 36, 0.14);
+  --t-warning-text: color-mix(in srgb, #fbbf24 76%, var(--t-heading-color) 24%);
+  --t-warning-border: rgba(251, 191, 36, 0.44);
+
+  --t-info: #34d399;
+  --t-info-rgb: 52, 211, 153;
+  --t-info-soft: rgba(52, 211, 153, 0.14);
+  --t-info-text: color-mix(in srgb, var(--t-info) 76%, var(--t-heading-color) 24%);
+  --t-info-border: rgba(52, 211, 153, 0.44);
+
+  --t-sidebar-bg: var(--t-secondary);
+  --t-sidebar-hover: var(--t-secondary-hover);
+  --t-nav-color: var(--t-heading-color);
+  --t-header-bg: var(--t-dominant-soft);
+  --t-header-border: var(--t-dominant-border);
+  --t-content-bg: var(--t-dominant);
+  --t-card-bg: var(--t-dominant-soft);
+  --t-card-border: var(--t-dominant-border);
+  --t-card-hover: var(--t-dominant-hover);
+  --t-footer-bg: var(--t-dominant-soft);
+  --t-footer-border: var(--t-dominant-border);
+  --t-input-bg: color-mix(in srgb, var(--t-dominant-soft) 86%, transparent);
+  --t-input-border: var(--t-dominant-border);
+  --t-input-focus: var(--t-accent-hover);
+  --t-btn-border: rgba(29, 185, 84, 0.28);
+  --t-divider: var(--t-dominant-border);
+
+  --t-focus-ring: var(--t-accent-hover);
+  --t-focus-ring-soft: rgba(52, 211, 153, 0.18);
+  --t-focus-ring-contrast: var(--t-accent-text);
+  --t-focus-ring-offset: 2px;
+  --t-focus-ring-offset-focus: 3px;
+  --t-focus-ring-width: 3px;
+  --t-focus-ring-opacity: .55;
+
+  --t-shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.42);
+  --t-shadow-sm: 0 4px 10px rgba(0, 0, 0, 0.50);
+  --t-shadow: 0 12px 28px rgba(0, 0, 0, 0.58);
+  --t-shadow-md: 0 18px 40px rgba(0, 0, 0, 0.64);
+  --t-shadow-lg: 0 24px 56px rgba(0, 0, 0, 0.70);
+  --t-shadow-xl: 0 32px 80px rgba(0, 0, 0, 0.76);
+  --t-overlay: rgba(3, 7, 18, .78);
+  --t-overlay-light: rgba(3, 7, 18, .52);
+  --t-glass-bg: rgba(8,17,12,.72);
+  --t-glass-border: var(--t-dominant-border);
+  --t-glass-blur: blur(16px);
+
+  --t-gradient-primary: linear-gradient(135deg, var(--t-accent) 0%, var(--t-accent-hover) 52%, var(--t-accent-active) 100%);
+  --t-gradient-surface: linear-gradient(135deg, var(--t-dominant) 0%, var(--t-dominant-soft) 48%, var(--t-secondary) 100%);
+  --t-gradient-muted: linear-gradient(135deg, var(--t-muted), var(--t-dominant-hover));
+
+  --bs-body-bg: var(--t-dominant);
+  --bs-body-color: var(--t-body-color);
+  --bs-body-bg-rgb: var(--t-dominant-rgb);
+  --bs-body-color-rgb: var(--t-body-rgb);
+  --bs-emphasis-color: var(--t-heading-color);
+  --bs-primary: var(--t-accent);
+  --bs-primary-rgb: var(--t-accent-rgb);
+  --bs-link-color: var(--t-accent);
+  --bs-link-color-rgb: var(--t-accent-rgb);
+  --bs-link-hover-color: var(--t-accent-hover);
+  --bs-link-hover-color-rgb: var(--t-accent-hover-rgb);
+  --bs-border-color: var(--t-dominant-border);
+  --bs-border-color-translucent: var(--t-dominant-border);
+  --bs-focus-ring-width: var(--t-focus-ring-width);
+  --bs-focus-ring-opacity: var(--t-focus-ring-opacity);
+  --bs-focus-ring-color: var(--t-focus-ring-soft);
+}
+
+[data-theme="figma"] {
+  --t-dominant: #ffffff;
+  --t-dominant-rgb: 255, 255, 255;
+  --t-dominant-soft: #faf5ff;
+  --t-dominant-soft-rgb: 250, 245, 255;
+  --t-dominant-border: rgba(162,89,255,.18);
+  --t-dominant-hover: color-mix(in srgb, var(--t-dominant-soft) 88%, var(--t-accent) 12%);
+  --t-dominant-active: color-mix(in srgb, var(--t-dominant-soft) 78%, var(--t-accent) 22%);
+
+  --t-secondary: #f5f3ff;
+  --t-secondary-rgb: 245, 243, 255;
+  --t-secondary-soft: rgba(245, 243, 255, 0.10);
+  --t-secondary-text: #18181b;
+  --t-secondary-muted: #71717a;
+  --t-secondary-hover: color-mix(in srgb, var(--t-secondary) 86%, var(--t-accent) 14%);
+  --t-secondary-active: rgba(162, 89, 255, 0.20);
+  --t-secondary-border: rgba(162,89,255,.18);
+
+  --t-accent: #a259ff;
+  --t-accent-rgb: 162, 89, 255;
+  --t-accent-hover: #f24e1e;
+  --t-accent-hover-rgb: 242, 78, 30;
+  --t-accent-active: #1abcfe;
+  --t-accent-active-rgb: 26, 188, 254;
+  --t-accent-dark: color-mix(in srgb, var(--t-accent) 74%, #000000 26%);
+  --t-accent-light: color-mix(in srgb, var(--t-accent) 62%, #ffffff 38%);
+  --t-accent-soft: rgba(162, 89, 255, 0.14);
+  --t-accent-text: #ffffff;
+  --t-accent-subtle-text: color-mix(in srgb, var(--t-accent) 76%, var(--t-heading-color) 24%);
+  --t-accent-focus-ring-opacity: .32;
+
+  --t-heading-color: #18181b;
+  --t-body-color: #27272a;
+  --t-body-rgb: 39, 39, 42 ;
+  --t-muted: #71717a;
+  --t-text-inverse: #0f172a;
+  --t-tertiary-color: color-mix(in srgb, var(--t-body-color) 52%, transparent);
+  --t-quaternary-color: color-mix(in srgb, var(--t-body-color) 34%, transparent);
+
+  --t-success: #34d399;
+  --t-success-rgb: 52, 211, 153;
+  --t-success-soft: rgba(52, 211, 153, 0.14);
+  --t-success-text: color-mix(in srgb, #34d399 76%, var(--t-heading-color) 24%);
+  --t-success-border: rgba(52, 211, 153, 0.44);
+
+  --t-danger: #fb7185;
+  --t-danger-rgb: 251, 113, 133;
+  --t-danger-soft: rgba(251, 113, 133, 0.14);
+  --t-danger-text: color-mix(in srgb, #fb7185 76%, var(--t-heading-color) 24%);
+  --t-danger-border: rgba(251, 113, 133, 0.44);
+
+  --t-warning: #fbbf24;
+  --t-warning-rgb: 251, 191, 36;
+  --t-warning-soft: rgba(251, 191, 36, 0.14);
+  --t-warning-text: color-mix(in srgb, #fbbf24 76%, var(--t-heading-color) 24%);
+  --t-warning-border: rgba(251, 191, 36, 0.44);
+
+  --t-info: #f24e1e;
+  --t-info-rgb: 242, 78, 30;
+  --t-info-soft: rgba(242, 78, 30, 0.14);
+  --t-info-text: color-mix(in srgb, var(--t-info) 76%, var(--t-heading-color) 24%);
+  --t-info-border: rgba(242, 78, 30, 0.44);
+
+  --t-sidebar-bg: var(--t-secondary);
+  --t-sidebar-hover: var(--t-secondary-hover);
+  --t-nav-color: var(--t-heading-color);
+  --t-header-bg: var(--t-dominant-soft);
+  --t-header-border: var(--t-dominant-border);
+  --t-content-bg: var(--t-dominant);
+  --t-card-bg: var(--t-dominant-soft);
+  --t-card-border: var(--t-dominant-border);
+  --t-card-hover: var(--t-dominant-hover);
+  --t-footer-bg: var(--t-dominant-soft);
+  --t-footer-border: var(--t-dominant-border);
+  --t-input-bg: color-mix(in srgb, var(--t-dominant-soft) 86%, transparent);
+  --t-input-border: var(--t-dominant-border);
+  --t-input-focus: var(--t-accent-hover);
+  --t-btn-border: rgba(162, 89, 255, 0.28);
+  --t-divider: var(--t-dominant-border);
+
+  --t-focus-ring: var(--t-accent-hover);
+  --t-focus-ring-soft: rgba(242, 78, 30, 0.18);
+  --t-focus-ring-contrast: var(--t-accent-text);
+  --t-focus-ring-offset: 2px;
+  --t-focus-ring-offset-focus: 3px;
+  --t-focus-ring-width: 3px;
+  --t-focus-ring-opacity: .34;
+
+  --t-shadow-xs: 0 1px 2px rgba(15, 23, 42, 0.10);
+  --t-shadow-sm: 0 4px 10px rgba(15, 23, 42, 0.12);
+  --t-shadow: 0 12px 28px rgba(15, 23, 42, 0.14);
+  --t-shadow-md: 0 18px 40px rgba(15, 23, 42, 0.16);
+  --t-shadow-lg: 0 24px 56px rgba(15, 23, 42, 0.18);
+  --t-shadow-xl: 0 32px 80px rgba(15, 23, 42, 0.22);
+  --t-overlay: rgba(3, 7, 18, .48);
+  --t-overlay-light: rgba(3, 7, 18, .24);
+  --t-glass-bg: rgba(255,255,255,.74);
+  --t-glass-border: var(--t-dominant-border);
+  --t-glass-blur: blur(16px);
+
+  --t-gradient-primary: linear-gradient(135deg, var(--t-accent) 0%, var(--t-accent-hover) 52%, var(--t-accent-active) 100%);
+  --t-gradient-surface: linear-gradient(135deg, var(--t-dominant) 0%, var(--t-dominant-soft) 48%, var(--t-secondary) 100%);
+  --t-gradient-muted: linear-gradient(135deg, var(--t-muted), var(--t-dominant-hover));
+
+  --bs-body-bg: var(--t-dominant);
+  --bs-body-color: var(--t-body-color);
+  --bs-body-bg-rgb: var(--t-dominant-rgb);
+  --bs-body-color-rgb: var(--t-body-rgb);
+  --bs-emphasis-color: var(--t-heading-color);
+  --bs-primary: var(--t-accent);
+  --bs-primary-rgb: var(--t-accent-rgb);
+  --bs-link-color: var(--t-accent);
+  --bs-link-color-rgb: var(--t-accent-rgb);
+  --bs-link-hover-color: var(--t-accent-hover);
+  --bs-link-hover-color-rgb: var(--t-accent-hover-rgb);
+  --bs-border-color: var(--t-dominant-border);
+  --bs-border-color-translucent: var(--t-dominant-border);
+  --bs-focus-ring-width: var(--t-focus-ring-width);
+  --bs-focus-ring-opacity: var(--t-focus-ring-opacity);
+  --bs-focus-ring-color: var(--t-focus-ring-soft);
+}
+
+[data-theme="slack"] {
+  --t-dominant: #fff7ff;
+  --t-dominant-rgb: 255, 247, 255;
+  --t-dominant-soft: #ffffff;
+  --t-dominant-soft-rgb: 255, 255, 255;
+  --t-dominant-border: rgba(97,31,105,.18);
+  --t-dominant-hover: color-mix(in srgb, var(--t-dominant-soft) 88%, var(--t-accent) 12%);
+  --t-dominant-active: color-mix(in srgb, var(--t-dominant-soft) 78%, var(--t-accent) 22%);
+
+  --t-secondary: #f4eaf5;
+  --t-secondary-rgb: 244, 234, 245;
+  --t-secondary-soft: rgba(244, 234, 245, 0.10);
+  --t-secondary-text: #1d1c1d;
+  --t-secondary-muted: #616061;
+  --t-secondary-hover: color-mix(in srgb, var(--t-secondary) 86%, var(--t-accent) 14%);
+  --t-secondary-active: rgba(97, 31, 105, 0.20);
+  --t-secondary-border: rgba(97,31,105,.18);
+
+  --t-accent: #611f69;
+  --t-accent-rgb: 97, 31, 105;
+  --t-accent-hover: #36c5f0;
+  --t-accent-hover-rgb: 54, 197, 240;
+  --t-accent-active: #ecb22e;
+  --t-accent-active-rgb: 236, 178, 46;
+  --t-accent-dark: color-mix(in srgb, var(--t-accent) 74%, #000000 26%);
+  --t-accent-light: color-mix(in srgb, var(--t-accent) 62%, #ffffff 38%);
+  --t-accent-soft: rgba(97, 31, 105, 0.14);
+  --t-accent-text: #ffffff;
+  --t-accent-subtle-text: color-mix(in srgb, var(--t-accent) 76%, var(--t-heading-color) 24%);
+  --t-accent-focus-ring-opacity: .32;
+
+  --t-heading-color: #1d1c1d;
+  --t-body-color: #1d1c1d;
+  --t-body-rgb: 29, 28, 29 ;
+  --t-muted: #616061;
+  --t-text-inverse: #0f172a;
+  --t-tertiary-color: color-mix(in srgb, var(--t-body-color) 52%, transparent);
+  --t-quaternary-color: color-mix(in srgb, var(--t-body-color) 34%, transparent);
+
+  --t-success: #34d399;
+  --t-success-rgb: 52, 211, 153;
+  --t-success-soft: rgba(52, 211, 153, 0.14);
+  --t-success-text: color-mix(in srgb, #34d399 76%, var(--t-heading-color) 24%);
+  --t-success-border: rgba(52, 211, 153, 0.44);
+
+  --t-danger: #fb7185;
+  --t-danger-rgb: 251, 113, 133;
+  --t-danger-soft: rgba(251, 113, 133, 0.14);
+  --t-danger-text: color-mix(in srgb, #fb7185 76%, var(--t-heading-color) 24%);
+  --t-danger-border: rgba(251, 113, 133, 0.44);
+
+  --t-warning: #fbbf24;
+  --t-warning-rgb: 251, 191, 36;
+  --t-warning-soft: rgba(251, 191, 36, 0.14);
+  --t-warning-text: color-mix(in srgb, #fbbf24 76%, var(--t-heading-color) 24%);
+  --t-warning-border: rgba(251, 191, 36, 0.44);
+
+  --t-info: #36c5f0;
+  --t-info-rgb: 54, 197, 240;
+  --t-info-soft: rgba(54, 197, 240, 0.14);
+  --t-info-text: color-mix(in srgb, var(--t-info) 76%, var(--t-heading-color) 24%);
+  --t-info-border: rgba(54, 197, 240, 0.44);
+
+  --t-sidebar-bg: var(--t-secondary);
+  --t-sidebar-hover: var(--t-secondary-hover);
+  --t-nav-color: var(--t-heading-color);
+  --t-header-bg: var(--t-dominant-soft);
+  --t-header-border: var(--t-dominant-border);
+  --t-content-bg: var(--t-dominant);
+  --t-card-bg: var(--t-dominant-soft);
+  --t-card-border: var(--t-dominant-border);
+  --t-card-hover: var(--t-dominant-hover);
+  --t-footer-bg: var(--t-dominant-soft);
+  --t-footer-border: var(--t-dominant-border);
+  --t-input-bg: color-mix(in srgb, var(--t-dominant-soft) 86%, transparent);
+  --t-input-border: var(--t-dominant-border);
+  --t-input-focus: var(--t-accent-hover);
+  --t-btn-border: rgba(97, 31, 105, 0.28);
+  --t-divider: var(--t-dominant-border);
+
+  --t-focus-ring: var(--t-accent-hover);
+  --t-focus-ring-soft: rgba(54, 197, 240, 0.18);
+  --t-focus-ring-contrast: var(--t-accent-text);
+  --t-focus-ring-offset: 2px;
+  --t-focus-ring-offset-focus: 3px;
+  --t-focus-ring-width: 3px;
+  --t-focus-ring-opacity: .34;
+
+  --t-shadow-xs: 0 1px 2px rgba(15, 23, 42, 0.10);
+  --t-shadow-sm: 0 4px 10px rgba(15, 23, 42, 0.12);
+  --t-shadow: 0 12px 28px rgba(15, 23, 42, 0.14);
+  --t-shadow-md: 0 18px 40px rgba(15, 23, 42, 0.16);
+  --t-shadow-lg: 0 24px 56px rgba(15, 23, 42, 0.18);
+  --t-shadow-xl: 0 32px 80px rgba(15, 23, 42, 0.22);
+  --t-overlay: rgba(3, 7, 18, .48);
+  --t-overlay-light: rgba(3, 7, 18, .24);
+  --t-glass-bg: rgba(255,255,255,.76);
+  --t-glass-border: var(--t-dominant-border);
+  --t-glass-blur: blur(16px);
+
+  --t-gradient-primary: linear-gradient(135deg, var(--t-accent) 0%, var(--t-accent-hover) 52%, var(--t-accent-active) 100%);
+  --t-gradient-surface: linear-gradient(135deg, var(--t-dominant) 0%, var(--t-dominant-soft) 48%, var(--t-secondary) 100%);
+  --t-gradient-muted: linear-gradient(135deg, var(--t-muted), var(--t-dominant-hover));
+
+  --bs-body-bg: var(--t-dominant);
+  --bs-body-color: var(--t-body-color);
+  --bs-body-bg-rgb: var(--t-dominant-rgb);
+  --bs-body-color-rgb: var(--t-body-rgb);
+  --bs-emphasis-color: var(--t-heading-color);
+  --bs-primary: var(--t-accent);
+  --bs-primary-rgb: var(--t-accent-rgb);
+  --bs-link-color: var(--t-accent);
+  --bs-link-color-rgb: var(--t-accent-rgb);
+  --bs-link-hover-color: var(--t-accent-hover);
+  --bs-link-hover-color-rgb: var(--t-accent-hover-rgb);
+  --bs-border-color: var(--t-dominant-border);
+  --bs-border-color-translucent: var(--t-dominant-border);
+  --bs-focus-ring-width: var(--t-focus-ring-width);
+  --bs-focus-ring-opacity: var(--t-focus-ring-opacity);
+  --bs-focus-ring-color: var(--t-focus-ring-soft);
+}
+
+[data-theme="airbnb"] {
+  --t-dominant: #fff7f8;
+  --t-dominant-rgb: 255, 247, 248;
+  --t-dominant-soft: #ffffff;
+  --t-dominant-soft-rgb: 255, 255, 255;
+  --t-dominant-border: rgba(255,90,95,.18);
+  --t-dominant-hover: color-mix(in srgb, var(--t-dominant-soft) 88%, var(--t-accent) 12%);
+  --t-dominant-active: color-mix(in srgb, var(--t-dominant-soft) 78%, var(--t-accent) 22%);
+
+  --t-secondary: #ffe4e6;
+  --t-secondary-rgb: 255, 228, 230;
+  --t-secondary-soft: rgba(255, 228, 230, 0.10);
+  --t-secondary-text: #222222;
+  --t-secondary-muted: #717171;
+  --t-secondary-hover: color-mix(in srgb, var(--t-secondary) 86%, var(--t-accent) 14%);
+  --t-secondary-active: rgba(255, 90, 95, 0.20);
+  --t-secondary-border: rgba(255,90,95,.18);
+
+  --t-accent: #ff5a5f;
+  --t-accent-rgb: 255, 90, 95;
+  --t-accent-hover: #ff385c;
+  --t-accent-hover-rgb: 255, 56, 92;
+  --t-accent-active: #f97316;
+  --t-accent-active-rgb: 249, 115, 22;
+  --t-accent-dark: color-mix(in srgb, var(--t-accent) 74%, #000000 26%);
+  --t-accent-light: color-mix(in srgb, var(--t-accent) 62%, #ffffff 38%);
+  --t-accent-soft: rgba(255, 90, 95, 0.14);
+  --t-accent-text: #ffffff;
+  --t-accent-subtle-text: color-mix(in srgb, var(--t-accent) 76%, var(--t-heading-color) 24%);
+  --t-accent-focus-ring-opacity: .32;
+
+  --t-heading-color: #222222;
+  --t-body-color: #222222;
+  --t-body-rgb: 34, 34, 34 ;
+  --t-muted: #717171;
+  --t-text-inverse: #0f172a;
+  --t-tertiary-color: color-mix(in srgb, var(--t-body-color) 52%, transparent);
+  --t-quaternary-color: color-mix(in srgb, var(--t-body-color) 34%, transparent);
+
+  --t-success: #34d399;
+  --t-success-rgb: 52, 211, 153;
+  --t-success-soft: rgba(52, 211, 153, 0.14);
+  --t-success-text: color-mix(in srgb, #34d399 76%, var(--t-heading-color) 24%);
+  --t-success-border: rgba(52, 211, 153, 0.44);
+
+  --t-danger: #fb7185;
+  --t-danger-rgb: 251, 113, 133;
+  --t-danger-soft: rgba(251, 113, 133, 0.14);
+  --t-danger-text: color-mix(in srgb, #fb7185 76%, var(--t-heading-color) 24%);
+  --t-danger-border: rgba(251, 113, 133, 0.44);
+
+  --t-warning: #fbbf24;
+  --t-warning-rgb: 251, 191, 36;
+  --t-warning-soft: rgba(251, 191, 36, 0.14);
+  --t-warning-text: color-mix(in srgb, #fbbf24 76%, var(--t-heading-color) 24%);
+  --t-warning-border: rgba(251, 191, 36, 0.44);
+
+  --t-info: #ff385c;
+  --t-info-rgb: 255, 56, 92;
+  --t-info-soft: rgba(255, 56, 92, 0.14);
+  --t-info-text: color-mix(in srgb, var(--t-info) 76%, var(--t-heading-color) 24%);
+  --t-info-border: rgba(255, 56, 92, 0.44);
+
+  --t-sidebar-bg: var(--t-secondary);
+  --t-sidebar-hover: var(--t-secondary-hover);
+  --t-nav-color: var(--t-heading-color);
+  --t-header-bg: var(--t-dominant-soft);
+  --t-header-border: var(--t-dominant-border);
+  --t-content-bg: var(--t-dominant);
+  --t-card-bg: var(--t-dominant-soft);
+  --t-card-border: var(--t-dominant-border);
+  --t-card-hover: var(--t-dominant-hover);
+  --t-footer-bg: var(--t-dominant-soft);
+  --t-footer-border: var(--t-dominant-border);
+  --t-input-bg: color-mix(in srgb, var(--t-dominant-soft) 86%, transparent);
+  --t-input-border: var(--t-dominant-border);
+  --t-input-focus: var(--t-accent-hover);
+  --t-btn-border: rgba(255, 90, 95, 0.28);
+  --t-divider: var(--t-dominant-border);
+
+  --t-focus-ring: var(--t-accent-hover);
+  --t-focus-ring-soft: rgba(255, 56, 92, 0.18);
+  --t-focus-ring-contrast: var(--t-accent-text);
+  --t-focus-ring-offset: 2px;
+  --t-focus-ring-offset-focus: 3px;
+  --t-focus-ring-width: 3px;
+  --t-focus-ring-opacity: .34;
+
+  --t-shadow-xs: 0 1px 2px rgba(15, 23, 42, 0.10);
+  --t-shadow-sm: 0 4px 10px rgba(15, 23, 42, 0.12);
+  --t-shadow: 0 12px 28px rgba(15, 23, 42, 0.14);
+  --t-shadow-md: 0 18px 40px rgba(15, 23, 42, 0.16);
+  --t-shadow-lg: 0 24px 56px rgba(15, 23, 42, 0.18);
+  --t-shadow-xl: 0 32px 80px rgba(15, 23, 42, 0.22);
+  --t-overlay: rgba(3, 7, 18, .48);
+  --t-overlay-light: rgba(3, 7, 18, .24);
+  --t-glass-bg: rgba(255,255,255,.76);
+  --t-glass-border: var(--t-dominant-border);
+  --t-glass-blur: blur(16px);
+
+  --t-gradient-primary: linear-gradient(135deg, var(--t-accent) 0%, var(--t-accent-hover) 52%, var(--t-accent-active) 100%);
+  --t-gradient-surface: linear-gradient(135deg, var(--t-dominant) 0%, var(--t-dominant-soft) 48%, var(--t-secondary) 100%);
+  --t-gradient-muted: linear-gradient(135deg, var(--t-muted), var(--t-dominant-hover));
+
+  --bs-body-bg: var(--t-dominant);
+  --bs-body-color: var(--t-body-color);
+  --bs-body-bg-rgb: var(--t-dominant-rgb);
+  --bs-body-color-rgb: var(--t-body-rgb);
+  --bs-emphasis-color: var(--t-heading-color);
+  --bs-primary: var(--t-accent);
+  --bs-primary-rgb: var(--t-accent-rgb);
+  --bs-link-color: var(--t-accent);
+  --bs-link-color-rgb: var(--t-accent-rgb);
+  --bs-link-hover-color: var(--t-accent-hover);
+  --bs-link-hover-color-rgb: var(--t-accent-hover-rgb);
+  --bs-border-color: var(--t-dominant-border);
+  --bs-border-color-translucent: var(--t-dominant-border);
+  --bs-focus-ring-width: var(--t-focus-ring-width);
+  --bs-focus-ring-opacity: var(--t-focus-ring-opacity);
+  --bs-focus-ring-color: var(--t-focus-ring-soft);
+}
+
+[data-theme="uber"] {
+  --t-dominant: #000000;
+  --t-dominant-rgb: 0, 0, 0;
+  --t-dominant-soft: #111111;
+  --t-dominant-soft-rgb: 17, 17, 17;
+  --t-dominant-border: rgba(255,255,255,.16);
+  --t-dominant-hover: color-mix(in srgb, var(--t-dominant-soft) 88%, var(--t-accent) 12%);
+  --t-dominant-active: color-mix(in srgb, var(--t-dominant-soft) 78%, var(--t-accent) 22%);
+
+  --t-secondary: #1f2937;
+  --t-secondary-rgb: 31, 41, 55;
+  --t-secondary-soft: rgba(31, 41, 55, 0.10);
+  --t-secondary-text: #ffffff;
+  --t-secondary-muted: rgba(244,244,245,.66);
+  --t-secondary-hover: color-mix(in srgb, var(--t-secondary) 86%, var(--t-accent) 14%);
+  --t-secondary-active: rgba(255, 255, 255, 0.20);
+  --t-secondary-border: rgba(255,255,255,.16);
+
+  --t-accent: #ffffff;
+  --t-accent-rgb: 255, 255, 255;
+  --t-accent-hover: #a3a3a3;
+  --t-accent-hover-rgb: 163, 163, 163;
+  --t-accent-active: #60a5fa;
+  --t-accent-active-rgb: 96, 165, 250;
+  --t-accent-dark: color-mix(in srgb, var(--t-accent) 74%, #000000 26%);
+  --t-accent-light: color-mix(in srgb, var(--t-accent) 62%, #ffffff 38%);
+  --t-accent-soft: rgba(255, 255, 255, 0.14);
+  --t-accent-text: #000000;
+  --t-accent-subtle-text: color-mix(in srgb, var(--t-accent) 76%, var(--t-heading-color) 24%);
+  --t-accent-focus-ring-opacity: .52;
+
+  --t-heading-color: #ffffff;
+  --t-body-color: #f4f4f5;
+  --t-body-rgb: 244, 244, 245 ;
+  --t-muted: rgba(244,244,245,.66);
+  --t-text-inverse: #ffffff;
+  --t-tertiary-color: color-mix(in srgb, var(--t-body-color) 52%, transparent);
+  --t-quaternary-color: color-mix(in srgb, var(--t-body-color) 34%, transparent);
+
+  --t-success: #34d399;
+  --t-success-rgb: 52, 211, 153;
+  --t-success-soft: rgba(52, 211, 153, 0.14);
+  --t-success-text: color-mix(in srgb, #34d399 76%, var(--t-heading-color) 24%);
+  --t-success-border: rgba(52, 211, 153, 0.44);
+
+  --t-danger: #fb7185;
+  --t-danger-rgb: 251, 113, 133;
+  --t-danger-soft: rgba(251, 113, 133, 0.14);
+  --t-danger-text: color-mix(in srgb, #fb7185 76%, var(--t-heading-color) 24%);
+  --t-danger-border: rgba(251, 113, 133, 0.44);
+
+  --t-warning: #fbbf24;
+  --t-warning-rgb: 251, 191, 36;
+  --t-warning-soft: rgba(251, 191, 36, 0.14);
+  --t-warning-text: color-mix(in srgb, #fbbf24 76%, var(--t-heading-color) 24%);
+  --t-warning-border: rgba(251, 191, 36, 0.44);
+
+  --t-info: #a3a3a3;
+  --t-info-rgb: 163, 163, 163;
+  --t-info-soft: rgba(163, 163, 163, 0.14);
+  --t-info-text: color-mix(in srgb, var(--t-info) 76%, var(--t-heading-color) 24%);
+  --t-info-border: rgba(163, 163, 163, 0.44);
+
+  --t-sidebar-bg: var(--t-secondary);
+  --t-sidebar-hover: var(--t-secondary-hover);
+  --t-nav-color: var(--t-heading-color);
+  --t-header-bg: var(--t-dominant-soft);
+  --t-header-border: var(--t-dominant-border);
+  --t-content-bg: var(--t-dominant);
+  --t-card-bg: var(--t-dominant-soft);
+  --t-card-border: var(--t-dominant-border);
+  --t-card-hover: var(--t-dominant-hover);
+  --t-footer-bg: var(--t-dominant-soft);
+  --t-footer-border: var(--t-dominant-border);
+  --t-input-bg: color-mix(in srgb, var(--t-dominant-soft) 86%, transparent);
+  --t-input-border: var(--t-dominant-border);
+  --t-input-focus: var(--t-accent-hover);
+  --t-btn-border: rgba(255, 255, 255, 0.28);
+  --t-divider: var(--t-dominant-border);
+
+  --t-focus-ring: var(--t-accent-hover);
+  --t-focus-ring-soft: rgba(163, 163, 163, 0.18);
+  --t-focus-ring-contrast: var(--t-accent-text);
+  --t-focus-ring-offset: 2px;
+  --t-focus-ring-offset-focus: 3px;
+  --t-focus-ring-width: 3px;
+  --t-focus-ring-opacity: .55;
+
+  --t-shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.42);
+  --t-shadow-sm: 0 4px 10px rgba(0, 0, 0, 0.50);
+  --t-shadow: 0 12px 28px rgba(0, 0, 0, 0.58);
+  --t-shadow-md: 0 18px 40px rgba(0, 0, 0, 0.64);
+  --t-shadow-lg: 0 24px 56px rgba(0, 0, 0, 0.70);
+  --t-shadow-xl: 0 32px 80px rgba(0, 0, 0, 0.76);
+  --t-overlay: rgba(3, 7, 18, .78);
+  --t-overlay-light: rgba(3, 7, 18, .52);
+  --t-glass-bg: rgba(5,5,5,.72);
+  --t-glass-border: var(--t-dominant-border);
+  --t-glass-blur: blur(16px);
+
+  --t-gradient-primary: linear-gradient(135deg, var(--t-accent) 0%, var(--t-accent-hover) 52%, var(--t-accent-active) 100%);
+  --t-gradient-surface: linear-gradient(135deg, var(--t-dominant) 0%, var(--t-dominant-soft) 48%, var(--t-secondary) 100%);
+  --t-gradient-muted: linear-gradient(135deg, var(--t-muted), var(--t-dominant-hover));
+
+  --bs-body-bg: var(--t-dominant);
+  --bs-body-color: var(--t-body-color);
+  --bs-body-bg-rgb: var(--t-dominant-rgb);
+  --bs-body-color-rgb: var(--t-body-rgb);
+  --bs-emphasis-color: var(--t-heading-color);
+  --bs-primary: var(--t-accent);
+  --bs-primary-rgb: var(--t-accent-rgb);
+  --bs-link-color: var(--t-accent);
+  --bs-link-color-rgb: var(--t-accent-rgb);
+  --bs-link-hover-color: var(--t-accent-hover);
+  --bs-link-hover-color-rgb: var(--t-accent-hover-rgb);
+  --bs-border-color: var(--t-dominant-border);
+  --bs-border-color-translucent: var(--t-dominant-border);
+  --bs-focus-ring-width: var(--t-focus-ring-width);
+  --bs-focus-ring-opacity: var(--t-focus-ring-opacity);
+  --bs-focus-ring-color: var(--t-focus-ring-soft);
+}
+
+[data-theme="sapphire"] {
+  --t-dominant: #eff6ff;
+  --t-dominant-rgb: 239, 246, 255;
+  --t-dominant-soft: #ffffff;
+  --t-dominant-soft-rgb: 255, 255, 255;
+  --t-dominant-border: rgba(37,99,235,.18);
+  --t-dominant-hover: color-mix(in srgb, var(--t-dominant-soft) 88%, var(--t-accent) 12%);
+  --t-dominant-active: color-mix(in srgb, var(--t-dominant-soft) 78%, var(--t-accent) 22%);
+
+  --t-secondary: #dbeafe;
+  --t-secondary-rgb: 219, 234, 254;
+  --t-secondary-soft: rgba(219, 234, 254, 0.10);
+  --t-secondary-text: #0f172a;
+  --t-secondary-muted: #64748b;
+  --t-secondary-hover: color-mix(in srgb, var(--t-secondary) 86%, var(--t-accent) 14%);
+  --t-secondary-active: rgba(37, 99, 235, 0.20);
+  --t-secondary-border: rgba(37,99,235,.18);
+
+  --t-accent: #2563eb;
+  --t-accent-rgb: 37, 99, 235;
+  --t-accent-hover: #0ea5e9;
+  --t-accent-hover-rgb: 14, 165, 233;
+  --t-accent-active: #06b6d4;
+  --t-accent-active-rgb: 6, 182, 212;
+  --t-accent-dark: color-mix(in srgb, var(--t-accent) 74%, #000000 26%);
+  --t-accent-light: color-mix(in srgb, var(--t-accent) 62%, #ffffff 38%);
+  --t-accent-soft: rgba(37, 99, 235, 0.14);
+  --t-accent-text: #ffffff;
+  --t-accent-subtle-text: color-mix(in srgb, var(--t-accent) 76%, var(--t-heading-color) 24%);
+  --t-accent-focus-ring-opacity: .32;
+
+  --t-heading-color: #0f172a;
+  --t-body-color: #172554;
+  --t-body-rgb: 23, 37, 84 ;
+  --t-muted: #64748b;
+  --t-text-inverse: #0f172a;
+  --t-tertiary-color: color-mix(in srgb, var(--t-body-color) 52%, transparent);
+  --t-quaternary-color: color-mix(in srgb, var(--t-body-color) 34%, transparent);
+
+  --t-success: #34d399;
+  --t-success-rgb: 52, 211, 153;
+  --t-success-soft: rgba(52, 211, 153, 0.14);
+  --t-success-text: color-mix(in srgb, #34d399 76%, var(--t-heading-color) 24%);
+  --t-success-border: rgba(52, 211, 153, 0.44);
+
+  --t-danger: #fb7185;
+  --t-danger-rgb: 251, 113, 133;
+  --t-danger-soft: rgba(251, 113, 133, 0.14);
+  --t-danger-text: color-mix(in srgb, #fb7185 76%, var(--t-heading-color) 24%);
+  --t-danger-border: rgba(251, 113, 133, 0.44);
+
+  --t-warning: #fbbf24;
+  --t-warning-rgb: 251, 191, 36;
+  --t-warning-soft: rgba(251, 191, 36, 0.14);
+  --t-warning-text: color-mix(in srgb, #fbbf24 76%, var(--t-heading-color) 24%);
+  --t-warning-border: rgba(251, 191, 36, 0.44);
+
+  --t-info: #0ea5e9;
+  --t-info-rgb: 14, 165, 233;
+  --t-info-soft: rgba(14, 165, 233, 0.14);
+  --t-info-text: color-mix(in srgb, var(--t-info) 76%, var(--t-heading-color) 24%);
+  --t-info-border: rgba(14, 165, 233, 0.44);
+
+  --t-sidebar-bg: var(--t-secondary);
+  --t-sidebar-hover: var(--t-secondary-hover);
+  --t-nav-color: var(--t-heading-color);
+  --t-header-bg: var(--t-dominant-soft);
+  --t-header-border: var(--t-dominant-border);
+  --t-content-bg: var(--t-dominant);
+  --t-card-bg: var(--t-dominant-soft);
+  --t-card-border: var(--t-dominant-border);
+  --t-card-hover: var(--t-dominant-hover);
+  --t-footer-bg: var(--t-dominant-soft);
+  --t-footer-border: var(--t-dominant-border);
+  --t-input-bg: color-mix(in srgb, var(--t-dominant-soft) 86%, transparent);
+  --t-input-border: var(--t-dominant-border);
+  --t-input-focus: var(--t-accent-hover);
+  --t-btn-border: rgba(37, 99, 235, 0.28);
+  --t-divider: var(--t-dominant-border);
+
+  --t-focus-ring: var(--t-accent-hover);
+  --t-focus-ring-soft: rgba(14, 165, 233, 0.18);
+  --t-focus-ring-contrast: var(--t-accent-text);
+  --t-focus-ring-offset: 2px;
+  --t-focus-ring-offset-focus: 3px;
+  --t-focus-ring-width: 3px;
+  --t-focus-ring-opacity: .34;
+
+  --t-shadow-xs: 0 1px 2px rgba(15, 23, 42, 0.10);
+  --t-shadow-sm: 0 4px 10px rgba(15, 23, 42, 0.12);
+  --t-shadow: 0 12px 28px rgba(15, 23, 42, 0.14);
+  --t-shadow-md: 0 18px 40px rgba(15, 23, 42, 0.16);
+  --t-shadow-lg: 0 24px 56px rgba(15, 23, 42, 0.18);
+  --t-shadow-xl: 0 32px 80px rgba(15, 23, 42, 0.22);
+  --t-overlay: rgba(3, 7, 18, .48);
+  --t-overlay-light: rgba(3, 7, 18, .24);
+  --t-glass-bg: rgba(255,255,255,.70);
+  --t-glass-border: var(--t-dominant-border);
+  --t-glass-blur: blur(16px);
+
+  --t-gradient-primary: linear-gradient(135deg, var(--t-accent) 0%, var(--t-accent-hover) 52%, var(--t-accent-active) 100%);
+  --t-gradient-surface: linear-gradient(135deg, var(--t-dominant) 0%, var(--t-dominant-soft) 48%, var(--t-secondary) 100%);
+  --t-gradient-muted: linear-gradient(135deg, var(--t-muted), var(--t-dominant-hover));
+
+  --bs-body-bg: var(--t-dominant);
+  --bs-body-color: var(--t-body-color);
+  --bs-body-bg-rgb: var(--t-dominant-rgb);
+  --bs-body-color-rgb: var(--t-body-rgb);
+  --bs-emphasis-color: var(--t-heading-color);
+  --bs-primary: var(--t-accent);
+  --bs-primary-rgb: var(--t-accent-rgb);
+  --bs-link-color: var(--t-accent);
+  --bs-link-color-rgb: var(--t-accent-rgb);
+  --bs-link-hover-color: var(--t-accent-hover);
+  --bs-link-hover-color-rgb: var(--t-accent-hover-rgb);
+  --bs-border-color: var(--t-dominant-border);
+  --bs-border-color-translucent: var(--t-dominant-border);
+  --bs-focus-ring-width: var(--t-focus-ring-width);
+  --bs-focus-ring-opacity: var(--t-focus-ring-opacity);
+  --bs-focus-ring-color: var(--t-focus-ring-soft);
+}
+
+[data-theme="nebula"] {
+  --t-dominant: #1a0627;
+  --t-dominant-rgb: 26, 6, 39;
+  --t-dominant-soft: #2a0f3d;
+  --t-dominant-soft-rgb: 42, 15, 61;
+  --t-dominant-border: rgba(192,38,211,.24);
+  --t-dominant-hover: color-mix(in srgb, var(--t-dominant-soft) 88%, var(--t-accent) 12%);
+  --t-dominant-active: color-mix(in srgb, var(--t-dominant-soft) 78%, var(--t-accent) 22%);
+
+  --t-secondary: #3b1557;
+  --t-secondary-rgb: 59, 21, 87;
+  --t-secondary-soft: rgba(59, 21, 87, 0.10);
+  --t-secondary-text: #fae8ff;
+  --t-secondary-muted: rgba(245,208,254,.68);
+  --t-secondary-hover: color-mix(in srgb, var(--t-secondary) 86%, var(--t-accent) 14%);
+  --t-secondary-active: rgba(192, 38, 211, 0.20);
+  --t-secondary-border: rgba(192,38,211,.24);
+
+  --t-accent: #c026d3;
+  --t-accent-rgb: 192, 38, 211;
+  --t-accent-hover: #8b5cf6;
+  --t-accent-hover-rgb: 139, 92, 246;
+  --t-accent-active: #22d3ee;
+  --t-accent-active-rgb: 34, 211, 238;
+  --t-accent-dark: color-mix(in srgb, var(--t-accent) 74%, #000000 26%);
+  --t-accent-light: color-mix(in srgb, var(--t-accent) 62%, #ffffff 38%);
+  --t-accent-soft: rgba(192, 38, 211, 0.14);
+  --t-accent-text: #ffffff;
+  --t-accent-subtle-text: color-mix(in srgb, var(--t-accent) 76%, var(--t-heading-color) 24%);
+  --t-accent-focus-ring-opacity: .52;
+
+  --t-heading-color: #fae8ff;
+  --t-body-color: #f5d0fe;
+  --t-body-rgb: 245, 208, 254 ;
+  --t-muted: rgba(245,208,254,.68);
+  --t-text-inverse: #ffffff;
+  --t-tertiary-color: color-mix(in srgb, var(--t-body-color) 52%, transparent);
+  --t-quaternary-color: color-mix(in srgb, var(--t-body-color) 34%, transparent);
+
+  --t-success: #34d399;
+  --t-success-rgb: 52, 211, 153;
+  --t-success-soft: rgba(52, 211, 153, 0.14);
+  --t-success-text: color-mix(in srgb, #34d399 76%, var(--t-heading-color) 24%);
+  --t-success-border: rgba(52, 211, 153, 0.44);
+
+  --t-danger: #fb7185;
+  --t-danger-rgb: 251, 113, 133;
+  --t-danger-soft: rgba(251, 113, 133, 0.14);
+  --t-danger-text: color-mix(in srgb, #fb7185 76%, var(--t-heading-color) 24%);
+  --t-danger-border: rgba(251, 113, 133, 0.44);
+
+  --t-warning: #fbbf24;
+  --t-warning-rgb: 251, 191, 36;
+  --t-warning-soft: rgba(251, 191, 36, 0.14);
+  --t-warning-text: color-mix(in srgb, #fbbf24 76%, var(--t-heading-color) 24%);
+  --t-warning-border: rgba(251, 191, 36, 0.44);
+
+  --t-info: #8b5cf6;
+  --t-info-rgb: 139, 92, 246;
+  --t-info-soft: rgba(139, 92, 246, 0.14);
+  --t-info-text: color-mix(in srgb, var(--t-info) 76%, var(--t-heading-color) 24%);
+  --t-info-border: rgba(139, 92, 246, 0.44);
+
+  --t-sidebar-bg: var(--t-secondary);
+  --t-sidebar-hover: var(--t-secondary-hover);
+  --t-nav-color: var(--t-heading-color);
+  --t-header-bg: var(--t-dominant-soft);
+  --t-header-border: var(--t-dominant-border);
+  --t-content-bg: var(--t-dominant);
+  --t-card-bg: var(--t-dominant-soft);
+  --t-card-border: var(--t-dominant-border);
+  --t-card-hover: var(--t-dominant-hover);
+  --t-footer-bg: var(--t-dominant-soft);
+  --t-footer-border: var(--t-dominant-border);
+  --t-input-bg: color-mix(in srgb, var(--t-dominant-soft) 86%, transparent);
+  --t-input-border: var(--t-dominant-border);
+  --t-input-focus: var(--t-accent-hover);
+  --t-btn-border: rgba(192, 38, 211, 0.28);
+  --t-divider: var(--t-dominant-border);
+
+  --t-focus-ring: var(--t-accent-hover);
+  --t-focus-ring-soft: rgba(139, 92, 246, 0.18);
+  --t-focus-ring-contrast: var(--t-accent-text);
+  --t-focus-ring-offset: 2px;
+  --t-focus-ring-offset-focus: 3px;
+  --t-focus-ring-width: 3px;
+  --t-focus-ring-opacity: .55;
+
+  --t-shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.42);
+  --t-shadow-sm: 0 4px 10px rgba(0, 0, 0, 0.50);
+  --t-shadow: 0 12px 28px rgba(0, 0, 0, 0.58);
+  --t-shadow-md: 0 18px 40px rgba(0, 0, 0, 0.64);
+  --t-shadow-lg: 0 24px 56px rgba(0, 0, 0, 0.70);
+  --t-shadow-xl: 0 32px 80px rgba(0, 0, 0, 0.76);
+  --t-overlay: rgba(3, 7, 18, .78);
+  --t-overlay-light: rgba(3, 7, 18, .52);
+  --t-glass-bg: rgba(26,6,39,.72);
+  --t-glass-border: var(--t-dominant-border);
+  --t-glass-blur: blur(16px);
+
+  --t-gradient-primary: linear-gradient(135deg, var(--t-accent) 0%, var(--t-accent-hover) 52%, var(--t-accent-active) 100%);
+  --t-gradient-surface: linear-gradient(135deg, var(--t-dominant) 0%, var(--t-dominant-soft) 48%, var(--t-secondary) 100%);
+  --t-gradient-muted: linear-gradient(135deg, var(--t-muted), var(--t-dominant-hover));
+
+  --bs-body-bg: var(--t-dominant);
+  --bs-body-color: var(--t-body-color);
+  --bs-body-bg-rgb: var(--t-dominant-rgb);
+  --bs-body-color-rgb: var(--t-body-rgb);
+  --bs-emphasis-color: var(--t-heading-color);
+  --bs-primary: var(--t-accent);
+  --bs-primary-rgb: var(--t-accent-rgb);
+  --bs-link-color: var(--t-accent);
+  --bs-link-color-rgb: var(--t-accent-rgb);
+  --bs-link-hover-color: var(--t-accent-hover);
+  --bs-link-hover-color-rgb: var(--t-accent-hover-rgb);
+  --bs-border-color: var(--t-dominant-border);
+  --bs-border-color-translucent: var(--t-dominant-border);
+  --bs-focus-ring-width: var(--t-focus-ring-width);
+  --bs-focus-ring-opacity: var(--t-focus-ring-opacity);
+  --bs-focus-ring-color: var(--t-focus-ring-soft);
+}
+
+[data-theme="aurora"] {
+  --t-dominant: #ecfeff;
+  --t-dominant-rgb: 236, 254, 255;
+  --t-dominant-soft: #ffffff;
+  --t-dominant-soft-rgb: 255, 255, 255;
+  --t-dominant-border: rgba(6,182,212,.18);
+  --t-dominant-hover: color-mix(in srgb, var(--t-dominant-soft) 88%, var(--t-accent) 12%);
+  --t-dominant-active: color-mix(in srgb, var(--t-dominant-soft) 78%, var(--t-accent) 22%);
+
+  --t-secondary: #ccfbf1;
+  --t-secondary-rgb: 204, 251, 241;
+  --t-secondary-soft: rgba(204, 251, 241, 0.10);
+  --t-secondary-text: #042f2e;
+  --t-secondary-muted: #0f766e;
+  --t-secondary-hover: color-mix(in srgb, var(--t-secondary) 86%, var(--t-accent) 14%);
+  --t-secondary-active: rgba(6, 182, 212, 0.20);
+  --t-secondary-border: rgba(6,182,212,.18);
+
+  --t-accent: #06b6d4;
+  --t-accent-rgb: 6, 182, 212;
+  --t-accent-hover: #10b981;
+  --t-accent-hover-rgb: 16, 185, 129;
+  --t-accent-active: #8b5cf6;
+  --t-accent-active-rgb: 139, 92, 246;
+  --t-accent-dark: color-mix(in srgb, var(--t-accent) 74%, #000000 26%);
+  --t-accent-light: color-mix(in srgb, var(--t-accent) 62%, #ffffff 38%);
+  --t-accent-soft: rgba(6, 182, 212, 0.14);
+  --t-accent-text: #ffffff;
+  --t-accent-subtle-text: color-mix(in srgb, var(--t-accent) 76%, var(--t-heading-color) 24%);
+  --t-accent-focus-ring-opacity: .32;
+
+  --t-heading-color: #042f2e;
+  --t-body-color: #134e4a;
+  --t-body-rgb: 19, 78, 74 ;
+  --t-muted: #0f766e;
+  --t-text-inverse: #0f172a;
+  --t-tertiary-color: color-mix(in srgb, var(--t-body-color) 52%, transparent);
+  --t-quaternary-color: color-mix(in srgb, var(--t-body-color) 34%, transparent);
+
+  --t-success: #34d399;
+  --t-success-rgb: 52, 211, 153;
+  --t-success-soft: rgba(52, 211, 153, 0.14);
+  --t-success-text: color-mix(in srgb, #34d399 76%, var(--t-heading-color) 24%);
+  --t-success-border: rgba(52, 211, 153, 0.44);
+
+  --t-danger: #fb7185;
+  --t-danger-rgb: 251, 113, 133;
+  --t-danger-soft: rgba(251, 113, 133, 0.14);
+  --t-danger-text: color-mix(in srgb, #fb7185 76%, var(--t-heading-color) 24%);
+  --t-danger-border: rgba(251, 113, 133, 0.44);
+
+  --t-warning: #fbbf24;
+  --t-warning-rgb: 251, 191, 36;
+  --t-warning-soft: rgba(251, 191, 36, 0.14);
+  --t-warning-text: color-mix(in srgb, #fbbf24 76%, var(--t-heading-color) 24%);
+  --t-warning-border: rgba(251, 191, 36, 0.44);
+
+  --t-info: #10b981;
+  --t-info-rgb: 16, 185, 129;
+  --t-info-soft: rgba(16, 185, 129, 0.14);
+  --t-info-text: color-mix(in srgb, var(--t-info) 76%, var(--t-heading-color) 24%);
+  --t-info-border: rgba(16, 185, 129, 0.44);
+
+  --t-sidebar-bg: var(--t-secondary);
+  --t-sidebar-hover: var(--t-secondary-hover);
+  --t-nav-color: var(--t-heading-color);
+  --t-header-bg: var(--t-dominant-soft);
+  --t-header-border: var(--t-dominant-border);
+  --t-content-bg: var(--t-dominant);
+  --t-card-bg: var(--t-dominant-soft);
+  --t-card-border: var(--t-dominant-border);
+  --t-card-hover: var(--t-dominant-hover);
+  --t-footer-bg: var(--t-dominant-soft);
+  --t-footer-border: var(--t-dominant-border);
+  --t-input-bg: color-mix(in srgb, var(--t-dominant-soft) 86%, transparent);
+  --t-input-border: var(--t-dominant-border);
+  --t-input-focus: var(--t-accent-hover);
+  --t-btn-border: rgba(6, 182, 212, 0.28);
+  --t-divider: var(--t-dominant-border);
+
+  --t-focus-ring: var(--t-accent-hover);
+  --t-focus-ring-soft: rgba(16, 185, 129, 0.18);
+  --t-focus-ring-contrast: var(--t-accent-text);
+  --t-focus-ring-offset: 2px;
+  --t-focus-ring-offset-focus: 3px;
+  --t-focus-ring-width: 3px;
+  --t-focus-ring-opacity: .34;
+
+  --t-shadow-xs: 0 1px 2px rgba(15, 23, 42, 0.10);
+  --t-shadow-sm: 0 4px 10px rgba(15, 23, 42, 0.12);
+  --t-shadow: 0 12px 28px rgba(15, 23, 42, 0.14);
+  --t-shadow-md: 0 18px 40px rgba(15, 23, 42, 0.16);
+  --t-shadow-lg: 0 24px 56px rgba(15, 23, 42, 0.18);
+  --t-shadow-xl: 0 32px 80px rgba(15, 23, 42, 0.22);
+  --t-overlay: rgba(3, 7, 18, .48);
+  --t-overlay-light: rgba(3, 7, 18, .24);
+  --t-glass-bg: rgba(255,255,255,.72);
+  --t-glass-border: var(--t-dominant-border);
+  --t-glass-blur: blur(16px);
+
+  --t-gradient-primary: linear-gradient(135deg, var(--t-accent) 0%, var(--t-accent-hover) 52%, var(--t-accent-active) 100%);
+  --t-gradient-surface: linear-gradient(135deg, var(--t-dominant) 0%, var(--t-dominant-soft) 48%, var(--t-secondary) 100%);
+  --t-gradient-muted: linear-gradient(135deg, var(--t-muted), var(--t-dominant-hover));
+
+  --bs-body-bg: var(--t-dominant);
+  --bs-body-color: var(--t-body-color);
+  --bs-body-bg-rgb: var(--t-dominant-rgb);
+  --bs-body-color-rgb: var(--t-body-rgb);
+  --bs-emphasis-color: var(--t-heading-color);
+  --bs-primary: var(--t-accent);
+  --bs-primary-rgb: var(--t-accent-rgb);
+  --bs-link-color: var(--t-accent);
+  --bs-link-color-rgb: var(--t-accent-rgb);
+  --bs-link-hover-color: var(--t-accent-hover);
+  --bs-link-hover-color-rgb: var(--t-accent-hover-rgb);
+  --bs-border-color: var(--t-dominant-border);
+  --bs-border-color-translucent: var(--t-dominant-border);
+  --bs-focus-ring-width: var(--t-focus-ring-width);
+  --bs-focus-ring-opacity: var(--t-focus-ring-opacity);
+  --bs-focus-ring-color: var(--t-focus-ring-soft);
+}
+
+[data-theme="phoenix"] {
+  --t-dominant: #fff7ed;
+  --t-dominant-rgb: 255, 247, 237;
+  --t-dominant-soft: #ffffff;
+  --t-dominant-soft-rgb: 255, 255, 255;
+  --t-dominant-border: rgba(239,68,68,.18);
+  --t-dominant-hover: color-mix(in srgb, var(--t-dominant-soft) 88%, var(--t-accent) 12%);
+  --t-dominant-active: color-mix(in srgb, var(--t-dominant-soft) 78%, var(--t-accent) 22%);
+
+  --t-secondary: #ffedd5;
+  --t-secondary-rgb: 255, 237, 213;
+  --t-secondary-soft: rgba(255, 237, 213, 0.10);
+  --t-secondary-text: #431407;
+  --t-secondary-muted: #b45309;
+  --t-secondary-hover: color-mix(in srgb, var(--t-secondary) 86%, var(--t-accent) 14%);
+  --t-secondary-active: rgba(239, 68, 68, 0.20);
+  --t-secondary-border: rgba(239,68,68,.18);
+
+  --t-accent: #ef4444;
+  --t-accent-rgb: 239, 68, 68;
+  --t-accent-hover: #f97316;
+  --t-accent-hover-rgb: 249, 115, 22;
+  --t-accent-active: #facc15;
+  --t-accent-active-rgb: 250, 204, 21;
+  --t-accent-dark: color-mix(in srgb, var(--t-accent) 74%, #000000 26%);
+  --t-accent-light: color-mix(in srgb, var(--t-accent) 62%, #ffffff 38%);
+  --t-accent-soft: rgba(239, 68, 68, 0.14);
+  --t-accent-text: #ffffff;
+  --t-accent-subtle-text: color-mix(in srgb, var(--t-accent) 76%, var(--t-heading-color) 24%);
+  --t-accent-focus-ring-opacity: .32;
+
+  --t-heading-color: #431407;
+  --t-body-color: #7f1d1d;
+  --t-body-rgb: 127, 29, 29 ;
+  --t-muted: #b45309;
+  --t-text-inverse: #0f172a;
+  --t-tertiary-color: color-mix(in srgb, var(--t-body-color) 52%, transparent);
+  --t-quaternary-color: color-mix(in srgb, var(--t-body-color) 34%, transparent);
+
+  --t-success: #34d399;
+  --t-success-rgb: 52, 211, 153;
+  --t-success-soft: rgba(52, 211, 153, 0.14);
+  --t-success-text: color-mix(in srgb, #34d399 76%, var(--t-heading-color) 24%);
+  --t-success-border: rgba(52, 211, 153, 0.44);
+
+  --t-danger: #fb7185;
+  --t-danger-rgb: 251, 113, 133;
+  --t-danger-soft: rgba(251, 113, 133, 0.14);
+  --t-danger-text: color-mix(in srgb, #fb7185 76%, var(--t-heading-color) 24%);
+  --t-danger-border: rgba(251, 113, 133, 0.44);
+
+  --t-warning: #fbbf24;
+  --t-warning-rgb: 251, 191, 36;
+  --t-warning-soft: rgba(251, 191, 36, 0.14);
+  --t-warning-text: color-mix(in srgb, #fbbf24 76%, var(--t-heading-color) 24%);
+  --t-warning-border: rgba(251, 191, 36, 0.44);
+
+  --t-info: #f97316;
+  --t-info-rgb: 249, 115, 22;
+  --t-info-soft: rgba(249, 115, 22, 0.14);
+  --t-info-text: color-mix(in srgb, var(--t-info) 76%, var(--t-heading-color) 24%);
+  --t-info-border: rgba(249, 115, 22, 0.44);
+
+  --t-sidebar-bg: var(--t-secondary);
+  --t-sidebar-hover: var(--t-secondary-hover);
+  --t-nav-color: var(--t-heading-color);
+  --t-header-bg: var(--t-dominant-soft);
+  --t-header-border: var(--t-dominant-border);
+  --t-content-bg: var(--t-dominant);
+  --t-card-bg: var(--t-dominant-soft);
+  --t-card-border: var(--t-dominant-border);
+  --t-card-hover: var(--t-dominant-hover);
+  --t-footer-bg: var(--t-dominant-soft);
+  --t-footer-border: var(--t-dominant-border);
+  --t-input-bg: color-mix(in srgb, var(--t-dominant-soft) 86%, transparent);
+  --t-input-border: var(--t-dominant-border);
+  --t-input-focus: var(--t-accent-hover);
+  --t-btn-border: rgba(239, 68, 68, 0.28);
+  --t-divider: var(--t-dominant-border);
+
+  --t-focus-ring: var(--t-accent-hover);
+  --t-focus-ring-soft: rgba(249, 115, 22, 0.18);
+  --t-focus-ring-contrast: var(--t-accent-text);
+  --t-focus-ring-offset: 2px;
+  --t-focus-ring-offset-focus: 3px;
+  --t-focus-ring-width: 3px;
+  --t-focus-ring-opacity: .34;
+
+  --t-shadow-xs: 0 1px 2px rgba(15, 23, 42, 0.10);
+  --t-shadow-sm: 0 4px 10px rgba(15, 23, 42, 0.12);
+  --t-shadow: 0 12px 28px rgba(15, 23, 42, 0.14);
+  --t-shadow-md: 0 18px 40px rgba(15, 23, 42, 0.16);
+  --t-shadow-lg: 0 24px 56px rgba(15, 23, 42, 0.18);
+  --t-shadow-xl: 0 32px 80px rgba(15, 23, 42, 0.22);
+  --t-overlay: rgba(3, 7, 18, .48);
+  --t-overlay-light: rgba(3, 7, 18, .24);
+  --t-glass-bg: rgba(255,255,255,.74);
+  --t-glass-border: var(--t-dominant-border);
+  --t-glass-blur: blur(16px);
+
+  --t-gradient-primary: linear-gradient(135deg, var(--t-accent) 0%, var(--t-accent-hover) 52%, var(--t-accent-active) 100%);
+  --t-gradient-surface: linear-gradient(135deg, var(--t-dominant) 0%, var(--t-dominant-soft) 48%, var(--t-secondary) 100%);
+  --t-gradient-muted: linear-gradient(135deg, var(--t-muted), var(--t-dominant-hover));
+
+  --bs-body-bg: var(--t-dominant);
+  --bs-body-color: var(--t-body-color);
+  --bs-body-bg-rgb: var(--t-dominant-rgb);
+  --bs-body-color-rgb: var(--t-body-rgb);
+  --bs-emphasis-color: var(--t-heading-color);
+  --bs-primary: var(--t-accent);
+  --bs-primary-rgb: var(--t-accent-rgb);
+  --bs-link-color: var(--t-accent);
+  --bs-link-color-rgb: var(--t-accent-rgb);
+  --bs-link-hover-color: var(--t-accent-hover);
+  --bs-link-hover-color-rgb: var(--t-accent-hover-rgb);
+  --bs-border-color: var(--t-dominant-border);
+  --bs-border-color-translucent: var(--t-dominant-border);
+  --bs-focus-ring-width: var(--t-focus-ring-width);
+  --bs-focus-ring-opacity: var(--t-focus-ring-opacity);
+  --bs-focus-ring-color: var(--t-focus-ring-soft);
+}
+
+[data-theme="sakura"] {
+  --t-dominant: #fff1f8;
+  --t-dominant-rgb: 255, 241, 248;
+  --t-dominant-soft: #ffffff;
+  --t-dominant-soft-rgb: 255, 255, 255;
+  --t-dominant-border: rgba(236,72,153,.18);
+  --t-dominant-hover: color-mix(in srgb, var(--t-dominant-soft) 88%, var(--t-accent) 12%);
+  --t-dominant-active: color-mix(in srgb, var(--t-dominant-soft) 78%, var(--t-accent) 22%);
+
+  --t-secondary: #fce7f3;
+  --t-secondary-rgb: 252, 231, 243;
+  --t-secondary-soft: rgba(252, 231, 243, 0.10);
+  --t-secondary-text: #500724;
+  --t-secondary-muted: #be185d;
+  --t-secondary-hover: color-mix(in srgb, var(--t-secondary) 86%, var(--t-accent) 14%);
+  --t-secondary-active: rgba(236, 72, 153, 0.20);
+  --t-secondary-border: rgba(236,72,153,.18);
+
+  --t-accent: #ec4899;
+  --t-accent-rgb: 236, 72, 153;
+  --t-accent-hover: #f9a8d4;
+  --t-accent-hover-rgb: 249, 168, 212;
+  --t-accent-active: #fb7185;
+  --t-accent-active-rgb: 251, 113, 133;
+  --t-accent-dark: color-mix(in srgb, var(--t-accent) 74%, #000000 26%);
+  --t-accent-light: color-mix(in srgb, var(--t-accent) 62%, #ffffff 38%);
+  --t-accent-soft: rgba(236, 72, 153, 0.14);
+  --t-accent-text: #ffffff;
+  --t-accent-subtle-text: color-mix(in srgb, var(--t-accent) 76%, var(--t-heading-color) 24%);
+  --t-accent-focus-ring-opacity: .32;
+
+  --t-heading-color: #500724;
+  --t-body-color: #831843;
+  --t-body-rgb: 131, 24, 67 ;
+  --t-muted: #be185d;
+  --t-text-inverse: #0f172a;
+  --t-tertiary-color: color-mix(in srgb, var(--t-body-color) 52%, transparent);
+  --t-quaternary-color: color-mix(in srgb, var(--t-body-color) 34%, transparent);
+
+  --t-success: #34d399;
+  --t-success-rgb: 52, 211, 153;
+  --t-success-soft: rgba(52, 211, 153, 0.14);
+  --t-success-text: color-mix(in srgb, #34d399 76%, var(--t-heading-color) 24%);
+  --t-success-border: rgba(52, 211, 153, 0.44);
+
+  --t-danger: #fb7185;
+  --t-danger-rgb: 251, 113, 133;
+  --t-danger-soft: rgba(251, 113, 133, 0.14);
+  --t-danger-text: color-mix(in srgb, #fb7185 76%, var(--t-heading-color) 24%);
+  --t-danger-border: rgba(251, 113, 133, 0.44);
+
+  --t-warning: #fbbf24;
+  --t-warning-rgb: 251, 191, 36;
+  --t-warning-soft: rgba(251, 191, 36, 0.14);
+  --t-warning-text: color-mix(in srgb, #fbbf24 76%, var(--t-heading-color) 24%);
+  --t-warning-border: rgba(251, 191, 36, 0.44);
+
+  --t-info: #f9a8d4;
+  --t-info-rgb: 249, 168, 212;
+  --t-info-soft: rgba(249, 168, 212, 0.14);
+  --t-info-text: color-mix(in srgb, var(--t-info) 76%, var(--t-heading-color) 24%);
+  --t-info-border: rgba(249, 168, 212, 0.44);
+
+  --t-sidebar-bg: var(--t-secondary);
+  --t-sidebar-hover: var(--t-secondary-hover);
+  --t-nav-color: var(--t-heading-color);
+  --t-header-bg: var(--t-dominant-soft);
+  --t-header-border: var(--t-dominant-border);
+  --t-content-bg: var(--t-dominant);
+  --t-card-bg: var(--t-dominant-soft);
+  --t-card-border: var(--t-dominant-border);
+  --t-card-hover: var(--t-dominant-hover);
+  --t-footer-bg: var(--t-dominant-soft);
+  --t-footer-border: var(--t-dominant-border);
+  --t-input-bg: color-mix(in srgb, var(--t-dominant-soft) 86%, transparent);
+  --t-input-border: var(--t-dominant-border);
+  --t-input-focus: var(--t-accent-hover);
+  --t-btn-border: rgba(236, 72, 153, 0.28);
+  --t-divider: var(--t-dominant-border);
+
+  --t-focus-ring: var(--t-accent-hover);
+  --t-focus-ring-soft: rgba(249, 168, 212, 0.18);
+  --t-focus-ring-contrast: var(--t-accent-text);
+  --t-focus-ring-offset: 2px;
+  --t-focus-ring-offset-focus: 3px;
+  --t-focus-ring-width: 3px;
+  --t-focus-ring-opacity: .34;
+
+  --t-shadow-xs: 0 1px 2px rgba(15, 23, 42, 0.10);
+  --t-shadow-sm: 0 4px 10px rgba(15, 23, 42, 0.12);
+  --t-shadow: 0 12px 28px rgba(15, 23, 42, 0.14);
+  --t-shadow-md: 0 18px 40px rgba(15, 23, 42, 0.16);
+  --t-shadow-lg: 0 24px 56px rgba(15, 23, 42, 0.18);
+  --t-shadow-xl: 0 32px 80px rgba(15, 23, 42, 0.22);
+  --t-overlay: rgba(3, 7, 18, .48);
+  --t-overlay-light: rgba(3, 7, 18, .24);
+  --t-glass-bg: rgba(255,255,255,.76);
+  --t-glass-border: var(--t-dominant-border);
+  --t-glass-blur: blur(16px);
+
+  --t-gradient-primary: linear-gradient(135deg, var(--t-accent) 0%, var(--t-accent-hover) 52%, var(--t-accent-active) 100%);
+  --t-gradient-surface: linear-gradient(135deg, var(--t-dominant) 0%, var(--t-dominant-soft) 48%, var(--t-secondary) 100%);
+  --t-gradient-muted: linear-gradient(135deg, var(--t-muted), var(--t-dominant-hover));
+
+  --bs-body-bg: var(--t-dominant);
+  --bs-body-color: var(--t-body-color);
+  --bs-body-bg-rgb: var(--t-dominant-rgb);
+  --bs-body-color-rgb: var(--t-body-rgb);
+  --bs-emphasis-color: var(--t-heading-color);
+  --bs-primary: var(--t-accent);
+  --bs-primary-rgb: var(--t-accent-rgb);
+  --bs-link-color: var(--t-accent);
+  --bs-link-color-rgb: var(--t-accent-rgb);
+  --bs-link-hover-color: var(--t-accent-hover);
+  --bs-link-hover-color-rgb: var(--t-accent-hover-rgb);
+  --bs-border-color: var(--t-dominant-border);
+  --bs-border-color-translucent: var(--t-dominant-border);
+  --bs-focus-ring-width: var(--t-focus-ring-width);
+  --bs-focus-ring-opacity: var(--t-focus-ring-opacity);
+  --bs-focus-ring-color: var(--t-focus-ring-soft);
+}
+
+[data-theme="sunset"] {
+  --t-dominant: #fff7ed;
+  --t-dominant-rgb: 255, 247, 237;
+  --t-dominant-soft: #ffffff;
+  --t-dominant-soft-rgb: 255, 255, 255;
+  --t-dominant-border: rgba(249,115,22,.18);
+  --t-dominant-hover: color-mix(in srgb, var(--t-dominant-soft) 88%, var(--t-accent) 12%);
+  --t-dominant-active: color-mix(in srgb, var(--t-dominant-soft) 78%, var(--t-accent) 22%);
+
+  --t-secondary: #ffedd5;
+  --t-secondary-rgb: 255, 237, 213;
+  --t-secondary-soft: rgba(255, 237, 213, 0.10);
+  --t-secondary-text: #431407;
+  --t-secondary-muted: #c2410c;
+  --t-secondary-hover: color-mix(in srgb, var(--t-secondary) 86%, var(--t-accent) 14%);
+  --t-secondary-active: rgba(249, 115, 22, 0.20);
+  --t-secondary-border: rgba(249,115,22,.18);
+
+  --t-accent: #f97316;
+  --t-accent-rgb: 249, 115, 22;
+  --t-accent-hover: #fb7185;
+  --t-accent-hover-rgb: 251, 113, 133;
+  --t-accent-active: #facc15;
+  --t-accent-active-rgb: 250, 204, 21;
+  --t-accent-dark: color-mix(in srgb, var(--t-accent) 74%, #000000 26%);
+  --t-accent-light: color-mix(in srgb, var(--t-accent) 62%, #ffffff 38%);
+  --t-accent-soft: rgba(249, 115, 22, 0.14);
+  --t-accent-text: #ffffff;
+  --t-accent-subtle-text: color-mix(in srgb, var(--t-accent) 76%, var(--t-heading-color) 24%);
+  --t-accent-focus-ring-opacity: .32;
+
+  --t-heading-color: #431407;
+  --t-body-color: #7c2d12;
+  --t-body-rgb: 124, 45, 18 ;
+  --t-muted: #c2410c;
+  --t-text-inverse: #0f172a;
+  --t-tertiary-color: color-mix(in srgb, var(--t-body-color) 52%, transparent);
+  --t-quaternary-color: color-mix(in srgb, var(--t-body-color) 34%, transparent);
+
+  --t-success: #34d399;
+  --t-success-rgb: 52, 211, 153;
+  --t-success-soft: rgba(52, 211, 153, 0.14);
+  --t-success-text: color-mix(in srgb, #34d399 76%, var(--t-heading-color) 24%);
+  --t-success-border: rgba(52, 211, 153, 0.44);
+
+  --t-danger: #fb7185;
+  --t-danger-rgb: 251, 113, 133;
+  --t-danger-soft: rgba(251, 113, 133, 0.14);
+  --t-danger-text: color-mix(in srgb, #fb7185 76%, var(--t-heading-color) 24%);
+  --t-danger-border: rgba(251, 113, 133, 0.44);
+
+  --t-warning: #fbbf24;
+  --t-warning-rgb: 251, 191, 36;
+  --t-warning-soft: rgba(251, 191, 36, 0.14);
+  --t-warning-text: color-mix(in srgb, #fbbf24 76%, var(--t-heading-color) 24%);
+  --t-warning-border: rgba(251, 191, 36, 0.44);
+
+  --t-info: #fb7185;
+  --t-info-rgb: 251, 113, 133;
+  --t-info-soft: rgba(251, 113, 133, 0.14);
+  --t-info-text: color-mix(in srgb, var(--t-info) 76%, var(--t-heading-color) 24%);
+  --t-info-border: rgba(251, 113, 133, 0.44);
+
+  --t-sidebar-bg: var(--t-secondary);
+  --t-sidebar-hover: var(--t-secondary-hover);
+  --t-nav-color: var(--t-heading-color);
+  --t-header-bg: var(--t-dominant-soft);
+  --t-header-border: var(--t-dominant-border);
+  --t-content-bg: var(--t-dominant);
+  --t-card-bg: var(--t-dominant-soft);
+  --t-card-border: var(--t-dominant-border);
+  --t-card-hover: var(--t-dominant-hover);
+  --t-footer-bg: var(--t-dominant-soft);
+  --t-footer-border: var(--t-dominant-border);
+  --t-input-bg: color-mix(in srgb, var(--t-dominant-soft) 86%, transparent);
+  --t-input-border: var(--t-dominant-border);
+  --t-input-focus: var(--t-accent-hover);
+  --t-btn-border: rgba(249, 115, 22, 0.28);
+  --t-divider: var(--t-dominant-border);
+
+  --t-focus-ring: var(--t-accent-hover);
+  --t-focus-ring-soft: rgba(251, 113, 133, 0.18);
+  --t-focus-ring-contrast: var(--t-accent-text);
+  --t-focus-ring-offset: 2px;
+  --t-focus-ring-offset-focus: 3px;
+  --t-focus-ring-width: 3px;
+  --t-focus-ring-opacity: .34;
+
+  --t-shadow-xs: 0 1px 2px rgba(15, 23, 42, 0.10);
+  --t-shadow-sm: 0 4px 10px rgba(15, 23, 42, 0.12);
+  --t-shadow: 0 12px 28px rgba(15, 23, 42, 0.14);
+  --t-shadow-md: 0 18px 40px rgba(15, 23, 42, 0.16);
+  --t-shadow-lg: 0 24px 56px rgba(15, 23, 42, 0.18);
+  --t-shadow-xl: 0 32px 80px rgba(15, 23, 42, 0.22);
+  --t-overlay: rgba(3, 7, 18, .48);
+  --t-overlay-light: rgba(3, 7, 18, .24);
+  --t-glass-bg: rgba(255,255,255,.74);
+  --t-glass-border: var(--t-dominant-border);
+  --t-glass-blur: blur(16px);
+
+  --t-gradient-primary: linear-gradient(135deg, var(--t-accent) 0%, var(--t-accent-hover) 52%, var(--t-accent-active) 100%);
+  --t-gradient-surface: linear-gradient(135deg, var(--t-dominant) 0%, var(--t-dominant-soft) 48%, var(--t-secondary) 100%);
+  --t-gradient-muted: linear-gradient(135deg, var(--t-muted), var(--t-dominant-hover));
+
+  --bs-body-bg: var(--t-dominant);
+  --bs-body-color: var(--t-body-color);
+  --bs-body-bg-rgb: var(--t-dominant-rgb);
+  --bs-body-color-rgb: var(--t-body-rgb);
+  --bs-emphasis-color: var(--t-heading-color);
+  --bs-primary: var(--t-accent);
+  --bs-primary-rgb: var(--t-accent-rgb);
+  --bs-link-color: var(--t-accent);
+  --bs-link-color-rgb: var(--t-accent-rgb);
+  --bs-link-hover-color: var(--t-accent-hover);
+  --bs-link-hover-color-rgb: var(--t-accent-hover-rgb);
+  --bs-border-color: var(--t-dominant-border);
+  --bs-border-color-translucent: var(--t-dominant-border);
+  --bs-focus-ring-width: var(--t-focus-ring-width);
+  --bs-focus-ring-opacity: var(--t-focus-ring-opacity);
+  --bs-focus-ring-color: var(--t-focus-ring-soft);
+}
+
+[data-theme="rose"] {
+  --t-dominant: #fff1f2;
+  --t-dominant-rgb: 255, 241, 242;
+  --t-dominant-soft: #ffffff;
+  --t-dominant-soft-rgb: 255, 255, 255;
+  --t-dominant-border: rgba(251,113,133,.18);
+  --t-dominant-hover: color-mix(in srgb, var(--t-dominant-soft) 88%, var(--t-accent) 12%);
+  --t-dominant-active: color-mix(in srgb, var(--t-dominant-soft) 78%, var(--t-accent) 22%);
+
+  --t-secondary: #ffe4e6;
+  --t-secondary-rgb: 255, 228, 230;
+  --t-secondary-soft: rgba(255, 228, 230, 0.10);
+  --t-secondary-text: #4c0519;
+  --t-secondary-muted: #be123c;
+  --t-secondary-hover: color-mix(in srgb, var(--t-secondary) 86%, var(--t-accent) 14%);
+  --t-secondary-active: rgba(251, 113, 133, 0.20);
+  --t-secondary-border: rgba(251,113,133,.18);
+
+  --t-accent: #fb7185;
+  --t-accent-rgb: 251, 113, 133;
+  --t-accent-hover: #f43f5e;
+  --t-accent-hover-rgb: 244, 63, 94;
+  --t-accent-active: #c084fc;
+  --t-accent-active-rgb: 192, 132, 252;
+  --t-accent-dark: color-mix(in srgb, var(--t-accent) 74%, #000000 26%);
+  --t-accent-light: color-mix(in srgb, var(--t-accent) 62%, #ffffff 38%);
+  --t-accent-soft: rgba(251, 113, 133, 0.14);
+  --t-accent-text: #ffffff;
+  --t-accent-subtle-text: color-mix(in srgb, var(--t-accent) 76%, var(--t-heading-color) 24%);
+  --t-accent-focus-ring-opacity: .32;
+
+  --t-heading-color: #4c0519;
+  --t-body-color: #881337;
+  --t-body-rgb: 136, 19, 55 ;
+  --t-muted: #be123c;
+  --t-text-inverse: #0f172a;
+  --t-tertiary-color: color-mix(in srgb, var(--t-body-color) 52%, transparent);
+  --t-quaternary-color: color-mix(in srgb, var(--t-body-color) 34%, transparent);
+
+  --t-success: #34d399;
+  --t-success-rgb: 52, 211, 153;
+  --t-success-soft: rgba(52, 211, 153, 0.14);
+  --t-success-text: color-mix(in srgb, #34d399 76%, var(--t-heading-color) 24%);
+  --t-success-border: rgba(52, 211, 153, 0.44);
+
+  --t-danger: #fb7185;
+  --t-danger-rgb: 251, 113, 133;
+  --t-danger-soft: rgba(251, 113, 133, 0.14);
+  --t-danger-text: color-mix(in srgb, #fb7185 76%, var(--t-heading-color) 24%);
+  --t-danger-border: rgba(251, 113, 133, 0.44);
+
+  --t-warning: #fbbf24;
+  --t-warning-rgb: 251, 191, 36;
+  --t-warning-soft: rgba(251, 191, 36, 0.14);
+  --t-warning-text: color-mix(in srgb, #fbbf24 76%, var(--t-heading-color) 24%);
+  --t-warning-border: rgba(251, 191, 36, 0.44);
+
+  --t-info: #f43f5e;
+  --t-info-rgb: 244, 63, 94;
+  --t-info-soft: rgba(244, 63, 94, 0.14);
+  --t-info-text: color-mix(in srgb, var(--t-info) 76%, var(--t-heading-color) 24%);
+  --t-info-border: rgba(244, 63, 94, 0.44);
+
+  --t-sidebar-bg: var(--t-secondary);
+  --t-sidebar-hover: var(--t-secondary-hover);
+  --t-nav-color: var(--t-heading-color);
+  --t-header-bg: var(--t-dominant-soft);
+  --t-header-border: var(--t-dominant-border);
+  --t-content-bg: var(--t-dominant);
+  --t-card-bg: var(--t-dominant-soft);
+  --t-card-border: var(--t-dominant-border);
+  --t-card-hover: var(--t-dominant-hover);
+  --t-footer-bg: var(--t-dominant-soft);
+  --t-footer-border: var(--t-dominant-border);
+  --t-input-bg: color-mix(in srgb, var(--t-dominant-soft) 86%, transparent);
+  --t-input-border: var(--t-dominant-border);
+  --t-input-focus: var(--t-accent-hover);
+  --t-btn-border: rgba(251, 113, 133, 0.28);
+  --t-divider: var(--t-dominant-border);
+
+  --t-focus-ring: var(--t-accent-hover);
+  --t-focus-ring-soft: rgba(244, 63, 94, 0.18);
+  --t-focus-ring-contrast: var(--t-accent-text);
+  --t-focus-ring-offset: 2px;
+  --t-focus-ring-offset-focus: 3px;
+  --t-focus-ring-width: 3px;
+  --t-focus-ring-opacity: .34;
+
+  --t-shadow-xs: 0 1px 2px rgba(15, 23, 42, 0.10);
+  --t-shadow-sm: 0 4px 10px rgba(15, 23, 42, 0.12);
+  --t-shadow: 0 12px 28px rgba(15, 23, 42, 0.14);
+  --t-shadow-md: 0 18px 40px rgba(15, 23, 42, 0.16);
+  --t-shadow-lg: 0 24px 56px rgba(15, 23, 42, 0.18);
+  --t-shadow-xl: 0 32px 80px rgba(15, 23, 42, 0.22);
+  --t-overlay: rgba(3, 7, 18, .48);
+  --t-overlay-light: rgba(3, 7, 18, .24);
+  --t-glass-bg: rgba(255,255,255,.76);
+  --t-glass-border: var(--t-dominant-border);
+  --t-glass-blur: blur(16px);
+
+  --t-gradient-primary: linear-gradient(135deg, var(--t-accent) 0%, var(--t-accent-hover) 52%, var(--t-accent-active) 100%);
+  --t-gradient-surface: linear-gradient(135deg, var(--t-dominant) 0%, var(--t-dominant-soft) 48%, var(--t-secondary) 100%);
+  --t-gradient-muted: linear-gradient(135deg, var(--t-muted), var(--t-dominant-hover));
+
+  --bs-body-bg: var(--t-dominant);
+  --bs-body-color: var(--t-body-color);
+  --bs-body-bg-rgb: var(--t-dominant-rgb);
+  --bs-body-color-rgb: var(--t-body-rgb);
+  --bs-emphasis-color: var(--t-heading-color);
+  --bs-primary: var(--t-accent);
+  --bs-primary-rgb: var(--t-accent-rgb);
+  --bs-link-color: var(--t-accent);
+  --bs-link-color-rgb: var(--t-accent-rgb);
+  --bs-link-hover-color: var(--t-accent-hover);
+  --bs-link-hover-color-rgb: var(--t-accent-hover-rgb);
+  --bs-border-color: var(--t-dominant-border);
+  --bs-border-color-translucent: var(--t-dominant-border);
+  --bs-focus-ring-width: var(--t-focus-ring-width);
+  --bs-focus-ring-opacity: var(--t-focus-ring-opacity);
+  --bs-focus-ring-color: var(--t-focus-ring-soft);
+}
+
+[data-theme="slate"] {
+  --t-dominant: #f8fafc;
+  --t-dominant-rgb: 248, 250, 252;
+  --t-dominant-soft: #ffffff;
+  --t-dominant-soft-rgb: 255, 255, 255;
+  --t-dominant-border: rgba(100,116,139,.18);
+  --t-dominant-hover: color-mix(in srgb, var(--t-dominant-soft) 88%, var(--t-accent) 12%);
+  --t-dominant-active: color-mix(in srgb, var(--t-dominant-soft) 78%, var(--t-accent) 22%);
+
+  --t-secondary: #e2e8f0;
+  --t-secondary-rgb: 226, 232, 240;
+  --t-secondary-soft: rgba(226, 232, 240, 0.10);
+  --t-secondary-text: #0f172a;
+  --t-secondary-muted: #64748b;
+  --t-secondary-hover: color-mix(in srgb, var(--t-secondary) 86%, var(--t-accent) 14%);
+  --t-secondary-active: rgba(100, 116, 139, 0.20);
+  --t-secondary-border: rgba(100,116,139,.18);
+
+  --t-accent: #64748b;
+  --t-accent-rgb: 100, 116, 139;
+  --t-accent-hover: #94a3b8;
+  --t-accent-hover-rgb: 148, 163, 184;
+  --t-accent-active: #38bdf8;
+  --t-accent-active-rgb: 56, 189, 248;
+  --t-accent-dark: color-mix(in srgb, var(--t-accent) 74%, #000000 26%);
+  --t-accent-light: color-mix(in srgb, var(--t-accent) 62%, #ffffff 38%);
+  --t-accent-soft: rgba(100, 116, 139, 0.14);
+  --t-accent-text: #ffffff;
+  --t-accent-subtle-text: color-mix(in srgb, var(--t-accent) 76%, var(--t-heading-color) 24%);
+  --t-accent-focus-ring-opacity: .32;
+
+  --t-heading-color: #0f172a;
+  --t-body-color: #1e293b;
+  --t-body-rgb: 30, 41, 59 ;
+  --t-muted: #64748b;
+  --t-text-inverse: #0f172a;
+  --t-tertiary-color: color-mix(in srgb, var(--t-body-color) 52%, transparent);
+  --t-quaternary-color: color-mix(in srgb, var(--t-body-color) 34%, transparent);
+
+  --t-success: #34d399;
+  --t-success-rgb: 52, 211, 153;
+  --t-success-soft: rgba(52, 211, 153, 0.14);
+  --t-success-text: color-mix(in srgb, #34d399 76%, var(--t-heading-color) 24%);
+  --t-success-border: rgba(52, 211, 153, 0.44);
+
+  --t-danger: #fb7185;
+  --t-danger-rgb: 251, 113, 133;
+  --t-danger-soft: rgba(251, 113, 133, 0.14);
+  --t-danger-text: color-mix(in srgb, #fb7185 76%, var(--t-heading-color) 24%);
+  --t-danger-border: rgba(251, 113, 133, 0.44);
+
+  --t-warning: #fbbf24;
+  --t-warning-rgb: 251, 191, 36;
+  --t-warning-soft: rgba(251, 191, 36, 0.14);
+  --t-warning-text: color-mix(in srgb, #fbbf24 76%, var(--t-heading-color) 24%);
+  --t-warning-border: rgba(251, 191, 36, 0.44);
+
+  --t-info: #94a3b8;
+  --t-info-rgb: 148, 163, 184;
+  --t-info-soft: rgba(148, 163, 184, 0.14);
+  --t-info-text: color-mix(in srgb, var(--t-info) 76%, var(--t-heading-color) 24%);
+  --t-info-border: rgba(148, 163, 184, 0.44);
+
+  --t-sidebar-bg: var(--t-secondary);
+  --t-sidebar-hover: var(--t-secondary-hover);
+  --t-nav-color: var(--t-heading-color);
+  --t-header-bg: var(--t-dominant-soft);
+  --t-header-border: var(--t-dominant-border);
+  --t-content-bg: var(--t-dominant);
+  --t-card-bg: var(--t-dominant-soft);
+  --t-card-border: var(--t-dominant-border);
+  --t-card-hover: var(--t-dominant-hover);
+  --t-footer-bg: var(--t-dominant-soft);
+  --t-footer-border: var(--t-dominant-border);
+  --t-input-bg: color-mix(in srgb, var(--t-dominant-soft) 86%, transparent);
+  --t-input-border: var(--t-dominant-border);
+  --t-input-focus: var(--t-accent-hover);
+  --t-btn-border: rgba(100, 116, 139, 0.28);
+  --t-divider: var(--t-dominant-border);
+
+  --t-focus-ring: var(--t-accent-hover);
+  --t-focus-ring-soft: rgba(148, 163, 184, 0.18);
+  --t-focus-ring-contrast: var(--t-accent-text);
+  --t-focus-ring-offset: 2px;
+  --t-focus-ring-offset-focus: 3px;
+  --t-focus-ring-width: 3px;
+  --t-focus-ring-opacity: .34;
+
+  --t-shadow-xs: 0 1px 2px rgba(15, 23, 42, 0.10);
+  --t-shadow-sm: 0 4px 10px rgba(15, 23, 42, 0.12);
+  --t-shadow: 0 12px 28px rgba(15, 23, 42, 0.14);
+  --t-shadow-md: 0 18px 40px rgba(15, 23, 42, 0.16);
+  --t-shadow-lg: 0 24px 56px rgba(15, 23, 42, 0.18);
+  --t-shadow-xl: 0 32px 80px rgba(15, 23, 42, 0.22);
+  --t-overlay: rgba(3, 7, 18, .48);
+  --t-overlay-light: rgba(3, 7, 18, .24);
+  --t-glass-bg: rgba(255,255,255,.74);
+  --t-glass-border: var(--t-dominant-border);
+  --t-glass-blur: blur(16px);
+
+  --t-gradient-primary: linear-gradient(135deg, var(--t-accent) 0%, var(--t-accent-hover) 52%, var(--t-accent-active) 100%);
+  --t-gradient-surface: linear-gradient(135deg, var(--t-dominant) 0%, var(--t-dominant-soft) 48%, var(--t-secondary) 100%);
+  --t-gradient-muted: linear-gradient(135deg, var(--t-muted), var(--t-dominant-hover));
+
+  --bs-body-bg: var(--t-dominant);
+  --bs-body-color: var(--t-body-color);
+  --bs-body-bg-rgb: var(--t-dominant-rgb);
+  --bs-body-color-rgb: var(--t-body-rgb);
+  --bs-emphasis-color: var(--t-heading-color);
+  --bs-primary: var(--t-accent);
+  --bs-primary-rgb: var(--t-accent-rgb);
+  --bs-link-color: var(--t-accent);
+  --bs-link-color-rgb: var(--t-accent-rgb);
+  --bs-link-hover-color: var(--t-accent-hover);
+  --bs-link-hover-color-rgb: var(--t-accent-hover-rgb);
+  --bs-border-color: var(--t-dominant-border);
+  --bs-border-color-translucent: var(--t-dominant-border);
+  --bs-focus-ring-width: var(--t-focus-ring-width);
+  --bs-focus-ring-opacity: var(--t-focus-ring-opacity);
+  --bs-focus-ring-color: var(--t-focus-ring-soft);
+}
+
+[data-theme="emerald"] {
+  --t-dominant: #ecfdf5;
+  --t-dominant-rgb: 236, 253, 245;
+  --t-dominant-soft: #ffffff;
+  --t-dominant-soft-rgb: 255, 255, 255;
+  --t-dominant-border: rgba(16,185,129,.18);
+  --t-dominant-hover: color-mix(in srgb, var(--t-dominant-soft) 88%, var(--t-accent) 12%);
+  --t-dominant-active: color-mix(in srgb, var(--t-dominant-soft) 78%, var(--t-accent) 22%);
+
+  --t-secondary: #d1fae5;
+  --t-secondary-rgb: 209, 250, 229;
+  --t-secondary-soft: rgba(209, 250, 229, 0.10);
+  --t-secondary-text: #022c22;
+  --t-secondary-muted: #047857;
+  --t-secondary-hover: color-mix(in srgb, var(--t-secondary) 86%, var(--t-accent) 14%);
+  --t-secondary-active: rgba(16, 185, 129, 0.20);
+  --t-secondary-border: rgba(16,185,129,.18);
+
+  --t-accent: #10b981;
+  --t-accent-rgb: 16, 185, 129;
+  --t-accent-hover: #34d399;
+  --t-accent-hover-rgb: 52, 211, 153;
+  --t-accent-active: #06b6d4;
+  --t-accent-active-rgb: 6, 182, 212;
+  --t-accent-dark: color-mix(in srgb, var(--t-accent) 74%, #000000 26%);
+  --t-accent-light: color-mix(in srgb, var(--t-accent) 62%, #ffffff 38%);
+  --t-accent-soft: rgba(16, 185, 129, 0.14);
+  --t-accent-text: #ffffff;
+  --t-accent-subtle-text: color-mix(in srgb, var(--t-accent) 76%, var(--t-heading-color) 24%);
+  --t-accent-focus-ring-opacity: .32;
+
+  --t-heading-color: #022c22;
+  --t-body-color: #064e3b;
+  --t-body-rgb: 6, 78, 59 ;
+  --t-muted: #047857;
+  --t-text-inverse: #0f172a;
+  --t-tertiary-color: color-mix(in srgb, var(--t-body-color) 52%, transparent);
+  --t-quaternary-color: color-mix(in srgb, var(--t-body-color) 34%, transparent);
+
+  --t-success: #34d399;
+  --t-success-rgb: 52, 211, 153;
+  --t-success-soft: rgba(52, 211, 153, 0.14);
+  --t-success-text: color-mix(in srgb, #34d399 76%, var(--t-heading-color) 24%);
+  --t-success-border: rgba(52, 211, 153, 0.44);
+
+  --t-danger: #fb7185;
+  --t-danger-rgb: 251, 113, 133;
+  --t-danger-soft: rgba(251, 113, 133, 0.14);
+  --t-danger-text: color-mix(in srgb, #fb7185 76%, var(--t-heading-color) 24%);
+  --t-danger-border: rgba(251, 113, 133, 0.44);
+
+  --t-warning: #fbbf24;
+  --t-warning-rgb: 251, 191, 36;
+  --t-warning-soft: rgba(251, 191, 36, 0.14);
+  --t-warning-text: color-mix(in srgb, #fbbf24 76%, var(--t-heading-color) 24%);
+  --t-warning-border: rgba(251, 191, 36, 0.44);
+
+  --t-info: #34d399;
+  --t-info-rgb: 52, 211, 153;
+  --t-info-soft: rgba(52, 211, 153, 0.14);
+  --t-info-text: color-mix(in srgb, var(--t-info) 76%, var(--t-heading-color) 24%);
+  --t-info-border: rgba(52, 211, 153, 0.44);
+
+  --t-sidebar-bg: var(--t-secondary);
+  --t-sidebar-hover: var(--t-secondary-hover);
+  --t-nav-color: var(--t-heading-color);
+  --t-header-bg: var(--t-dominant-soft);
+  --t-header-border: var(--t-dominant-border);
+  --t-content-bg: var(--t-dominant);
+  --t-card-bg: var(--t-dominant-soft);
+  --t-card-border: var(--t-dominant-border);
+  --t-card-hover: var(--t-dominant-hover);
+  --t-footer-bg: var(--t-dominant-soft);
+  --t-footer-border: var(--t-dominant-border);
+  --t-input-bg: color-mix(in srgb, var(--t-dominant-soft) 86%, transparent);
+  --t-input-border: var(--t-dominant-border);
+  --t-input-focus: var(--t-accent-hover);
+  --t-btn-border: rgba(16, 185, 129, 0.28);
+  --t-divider: var(--t-dominant-border);
+
+  --t-focus-ring: var(--t-accent-hover);
+  --t-focus-ring-soft: rgba(52, 211, 153, 0.18);
+  --t-focus-ring-contrast: var(--t-accent-text);
+  --t-focus-ring-offset: 2px;
+  --t-focus-ring-offset-focus: 3px;
+  --t-focus-ring-width: 3px;
+  --t-focus-ring-opacity: .34;
+
+  --t-shadow-xs: 0 1px 2px rgba(15, 23, 42, 0.10);
+  --t-shadow-sm: 0 4px 10px rgba(15, 23, 42, 0.12);
+  --t-shadow: 0 12px 28px rgba(15, 23, 42, 0.14);
+  --t-shadow-md: 0 18px 40px rgba(15, 23, 42, 0.16);
+  --t-shadow-lg: 0 24px 56px rgba(15, 23, 42, 0.18);
+  --t-shadow-xl: 0 32px 80px rgba(15, 23, 42, 0.22);
+  --t-overlay: rgba(3, 7, 18, .48);
+  --t-overlay-light: rgba(3, 7, 18, .24);
+  --t-glass-bg: rgba(255,255,255,.74);
+  --t-glass-border: var(--t-dominant-border);
+  --t-glass-blur: blur(16px);
+
+  --t-gradient-primary: linear-gradient(135deg, var(--t-accent) 0%, var(--t-accent-hover) 52%, var(--t-accent-active) 100%);
+  --t-gradient-surface: linear-gradient(135deg, var(--t-dominant) 0%, var(--t-dominant-soft) 48%, var(--t-secondary) 100%);
+  --t-gradient-muted: linear-gradient(135deg, var(--t-muted), var(--t-dominant-hover));
+
+  --bs-body-bg: var(--t-dominant);
+  --bs-body-color: var(--t-body-color);
+  --bs-body-bg-rgb: var(--t-dominant-rgb);
+  --bs-body-color-rgb: var(--t-body-rgb);
+  --bs-emphasis-color: var(--t-heading-color);
+  --bs-primary: var(--t-accent);
+  --bs-primary-rgb: var(--t-accent-rgb);
+  --bs-link-color: var(--t-accent);
+  --bs-link-color-rgb: var(--t-accent-rgb);
+  --bs-link-hover-color: var(--t-accent-hover);
+  --bs-link-hover-color-rgb: var(--t-accent-hover-rgb);
+  --bs-border-color: var(--t-dominant-border);
+  --bs-border-color-translucent: var(--t-dominant-border);
+  --bs-focus-ring-width: var(--t-focus-ring-width);
+  --bs-focus-ring-opacity: var(--t-focus-ring-opacity);
+  --bs-focus-ring-color: var(--t-focus-ring-soft);
+}
+
+[data-theme="ocean"] {
+  --t-dominant: #f0f9ff;
+  --t-dominant-rgb: 240, 249, 255;
+  --t-dominant-soft: #ffffff;
+  --t-dominant-soft-rgb: 255, 255, 255;
+  --t-dominant-border: rgba(14,165,233,.18);
+  --t-dominant-hover: color-mix(in srgb, var(--t-dominant-soft) 88%, var(--t-accent) 12%);
+  --t-dominant-active: color-mix(in srgb, var(--t-dominant-soft) 78%, var(--t-accent) 22%);
+
+  --t-secondary: #e0f2fe;
+  --t-secondary-rgb: 224, 242, 254;
+  --t-secondary-soft: rgba(224, 242, 254, 0.10);
+  --t-secondary-text: #082f49;
+  --t-secondary-muted: #0369a1;
+  --t-secondary-hover: color-mix(in srgb, var(--t-secondary) 86%, var(--t-accent) 14%);
+  --t-secondary-active: rgba(14, 165, 233, 0.20);
+  --t-secondary-border: rgba(14,165,233,.18);
+
+  --t-accent: #0ea5e9;
+  --t-accent-rgb: 14, 165, 233;
+  --t-accent-hover: #22d3ee;
+  --t-accent-hover-rgb: 34, 211, 238;
+  --t-accent-active: #2563eb;
+  --t-accent-active-rgb: 37, 99, 235;
+  --t-accent-dark: color-mix(in srgb, var(--t-accent) 74%, #000000 26%);
+  --t-accent-light: color-mix(in srgb, var(--t-accent) 62%, #ffffff 38%);
+  --t-accent-soft: rgba(14, 165, 233, 0.14);
+  --t-accent-text: #ffffff;
+  --t-accent-subtle-text: color-mix(in srgb, var(--t-accent) 76%, var(--t-heading-color) 24%);
+  --t-accent-focus-ring-opacity: .32;
+
+  --t-heading-color: #082f49;
+  --t-body-color: #075985;
+  --t-body-rgb: 7, 89, 133 ;
+  --t-muted: #0369a1;
+  --t-text-inverse: #0f172a;
+  --t-tertiary-color: color-mix(in srgb, var(--t-body-color) 52%, transparent);
+  --t-quaternary-color: color-mix(in srgb, var(--t-body-color) 34%, transparent);
+
+  --t-success: #34d399;
+  --t-success-rgb: 52, 211, 153;
+  --t-success-soft: rgba(52, 211, 153, 0.14);
+  --t-success-text: color-mix(in srgb, #34d399 76%, var(--t-heading-color) 24%);
+  --t-success-border: rgba(52, 211, 153, 0.44);
+
+  --t-danger: #fb7185;
+  --t-danger-rgb: 251, 113, 133;
+  --t-danger-soft: rgba(251, 113, 133, 0.14);
+  --t-danger-text: color-mix(in srgb, #fb7185 76%, var(--t-heading-color) 24%);
+  --t-danger-border: rgba(251, 113, 133, 0.44);
+
+  --t-warning: #fbbf24;
+  --t-warning-rgb: 251, 191, 36;
+  --t-warning-soft: rgba(251, 191, 36, 0.14);
+  --t-warning-text: color-mix(in srgb, #fbbf24 76%, var(--t-heading-color) 24%);
+  --t-warning-border: rgba(251, 191, 36, 0.44);
+
+  --t-info: #22d3ee;
+  --t-info-rgb: 34, 211, 238;
+  --t-info-soft: rgba(34, 211, 238, 0.14);
+  --t-info-text: color-mix(in srgb, var(--t-info) 76%, var(--t-heading-color) 24%);
+  --t-info-border: rgba(34, 211, 238, 0.44);
+
+  --t-sidebar-bg: var(--t-secondary);
+  --t-sidebar-hover: var(--t-secondary-hover);
+  --t-nav-color: var(--t-heading-color);
+  --t-header-bg: var(--t-dominant-soft);
+  --t-header-border: var(--t-dominant-border);
+  --t-content-bg: var(--t-dominant);
+  --t-card-bg: var(--t-dominant-soft);
+  --t-card-border: var(--t-dominant-border);
+  --t-card-hover: var(--t-dominant-hover);
+  --t-footer-bg: var(--t-dominant-soft);
+  --t-footer-border: var(--t-dominant-border);
+  --t-input-bg: color-mix(in srgb, var(--t-dominant-soft) 86%, transparent);
+  --t-input-border: var(--t-dominant-border);
+  --t-input-focus: var(--t-accent-hover);
+  --t-btn-border: rgba(14, 165, 233, 0.28);
+  --t-divider: var(--t-dominant-border);
+
+  --t-focus-ring: var(--t-accent-hover);
+  --t-focus-ring-soft: rgba(34, 211, 238, 0.18);
+  --t-focus-ring-contrast: var(--t-accent-text);
+  --t-focus-ring-offset: 2px;
+  --t-focus-ring-offset-focus: 3px;
+  --t-focus-ring-width: 3px;
+  --t-focus-ring-opacity: .34;
+
+  --t-shadow-xs: 0 1px 2px rgba(15, 23, 42, 0.10);
+  --t-shadow-sm: 0 4px 10px rgba(15, 23, 42, 0.12);
+  --t-shadow: 0 12px 28px rgba(15, 23, 42, 0.14);
+  --t-shadow-md: 0 18px 40px rgba(15, 23, 42, 0.16);
+  --t-shadow-lg: 0 24px 56px rgba(15, 23, 42, 0.18);
+  --t-shadow-xl: 0 32px 80px rgba(15, 23, 42, 0.22);
+  --t-overlay: rgba(3, 7, 18, .48);
+  --t-overlay-light: rgba(3, 7, 18, .24);
+  --t-glass-bg: rgba(255,255,255,.74);
+  --t-glass-border: var(--t-dominant-border);
+  --t-glass-blur: blur(16px);
+
+  --t-gradient-primary: linear-gradient(135deg, var(--t-accent) 0%, var(--t-accent-hover) 52%, var(--t-accent-active) 100%);
+  --t-gradient-surface: linear-gradient(135deg, var(--t-dominant) 0%, var(--t-dominant-soft) 48%, var(--t-secondary) 100%);
+  --t-gradient-muted: linear-gradient(135deg, var(--t-muted), var(--t-dominant-hover));
+
+  --bs-body-bg: var(--t-dominant);
+  --bs-body-color: var(--t-body-color);
+  --bs-body-bg-rgb: var(--t-dominant-rgb);
+  --bs-body-color-rgb: var(--t-body-rgb);
+  --bs-emphasis-color: var(--t-heading-color);
+  --bs-primary: var(--t-accent);
+  --bs-primary-rgb: var(--t-accent-rgb);
+  --bs-link-color: var(--t-accent);
+  --bs-link-color-rgb: var(--t-accent-rgb);
+  --bs-link-hover-color: var(--t-accent-hover);
+  --bs-link-hover-color-rgb: var(--t-accent-hover-rgb);
+  --bs-border-color: var(--t-dominant-border);
+  --bs-border-color-translucent: var(--t-dominant-border);
+  --bs-focus-ring-width: var(--t-focus-ring-width);
+  --bs-focus-ring-opacity: var(--t-focus-ring-opacity);
+  --bs-focus-ring-color: var(--t-focus-ring-soft);
+}
+
+[data-theme="midnight-teal"] {
+  --t-dominant: #042f2e;
+  --t-dominant-rgb: 4, 47, 46;
+  --t-dominant-soft: #0f3f3d;
+  --t-dominant-soft-rgb: 15, 63, 61;
+  --t-dominant-border: rgba(20,184,166,.22);
+  --t-dominant-hover: color-mix(in srgb, var(--t-dominant-soft) 88%, var(--t-accent) 12%);
+  --t-dominant-active: color-mix(in srgb, var(--t-dominant-soft) 78%, var(--t-accent) 22%);
+
+  --t-secondary: #134e4a;
+  --t-secondary-rgb: 19, 78, 74;
+  --t-secondary-soft: rgba(19, 78, 74, 0.10);
+  --t-secondary-text: #ccfbf1;
+  --t-secondary-muted: rgba(204,251,241,.66);
+  --t-secondary-hover: color-mix(in srgb, var(--t-secondary) 86%, var(--t-accent) 14%);
+  --t-secondary-active: rgba(20, 184, 166, 0.20);
+  --t-secondary-border: rgba(20,184,166,.22);
+
+  --t-accent: #14b8a6;
+  --t-accent-rgb: 20, 184, 166;
+  --t-accent-hover: #22d3ee;
+  --t-accent-hover-rgb: 34, 211, 238;
+  --t-accent-active: #8b5cf6;
+  --t-accent-active-rgb: 139, 92, 246;
+  --t-accent-dark: color-mix(in srgb, var(--t-accent) 74%, #000000 26%);
+  --t-accent-light: color-mix(in srgb, var(--t-accent) 62%, #ffffff 38%);
+  --t-accent-soft: rgba(20, 184, 166, 0.14);
+  --t-accent-text: #031414;
+  --t-accent-subtle-text: color-mix(in srgb, var(--t-accent) 76%, var(--t-heading-color) 24%);
+  --t-accent-focus-ring-opacity: .52;
+
+  --t-heading-color: #ccfbf1;
+  --t-body-color: #ccfbf1;
+  --t-body-rgb: 204, 251, 241 ;
+  --t-muted: rgba(204,251,241,.66);
+  --t-text-inverse: #ffffff;
+  --t-tertiary-color: color-mix(in srgb, var(--t-body-color) 52%, transparent);
+  --t-quaternary-color: color-mix(in srgb, var(--t-body-color) 34%, transparent);
+
+  --t-success: #34d399;
+  --t-success-rgb: 52, 211, 153;
+  --t-success-soft: rgba(52, 211, 153, 0.14);
+  --t-success-text: color-mix(in srgb, #34d399 76%, var(--t-heading-color) 24%);
+  --t-success-border: rgba(52, 211, 153, 0.44);
+
+  --t-danger: #fb7185;
+  --t-danger-rgb: 251, 113, 133;
+  --t-danger-soft: rgba(251, 113, 133, 0.14);
+  --t-danger-text: color-mix(in srgb, #fb7185 76%, var(--t-heading-color) 24%);
+  --t-danger-border: rgba(251, 113, 133, 0.44);
+
+  --t-warning: #fbbf24;
+  --t-warning-rgb: 251, 191, 36;
+  --t-warning-soft: rgba(251, 191, 36, 0.14);
+  --t-warning-text: color-mix(in srgb, #fbbf24 76%, var(--t-heading-color) 24%);
+  --t-warning-border: rgba(251, 191, 36, 0.44);
+
+  --t-info: #22d3ee;
+  --t-info-rgb: 34, 211, 238;
+  --t-info-soft: rgba(34, 211, 238, 0.14);
+  --t-info-text: color-mix(in srgb, var(--t-info) 76%, var(--t-heading-color) 24%);
+  --t-info-border: rgba(34, 211, 238, 0.44);
+
+  --t-sidebar-bg: var(--t-secondary);
+  --t-sidebar-hover: var(--t-secondary-hover);
+  --t-nav-color: var(--t-heading-color);
+  --t-header-bg: var(--t-dominant-soft);
+  --t-header-border: var(--t-dominant-border);
+  --t-content-bg: var(--t-dominant);
+  --t-card-bg: var(--t-dominant-soft);
+  --t-card-border: var(--t-dominant-border);
+  --t-card-hover: var(--t-dominant-hover);
+  --t-footer-bg: var(--t-dominant-soft);
+  --t-footer-border: var(--t-dominant-border);
+  --t-input-bg: color-mix(in srgb, var(--t-dominant-soft) 86%, transparent);
+  --t-input-border: var(--t-dominant-border);
+  --t-input-focus: var(--t-accent-hover);
+  --t-btn-border: rgba(20, 184, 166, 0.28);
+  --t-divider: var(--t-dominant-border);
+
+  --t-focus-ring: var(--t-accent-hover);
+  --t-focus-ring-soft: rgba(34, 211, 238, 0.18);
+  --t-focus-ring-contrast: var(--t-accent-text);
+  --t-focus-ring-offset: 2px;
+  --t-focus-ring-offset-focus: 3px;
+  --t-focus-ring-width: 3px;
+  --t-focus-ring-opacity: .55;
+
+  --t-shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.42);
+  --t-shadow-sm: 0 4px 10px rgba(0, 0, 0, 0.50);
+  --t-shadow: 0 12px 28px rgba(0, 0, 0, 0.58);
+  --t-shadow-md: 0 18px 40px rgba(0, 0, 0, 0.64);
+  --t-shadow-lg: 0 24px 56px rgba(0, 0, 0, 0.70);
+  --t-shadow-xl: 0 32px 80px rgba(0, 0, 0, 0.76);
+  --t-overlay: rgba(3, 7, 18, .78);
+  --t-overlay-light: rgba(3, 7, 18, .52);
+  --t-glass-bg: rgba(4,47,46,.72);
+  --t-glass-border: var(--t-dominant-border);
+  --t-glass-blur: blur(16px);
+
+  --t-gradient-primary: linear-gradient(135deg, var(--t-accent) 0%, var(--t-accent-hover) 52%, var(--t-accent-active) 100%);
+  --t-gradient-surface: linear-gradient(135deg, var(--t-dominant) 0%, var(--t-dominant-soft) 48%, var(--t-secondary) 100%);
+  --t-gradient-muted: linear-gradient(135deg, var(--t-muted), var(--t-dominant-hover));
+
+  --bs-body-bg: var(--t-dominant);
+  --bs-body-color: var(--t-body-color);
+  --bs-body-bg-rgb: var(--t-dominant-rgb);
+  --bs-body-color-rgb: var(--t-body-rgb);
+  --bs-emphasis-color: var(--t-heading-color);
+  --bs-primary: var(--t-accent);
+  --bs-primary-rgb: var(--t-accent-rgb);
+  --bs-link-color: var(--t-accent);
+  --bs-link-color-rgb: var(--t-accent-rgb);
+  --bs-link-hover-color: var(--t-accent-hover);
+  --bs-link-hover-color-rgb: var(--t-accent-hover-rgb);
+  --bs-border-color: var(--t-dominant-border);
+  --bs-border-color-translucent: var(--t-dominant-border);
+  --bs-focus-ring-width: var(--t-focus-ring-width);
+  --bs-focus-ring-opacity: var(--t-focus-ring-opacity);
+  --bs-focus-ring-color: var(--t-focus-ring-soft);
+}
+
+[data-theme="cyber"] {
+  --t-dominant: #020617;
+  --t-dominant-rgb: 2, 6, 23;
+  --t-dominant-soft: #07120b;
+  --t-dominant-soft-rgb: 7, 18, 11;
+  --t-dominant-border: rgba(0,255,65,.24);
+  --t-dominant-hover: color-mix(in srgb, var(--t-dominant-soft) 88%, var(--t-accent) 12%);
+  --t-dominant-active: color-mix(in srgb, var(--t-dominant-soft) 78%, var(--t-accent) 22%);
+
+  --t-secondary: #0b1d10;
+  --t-secondary-rgb: 11, 29, 16;
+  --t-secondary-soft: rgba(11, 29, 16, 0.10);
+  --t-secondary-text: #dcffe6;
+  --t-secondary-muted: rgba(209,250,229,.66);
+  --t-secondary-hover: color-mix(in srgb, var(--t-secondary) 86%, var(--t-accent) 14%);
+  --t-secondary-active: rgba(0, 255, 65, 0.20);
+  --t-secondary-border: rgba(0,255,65,.24);
+
+  --t-accent: #00ff41;
+  --t-accent-rgb: 0, 255, 65;
+  --t-accent-hover: #22c55e;
+  --t-accent-hover-rgb: 34, 197, 94;
+  --t-accent-active: #38bdf8;
+  --t-accent-active-rgb: 56, 189, 248;
+  --t-accent-dark: color-mix(in srgb, var(--t-accent) 74%, #000000 26%);
+  --t-accent-light: color-mix(in srgb, var(--t-accent) 62%, #ffffff 38%);
+  --t-accent-soft: rgba(0, 255, 65, 0.14);
+  --t-accent-text: #020617;
+  --t-accent-subtle-text: color-mix(in srgb, var(--t-accent) 76%, var(--t-heading-color) 24%);
+  --t-accent-focus-ring-opacity: .52;
+
+  --t-heading-color: #dcffe6;
+  --t-body-color: #d1fae5;
+  --t-body-rgb: 209, 250, 229 ;
+  --t-muted: rgba(209,250,229,.66);
+  --t-text-inverse: #ffffff;
+  --t-tertiary-color: color-mix(in srgb, var(--t-body-color) 52%, transparent);
+  --t-quaternary-color: color-mix(in srgb, var(--t-body-color) 34%, transparent);
+
+  --t-success: #34d399;
+  --t-success-rgb: 52, 211, 153;
+  --t-success-soft: rgba(52, 211, 153, 0.14);
+  --t-success-text: color-mix(in srgb, #34d399 76%, var(--t-heading-color) 24%);
+  --t-success-border: rgba(52, 211, 153, 0.44);
+
+  --t-danger: #fb7185;
+  --t-danger-rgb: 251, 113, 133;
+  --t-danger-soft: rgba(251, 113, 133, 0.14);
+  --t-danger-text: color-mix(in srgb, #fb7185 76%, var(--t-heading-color) 24%);
+  --t-danger-border: rgba(251, 113, 133, 0.44);
+
+  --t-warning: #fbbf24;
+  --t-warning-rgb: 251, 191, 36;
+  --t-warning-soft: rgba(251, 191, 36, 0.14);
+  --t-warning-text: color-mix(in srgb, #fbbf24 76%, var(--t-heading-color) 24%);
+  --t-warning-border: rgba(251, 191, 36, 0.44);
+
+  --t-info: #22c55e;
+  --t-info-rgb: 34, 197, 94;
+  --t-info-soft: rgba(34, 197, 94, 0.14);
+  --t-info-text: color-mix(in srgb, var(--t-info) 76%, var(--t-heading-color) 24%);
+  --t-info-border: rgba(34, 197, 94, 0.44);
+
+  --t-sidebar-bg: var(--t-secondary);
+  --t-sidebar-hover: var(--t-secondary-hover);
+  --t-nav-color: var(--t-heading-color);
+  --t-header-bg: var(--t-dominant-soft);
+  --t-header-border: var(--t-dominant-border);
+  --t-content-bg: var(--t-dominant);
+  --t-card-bg: var(--t-dominant-soft);
+  --t-card-border: var(--t-dominant-border);
+  --t-card-hover: var(--t-dominant-hover);
+  --t-footer-bg: var(--t-dominant-soft);
+  --t-footer-border: var(--t-dominant-border);
+  --t-input-bg: color-mix(in srgb, var(--t-dominant-soft) 86%, transparent);
+  --t-input-border: var(--t-dominant-border);
+  --t-input-focus: var(--t-accent-hover);
+  --t-btn-border: rgba(0, 255, 65, 0.28);
+  --t-divider: var(--t-dominant-border);
+
+  --t-focus-ring: var(--t-accent-hover);
+  --t-focus-ring-soft: rgba(34, 197, 94, 0.18);
+  --t-focus-ring-contrast: var(--t-accent-text);
+  --t-focus-ring-offset: 2px;
+  --t-focus-ring-offset-focus: 3px;
+  --t-focus-ring-width: 3px;
+  --t-focus-ring-opacity: .55;
+
+  --t-shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.42);
+  --t-shadow-sm: 0 4px 10px rgba(0, 0, 0, 0.50);
+  --t-shadow: 0 12px 28px rgba(0, 0, 0, 0.58);
+  --t-shadow-md: 0 18px 40px rgba(0, 0, 0, 0.64);
+  --t-shadow-lg: 0 24px 56px rgba(0, 0, 0, 0.70);
+  --t-shadow-xl: 0 32px 80px rgba(0, 0, 0, 0.76);
+  --t-overlay: rgba(3, 7, 18, .78);
+  --t-overlay-light: rgba(3, 7, 18, .52);
+  --t-glass-bg: rgba(2,6,23,.72);
+  --t-glass-border: var(--t-dominant-border);
+  --t-glass-blur: blur(16px);
+
+  --t-gradient-primary: linear-gradient(135deg, var(--t-accent) 0%, var(--t-accent-hover) 52%, var(--t-accent-active) 100%);
+  --t-gradient-surface: linear-gradient(135deg, var(--t-dominant) 0%, var(--t-dominant-soft) 48%, var(--t-secondary) 100%);
+  --t-gradient-muted: linear-gradient(135deg, var(--t-muted), var(--t-dominant-hover));
+
+  --bs-body-bg: var(--t-dominant);
+  --bs-body-color: var(--t-body-color);
+  --bs-body-bg-rgb: var(--t-dominant-rgb);
+  --bs-body-color-rgb: var(--t-body-rgb);
+  --bs-emphasis-color: var(--t-heading-color);
+  --bs-primary: var(--t-accent);
+  --bs-primary-rgb: var(--t-accent-rgb);
+  --bs-link-color: var(--t-accent);
+  --bs-link-color-rgb: var(--t-accent-rgb);
+  --bs-link-hover-color: var(--t-accent-hover);
+  --bs-link-hover-color-rgb: var(--t-accent-hover-rgb);
+  --bs-border-color: var(--t-dominant-border);
+  --bs-border-color-translucent: var(--t-dominant-border);
+  --bs-focus-ring-width: var(--t-focus-ring-width);
+  --bs-focus-ring-opacity: var(--t-focus-ring-opacity);
+  --bs-focus-ring-color: var(--t-focus-ring-soft);
+}
+
+[data-theme="cosmic-aurora"] {
+  --t-dominant: #070a1a;
+  --t-dominant-rgb: 7, 10, 26;
+  --t-dominant-soft: #101735;
+  --t-dominant-soft-rgb: 16, 23, 53;
+  --t-dominant-border: rgba(255,255,255,.16);
+  --t-dominant-hover: color-mix(in srgb, var(--t-dominant-soft) 88%, var(--t-accent) 12%);
+  --t-dominant-active: color-mix(in srgb, var(--t-dominant-soft) 78%, var(--t-accent) 22%);
+
+  --t-secondary: #17112d;
+  --t-secondary-rgb: 23, 17, 45;
+  --t-secondary-soft: rgba(23, 17, 45, 0.10);
+  --t-secondary-text: #f8fafc;
+  --t-secondary-muted: rgba(203,213,225,.72);
+  --t-secondary-hover: color-mix(in srgb, var(--t-secondary) 86%, var(--t-accent) 14%);
+  --t-secondary-active: rgba(168, 85, 247, 0.20);
+  --t-secondary-border: rgba(255,255,255,.16);
+
+  --t-accent: #a855f7;
+  --t-accent-rgb: 168, 85, 247;
+  --t-accent-hover: #22d3ee;
+  --t-accent-hover-rgb: 34, 211, 238;
+  --t-accent-active: #f472b6;
+  --t-accent-active-rgb: 244, 114, 182;
+  --t-accent-dark: color-mix(in srgb, var(--t-accent) 74%, #000000 26%);
+  --t-accent-light: color-mix(in srgb, var(--t-accent) 62%, #ffffff 38%);
+  --t-accent-soft: rgba(168, 85, 247, 0.14);
+  --t-accent-text: #ffffff;
+  --t-accent-subtle-text: color-mix(in srgb, var(--t-accent) 76%, var(--t-heading-color) 24%);
+  --t-accent-focus-ring-opacity: .52;
+
+  --t-heading-color: #f8fafc;
+  --t-body-color: #e5e7eb;
+  --t-body-rgb: 229, 231, 235 ;
+  --t-muted: rgba(203,213,225,.72);
+  --t-text-inverse: #ffffff;
+  --t-tertiary-color: color-mix(in srgb, var(--t-body-color) 52%, transparent);
+  --t-quaternary-color: color-mix(in srgb, var(--t-body-color) 34%, transparent);
+
+  --t-success: #34d399;
+  --t-success-rgb: 52, 211, 153;
+  --t-success-soft: rgba(52, 211, 153, 0.14);
+  --t-success-text: color-mix(in srgb, #34d399 76%, var(--t-heading-color) 24%);
+  --t-success-border: rgba(52, 211, 153, 0.44);
+
+  --t-danger: #fb7185;
+  --t-danger-rgb: 251, 113, 133;
+  --t-danger-soft: rgba(251, 113, 133, 0.14);
+  --t-danger-text: color-mix(in srgb, #fb7185 76%, var(--t-heading-color) 24%);
+  --t-danger-border: rgba(251, 113, 133, 0.44);
+
+  --t-warning: #fbbf24;
+  --t-warning-rgb: 251, 191, 36;
+  --t-warning-soft: rgba(251, 191, 36, 0.14);
+  --t-warning-text: color-mix(in srgb, #fbbf24 76%, var(--t-heading-color) 24%);
+  --t-warning-border: rgba(251, 191, 36, 0.44);
+
+  --t-info: #22d3ee;
+  --t-info-rgb: 34, 211, 238;
+  --t-info-soft: rgba(34, 211, 238, 0.14);
+  --t-info-text: color-mix(in srgb, var(--t-info) 76%, var(--t-heading-color) 24%);
+  --t-info-border: rgba(34, 211, 238, 0.44);
+
+  --t-sidebar-bg: var(--t-secondary);
+  --t-sidebar-hover: var(--t-secondary-hover);
+  --t-nav-color: var(--t-heading-color);
+  --t-header-bg: var(--t-dominant-soft);
+  --t-header-border: var(--t-dominant-border);
+  --t-content-bg: var(--t-dominant);
+  --t-card-bg: var(--t-dominant-soft);
+  --t-card-border: var(--t-dominant-border);
+  --t-card-hover: var(--t-dominant-hover);
+  --t-footer-bg: var(--t-dominant-soft);
+  --t-footer-border: var(--t-dominant-border);
+  --t-input-bg: color-mix(in srgb, var(--t-dominant-soft) 86%, transparent);
+  --t-input-border: var(--t-dominant-border);
+  --t-input-focus: var(--t-accent-hover);
+  --t-btn-border: rgba(168, 85, 247, 0.28);
+  --t-divider: var(--t-dominant-border);
+
+  --t-focus-ring: var(--t-accent-hover);
+  --t-focus-ring-soft: rgba(34, 211, 238, 0.18);
+  --t-focus-ring-contrast: var(--t-accent-text);
+  --t-focus-ring-offset: 2px;
+  --t-focus-ring-offset-focus: 3px;
+  --t-focus-ring-width: 3px;
+  --t-focus-ring-opacity: .55;
+
+  --t-shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.42);
+  --t-shadow-sm: 0 4px 10px rgba(0, 0, 0, 0.50);
+  --t-shadow: 0 12px 28px rgba(0, 0, 0, 0.58);
+  --t-shadow-md: 0 18px 40px rgba(0, 0, 0, 0.64);
+  --t-shadow-lg: 0 24px 56px rgba(0, 0, 0, 0.70);
+  --t-shadow-xl: 0 32px 80px rgba(0, 0, 0, 0.76);
+  --t-overlay: rgba(3, 7, 18, .78);
+  --t-overlay-light: rgba(3, 7, 18, .52);
+  --t-glass-bg: rgba(12,18,42,.68);
+  --t-glass-border: var(--t-dominant-border);
+  --t-glass-blur: blur(16px);
+
+  --t-gradient-primary: linear-gradient(135deg, var(--t-accent) 0%, var(--t-accent-hover) 52%, var(--t-accent-active) 100%);
+  --t-gradient-surface: linear-gradient(135deg, var(--t-dominant) 0%, var(--t-dominant-soft) 48%, var(--t-secondary) 100%);
+  --t-gradient-muted: linear-gradient(135deg, var(--t-muted), var(--t-dominant-hover));
+
+  --bs-body-bg: var(--t-dominant);
+  --bs-body-color: var(--t-body-color);
+  --bs-body-bg-rgb: var(--t-dominant-rgb);
+  --bs-body-color-rgb: var(--t-body-rgb);
+  --bs-emphasis-color: var(--t-heading-color);
+  --bs-primary: var(--t-accent);
+  --bs-primary-rgb: var(--t-accent-rgb);
+  --bs-link-color: var(--t-accent);
+  --bs-link-color-rgb: var(--t-accent-rgb);
+  --bs-link-hover-color: var(--t-accent-hover);
+  --bs-link-hover-color-rgb: var(--t-accent-hover-rgb);
+  --bs-border-color: var(--t-dominant-border);
+  --bs-border-color-translucent: var(--t-dominant-border);
+  --bs-focus-ring-width: var(--t-focus-ring-width);
+  --bs-focus-ring-opacity: var(--t-focus-ring-opacity);
+  --bs-focus-ring-color: var(--t-focus-ring-soft);
+}
+
+
+@supports not (color: color-mix(in srgb, white, black)) {
+  :root {
+    --t-dominant-hover: var(--t-dominant-soft);
+    --t-dominant-active: var(--t-dominant-soft);
+    --t-secondary-hover: var(--t-secondary);
+    --t-accent-dark: var(--t-accent);
+    --t-accent-light: var(--t-accent-hover);
+    --t-accent-subtle-text: var(--t-accent);
+    --t-tertiary-color: var(--t-muted);
+    --t-quaternary-color: var(--t-muted);
+    --t-success-text: var(--t-success);
+    --t-danger-text: var(--t-danger);
+    --t-warning-text: var(--t-warning);
+    --t-info-text: var(--t-info);
+    --t-input-bg: var(--t-dominant-soft);
+  }
+}

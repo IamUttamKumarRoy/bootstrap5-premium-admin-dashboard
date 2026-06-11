@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="cosmic-aurora" data-bs-theme="dark">
+<head>
+    <title>Verify Email - UttamThemes</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Premium Bootstrap 5 Email Verification Page">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark">
+
+    <script src="assets/js/theme-boot.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+
+    <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/vendor/bootstrap-icons/bootstrap-icons.css">
+    <link rel="stylesheet" href="assets/css/theme_tokens.css">
+    <link rel="stylesheet" href="assets/css/auth.css">
+</head>
+
+<body class="auth-page">
+<main class="auth-layout">
+    <section class="auth-wrapper" aria-labelledby="authTitle">
+        <div class="auth-container auth-container-md">
+            <form class="auth-card auth-card-glass" data-auth-form data-auth-flow="verify" novalidate method="POST" action="/verify">
+                <!-- Add your backend CSRF token here in production. -->
+                <input type="hidden" name="csrf_token" value="">
+
+                    <label for="authThemeSelect" class="auth-visually-hidden">Select theme</label>
+                    <select class="form-select auth-theme-select" id="authThemeSelect" data-auth-theme-select aria-label="Select theme"></select>
+                    <div class="auth-alert" data-auth-alert role="alert" aria-live="polite" aria-atomic="true">
+                        <i class="bi" data-auth-alert-icon aria-hidden="true"></i>
+                        <span data-auth-alert-message></span>
+                    </div>
+                    <div class="auth-header mb-4">
+                        <div class="auth-brand-mark">
+                            <i class="bi bi-patch-check-fill fs-3" aria-hidden="true"></i>
+                        </div>
+                        <h1 class="h2 auth-brand-title" id="authTitle">Verify Your Email</h1>
+                        <p class="auth-brand-subtitle">Resend your verification email securely</p>
+                    </div>
+                    <div class="auth-field">
+                        <label for="verifyEmail" class="form-label fw-semibold">Email address</label>
+                        <input type="email" class="form-control auth-control" id="verifyEmail"
+                            name="email"
+                            data-auth-field="email"
+                            placeholder="name@company.com"
+                            autocomplete="email"
+                            inputmode="email"
+                            spellcheck="false"
+                            autocapitalize="none"
+                            aria-describedby="feedback-email"
+                            aria-required="true"
+                            required>
+                        <div class="auth-feedback is-invalid" id="feedback-email" data-auth-feedback-for="email" role="alert">
+                            <i class="bi bi-exclamation-circle-fill" aria-hidden="true"></i>
+                            <span data-auth-feedback-message>Enter a valid email address.</span>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn auth-submit w-100 shadow-sm" data-auth-submit data-auth-loading-label="Sending email...">
+                        Resend Verification Email
+                    </button>
+
+                    <p class="auth-footer">
+                        Already verified?
+                        <a href="login.html" class="text-primary fw-bold text-decoration-none">Sign In</a>
+                    </p>
+            </form>
+        </div>
+    </section>
+</main>
+<script src="assets/js/auth-demo.js"></script>
+<script src="assets/js/auth.js"></script>
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
+</body>
+</html>
